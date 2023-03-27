@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap';
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
 
 const CLIENT_ID = "1ff422b13da04c47b1d3639000b11abb";
 const CLIENT_SECRET = "403561469b9c409faa37c5f49d39c46e";
@@ -56,6 +58,7 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar />
       <Container>
         <InputGroup className="mb-3" size="lg">
           <FormControl
@@ -87,6 +90,7 @@ function App() {
           })}
         </Row>
       </Container>
+      <Home />
     </div>
   );
 }

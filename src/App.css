@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+#navBar {
+  background-color:#404040;
+  color: white;
+}
+
+.menuSpan {
+  padding: 2.5px;
+  margin: 2.5px 25px 2.5px 25px;
+  border-radius: 25%;
+  cursor: pointer;
+}
+
+.homePageDiv {
+  margin: 40px 0 40px 0;
+}
