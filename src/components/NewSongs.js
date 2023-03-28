@@ -2,18 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Row, Container } from 'react-bootstrap';
 import SongCard from "./SongCard";
 
-function NewSongs({accessToken}) {
+function NewSongs({ accessToken }) {
 
     const [topFive, setTopFive] = useState("");
 
      useEffect(() => {
-        // let renderTopCharts = {
-        //     method: 'GET',
-        //     headers: {
-        //       'Content-Type': 'application/json',
-        //       'Authorization': 'Bearer ' + accessToken
-        //     }
-        //   }
             fetch('https://api.spotify.com/v1/playlists/37i9dQZF1DX4JAvHpjipBk', {
                 method: "GET",
                 headers: {
@@ -29,8 +22,8 @@ function NewSongs({accessToken}) {
     }, [accessToken])
     
     const eachTrack = () => {
-        return topFive.map((track) => {
-            return <SongCard song={track} key={track.track.id} />
+        return topFive.map((song) => {
+            return <SongCard song={song} key={song.track.id} />
         })
     }
 
