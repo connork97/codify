@@ -1,6 +1,6 @@
 import { Row, Container, Card } from 'react-bootstrap';
 
-function LikedSongs() {
+function LikedSongs({ accessToken }) {
     return (
         <Container className="homePageDiv">
             <h2 className="homeDivTitle">Likes</h2>

@@ -1,6 +1,6 @@
 import { Row, Container, Card } from 'react-bootstrap';
 
-function NewSongs() {
+function NewSongs({accessToken}) {
     return (
         <Container className="homePageDiv">
             <h2 className="homeDivTitle">New Songs This Week</h2>

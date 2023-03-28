@@ -90,7 +90,7 @@ function App() {
           })}
         </Row>
       </Container>
-      <Home />
+      <Home accessToken={accessToken}/>
     </div>
   );
 }

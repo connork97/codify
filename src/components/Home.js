@@ -3,12 +3,12 @@ import LikedSongs from "./LikedSongs";
 import NewSongs from "./NewSongs";
 
 
-function Home() {
+function Home({ accessToken }) {
     return (
         <>
-            <TopCharts />
-            <LikedSongs />
-            <NewSongs />
+            <TopCharts accessToken={accessToken} />
+            <LikedSongs accessToken={accessToken} />
+            <NewSongs accessToken={accessToken} />
         </>
     )
 }
