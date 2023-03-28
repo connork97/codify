@@ -15,8 +15,8 @@ function Home({ accessToken }) {
     return (
         <>
             <LikedSongs accessToken={accessToken} topFiveLikes={topFiveLikes} setTopFiveLikes={setTopFiveLikes} />
-            <TopCharts handleLikedSong = {handleLikedSong} accessToken={accessToken} handleLikedSong={handleLikedSong} />
-            <NewSongs handleLikedSong = {handleLikedSong} accessToken={accessToken} handleLikedSong={handleLikedSong} />
+            <TopCharts handleLikedSong = {handleLikedSong} accessToken={accessToken} />
+            <NewSongs handleLikedSong = {handleLikedSong} accessToken={accessToken} />
         </>
     )
 }
