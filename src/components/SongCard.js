@@ -4,7 +4,7 @@ import { Card, Button } from "react-bootstrap";
 
 // 2. Take in our data for each song, and set state of likedSong to an object containing the following data...
 
-const SongCard = ({ song }) => {
+const SongCard = ({ song, handleLikedSong }) => {
 
     const [likedSong, setLikedSong] = useState({
         song_id: song.track.id,
@@ -37,6 +37,7 @@ const SongCard = ({ song }) => {
         })
         .then((response => response.json()))
         .then((likedSong) => console.log(likedSong))
+        handleLikedSong(likedSong)
     }
 
 // 1. Add onclick event listener to button component & point back to handleClick function

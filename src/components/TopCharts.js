@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Row, Container, Card } from 'react-bootstrap';
 import SongCard from "./SongCard";
 
-function TopCharts({ accessToken }) {
+function TopCharts({ accessToken, handleLikedSong }) {
 
     const [topFive, setTopFive] = useState("")
 
@@ -31,7 +31,7 @@ function TopCharts({ accessToken }) {
 
     const eachTrack = () => {
         return topFive.map((song) => {
-            return <SongCard song={song} key={song.track.id} />
+            return <SongCard song={song} handleLikedSong={handleLikedSong} key={song.track.id} />
         })
     }
 
