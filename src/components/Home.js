@@ -7,8 +7,8 @@ function Home({ accessToken }) {
     return (
         <>
             <TopCharts accessToken={accessToken} />
-            <LikedSongs accessToken={accessToken} />
             <NewSongs accessToken={accessToken} />
+            <LikedSongs accessToken={accessToken} />
         </>
     )
 }

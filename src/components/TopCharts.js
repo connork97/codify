@@ -2,36 +2,42 @@ import React, { useEffect, useState } from "react";
 import { Row, Container, Card } from 'react-bootstrap';
 import SongCard from "./SongCard";
 
-function TopCharts({accessToken}) {
+function TopCharts({ accessToken }) {
 
-    const [topFive, setTopFive] = useState("");
+    const [topFive, setTopFive] = useState("")
 
      useEffect(() => {
-        let renderTopCharts = {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': 'Bearer ' + accessToken
-            }
-          }
-            fetch('https://api.spotify.com/v1/playlists/37i9dQZEVXbNG2KDcFcKOF', renderTopCharts)
+        // let renderNewSongs = {
+        //     method: 'GET',
+        //     headers: {
+        //       'Content-Type': 'application/json',
+        //       'Authorization': 'Bearer ' + accessToken
+        //     }
+        //   }
+            fetch('https://api.spotify.com/v1/playlists/37i9dQZEVXbNG2KDcFcKOF', {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + accessToken
+                }
+            })
             .then(response => response.json())
             .then(data => {
-                console.log(data.tracks.items[0])
-                setTopFive(data.tracks.items.slice(0, 5))
+                const filteredSongs = data.tracks.items.filter((song) => song.track.preview_url != null)
+                setTopFive(filteredSongs.slice(0, 5))
             })
     }, [accessToken])
     
-    // let firstOfFive = topFive[0].track.name;
     const eachTrack = () => {
         return topFive.map((track) => {
-            return <SongCard track={track} />
-    })
+            // console.log(track)
+            return <SongCard song={track} key={track.track.id} />
+        })
     }
 
     return (
         <Container className="homePageDiv">
-            <h2 className="homeDivTitle">Top Songs</h2>
+            <h2 className="homeDivTitle">{accessToken === "" ? "Loading " : null}Top Songs</h2>
             <Row className="mx-2 row row-cols-5">
                 {topFive !== "" ? eachTrack() : null}
             </Row>
