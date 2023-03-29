@@ -4,19 +4,28 @@ import LikedSongs from "./LikedSongs";
 import NewSongs from "./NewSongs";
 
 
-function Home({ accessToken }) {
+function Home({ allNewSongs, setAllNewSongs, allLikedSongs, setAllLikedSongs, allTopSongs, setAllTopSongs, handleLikedSong, accessToken }) {
 
-    const [topFiveLikes, setTopFiveLikes] = useState("")
-
-    const handleLikedSong = (likedSong) => {
-        setTopFiveLikes([...topFiveLikes, likedSong])
-    }
     
     return (
         <>
-            <LikedSongs accessToken={accessToken} topFiveLikes={topFiveLikes} setTopFiveLikes={setTopFiveLikes} />
-            <TopSongs handleLikedSong = {handleLikedSong} accessToken={accessToken} />
-            <NewSongs handleLikedSong = {handleLikedSong} accessToken={accessToken} />
+            <LikedSongs 
+                accessToken={accessToken} 
+                allLikedSongs={allLikedSongs} 
+                setAllLikedSongs={setAllLikedSongs} 
+            />
+            <TopSongs 
+                handleLikedSong={handleLikedSong} 
+                allTopSongs={allTopSongs} 
+                setAllTopSongs={setAllTopSongs} 
+                accessToken={accessToken} 
+            />
+            <NewSongs 
+                handleLikedSong={handleLikedSong} 
+                allNewSongs={allNewSongs} 
+                setAllNewSongs={setAllNewSongs} 
+                accessToken={accessToken} 
+            />
         </>
     )
 }

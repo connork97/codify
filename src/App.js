@@ -12,10 +12,11 @@ const CLIENT_ID = "1ff422b13da04c47b1d3639000b11abb";
 const CLIENT_SECRET = "403561469b9c409faa37c5f49d39c46e";
 
 function App() {
-  const [searchInput, setSearchInput] = useState("");
   const [accessToken, setAccessToken] = useState("");
-  const [albums, setAlbums] = useState([]);
 
+  const [allNewSongs, setAllNewSongs] = useState("");
+  const [allLikedSongs, setAllLikedSongs] = useState("");
+  const [allTopSongs, setAllTopSongs] = useState("");
 // Fetch Access Token and set to state
   useEffect(() => {
       let authParameters = {
@@ -29,22 +30,38 @@ function App() {
       .then(resp => resp.json())
       .then(data => setAccessToken(data.access_token))
     }, [])
-
-    // Search
-
+    
+    const handleLikedSong = (likedSong) => {
+      setAllLikedSongs([...allLikedSongs, likedSong])
+  }
 
   return (
     <div className="App">
       <Navbar />
       <Switch>
         <Route exact path="/">
-          <Home accessToken={accessToken}/>
+          <Home 
+            accessToken={accessToken} 
+            allNewSongs={allNewSongs} 
+            setAllNewSongs={setAllNewSongs} 
+            allTopSongs={allTopSongs} 
+            setAllTopSongs={setAllTopSongs} 
+            allLikedSongs={allLikedSongs} 
+            setAllLikedSongs={setAllLikedSongs} 
+            handleLikedSong={handleLikedSong}
+          />
         </Route>
         <Route path="/playlists">
-          <Playlists />
+          <Playlists 
+            allLikedSongs={allLikedSongs}
+            allTopSongs={allTopSongs}
+            allNewSongs={allNewSongs}
+            handleLikedSong={handleLikedSong}
+            accessToken={accessToken}
+          />
         </Route>
         <Route path="/artist-album-search">
-          <ArtistAlbumSearch setSearchInput={setSearchInput} searchInput={searchInput} accessToken={accessToken} albums={albums} setAlbums={setAlbums} />
+          <ArtistAlbumSearch accessToken={accessToken} />
         </Route>
       </Switch>
 

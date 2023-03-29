@@ -1,5 +1,23 @@
 # Phase-2-React-Group-Project
 
+Component Tree:
+
+App
+    Navbar
+    Home
+        LikedSongs (Preview)
+        TopSongs (Preview)
+        NewSongs (Preview)
+    Playlists
+        LikedSongs (Full)
+            LikedSongCard
+        TopSongs (Full)
+            SongCard
+        NewSongs (Full)
+            SongCard
+    ArtistAlbumSearch
+        If we keep it as is (relatively) we'll probably need to render a couple of children in here.
+
 Client Side Routing: 
 - When button is clicked, display all likes, all top songs, and all new songs with detail and ability to play songs
 - When search bar is used, render new page with Albums

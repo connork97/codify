@@ -1,8 +1,13 @@
+import React, { useState } from "react";
 import { Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap';
 
-const ArtistAlbumSearch = ({ searchInput, setSearchInput, albums, setAlbums, accessToken }) => {
+const ArtistAlbumSearch = ({ accessToken }) => {
     
-async function search() {
+    const [searchInput, setSearchInput] = useState("");
+    const [albums, setAlbums] = useState([]);
+
+    async function search() {
+
     console.log("Search for " + searchInput);
 
     // Get request using search to get the Artist ID

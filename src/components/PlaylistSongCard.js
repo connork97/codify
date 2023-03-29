@@ -1,8 +1,8 @@
-import { Card, Button } from "react-bootstrap";
+import { Row, Card, Button, ListGroup } from "react-bootstrap";
 
 // 2. Take in our data for each song, and set state of likedSong to an object containing the following data...
 
-const SongCard = ({ song, handleLikedSong }) => {
+const PlaylistSongCard = ({ song, handleLikedSong }) => {
 
     const likedSong = {
         song_id: song.track.id,
@@ -41,19 +41,20 @@ const SongCard = ({ song, handleLikedSong }) => {
 // 1. Add onclick event listener to button component & point back to handleClick function
 
     return (
-    <Card>
-        <Card.Body>
-        <Card.Img src={song.track.album.images[0].url} />
-            <Card.Title>{song.track.name}</Card.Title>
-            <Card.Text>{song.track.artists[0].name}</Card.Text>
-        </Card.Body>
-        <Button onClick={handleClick}>Like Song</Button>
-        <video controls name="media">
-            <source src={songUrl} alt="no preview available" type="audio/mp3" />
-        </video>
-    </Card>
+        <ListGroup.Item>{song.track.name}</ListGroup.Item>
+    // <Card>
+    //     <Card.Body>
+    //     <Card.Img src={song.track.album.images[0].url} />
+    //         <Card.Title>{song.track.name}</Card.Title>
+    //         <Card.Text>{song.track.artists[0].name}</Card.Text>
+    //     </Card.Body>
+    //     <Button onClick={handleClick}>Like Song</Button>
+    //     <video controls name="media">
+    //         <source src={songUrl} alt="no preview available" type="audio/mp3" />
+    //     </video>
+    // </Card>
     )
 }
 
-export default SongCard;
+export default PlaylistSongCard;
 

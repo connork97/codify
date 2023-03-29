@@ -3,9 +3,8 @@ import { Row, Container, Card } from 'react-bootstrap';
 import { VscArrowCircleRight } from "react-icons/vsc";
 import SongCard from "./SongCard";
 
-function TopCharts({ accessToken, handleLikedSong }) {
+function TopSongs({ allTopSongs, setAllTopSongs, accessToken, handleLikedSong }) {
 
-    const [topFive, setTopFive] = useState("")
 
     // RenderTopCharts, 1. Make fetch request to the Global Top Charts Playlist with a specific spotify playlist ID
     // RenderTopCharts, 2. For each individual song, (data.tracks.items), return a new array of songs that include a 
@@ -23,7 +22,7 @@ function TopCharts({ accessToken, handleLikedSong }) {
             .then(response => response.json())
             .then(data => {
                 const filteredSongs = data.tracks.items.filter((song) => song.track.preview_url != null)
-                setTopFive(filteredSongs.slice(0, 5))
+                setAllTopSongs(filteredSongs)
             })
     }, [accessToken])
     
@@ -31,7 +30,8 @@ function TopCharts({ accessToken, handleLikedSong }) {
     // and then render a SonCard component for each song, and pass in that data to the song card
 
     const eachTrack = () => {
-        return topFive.map((song) => {
+        const onlyFiveTopSongs = allTopSongs.slice(0, 5);
+        return onlyFiveTopSongs.map((song) => {
             return <SongCard song={song} handleLikedSong={handleLikedSong} key={song.track.id} />
         })
     }
@@ -45,10 +45,10 @@ function TopCharts({ accessToken, handleLikedSong }) {
         <Container className="homePageDiv">
             <h2 className="homeDivTitle" style={{position:"relative", display:"flex", alignItems:"center", justifyContent:"space-between", fontFamily: "Arial Rounded MT Bold"}}><span style={{margin:"auto"}}>{accessToken === "" ? "Loading " : null}Top Songs</span><span style={{position:"absolute", right:"15px"}}><VscArrowCircleRight style={{scale:"1.5"}} /></span></h2>
             <Row className="mx-2 row row-cols-5">
-                {topFive !== "" ? eachTrack() : null}
+                {allTopSongs !== "" ? eachTrack() : null}
             </Row>
         </Container>
     )
 }
 
-export default TopCharts;
+export default TopSongs;
