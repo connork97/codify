@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Row, Container, Accordion } from 'react-bootstrap';
 import { VscArrowCircleRight } from "react-icons/vsc";
-import PlaylistSongCard from "./SongCard";
+import PlaylistSongCard from "../Homepage/SongCard";
 
 const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, accessToken }) => {
     

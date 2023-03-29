@@ -8,8 +8,11 @@ const Search = ({ accessToken }) => {
     const [albums, setAlbums] = useState([]);
     const [tracks, setTracks] = useState([]);
     const [playlists, setPlaylists] = useState([]);
+    const [shouldRender, setShouldRender] = useState(false);
 
     async function search() {
+
+    setShouldRender(true);
 
     console.log("Search for " + searchInput);
 
@@ -78,8 +81,23 @@ const Search = ({ accessToken }) => {
                 Search
                 </Button>
             </InputGroup>
+        </Container> 
+        {shouldRender && searchInput !== "" ? <h2>Top Tracks</h2> : null}
+        <Container>
+            <Row className="mx-2 row row-cols-6">
+                {tracks.map( (track, i) => {
+                return (
+                    <Card>
+                    <Card.Img src={track.album.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"} />         
+                    <Card.Body>
+                        <Card.Title>{track.name}</Card.Title>
+                    </Card.Body>
+                    </Card>
+                )
+                })}
+            </Row>
         </Container>
-        <h2>Top Artists</h2>
+        {shouldRender && searchInput !== "" ? <h2>Top Artists</h2> : null}
         <Container>
             <Row className="mx-2 row row-cols-6">
                 {artists.map( (artist, i) => {
@@ -94,7 +112,7 @@ const Search = ({ accessToken }) => {
                 })}
             </Row>
         </Container>
-        <h2>Top Albums</h2> 
+        {shouldRender && searchInput !== "" ? <h2>Top Albums</h2> : null}
         <Container>
             <Row className="mx-2 row row-cols-6">
                 {albums.map( (album, i) => {
@@ -109,22 +127,7 @@ const Search = ({ accessToken }) => {
                 })}
             </Row>
         </Container> 
-        <h2>Top Tracks</h2>
-        <Container>
-            <Row className="mx-2 row row-cols-6">
-                {tracks.map( (track, i) => {
-                return (
-                    <Card>
-                    <Card.Img src={track.album.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"} />         
-                    <Card.Body>
-                        <Card.Title>{track.name}</Card.Title>
-                    </Card.Body>
-                    </Card>
-                )
-                })}
-            </Row>
-        </Container> 
-        <h2>Top Playlists</h2>
+        {shouldRender && searchInput !== "" ? <h2>Top Playlists</h2> : null}
         <Container>
             <Row className="mx-2 row row-cols-6">
                 {playlists.map( (playlist, i) => {

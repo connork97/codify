@@ -15,8 +15,10 @@ App
             SongCard
         NewSongs (Full)
             SongCard
-    ArtistAlbumSearch
-        If we keep it as is (relatively) we'll probably need to render a couple of children in here.
+    Search
+        ArtistSearch
+        SongSearch
+        AlbumSearch
 
 Client Side Routing: 
 - When button is clicked, display all likes, all top songs, and all new songs with detail and ability to play songs

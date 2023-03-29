@@ -3,11 +3,11 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Playlists from "./components/Playlists";
-import ArtistAlbumSearch from "./components/ArtistAlbumSearch";
-import Search from "./components/Search";
+import Navbar from "./components/NavBar/Navbar";
+import Home from "./components/Homepage/Home";
+import Playlists from "./components/Playlist-Page/Playlists";
+import ArtistAlbumSearch from "./components/Search-Page/ArtistAlbumSearch";
+import Search from "./components/Search-Page/Search";
 
 const CLIENT_ID = "1ff422b13da04c47b1d3639000b11abb";
 const CLIENT_SECRET = "403561469b9c409faa37c5f49d39c46e";
