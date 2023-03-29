@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Playlists from "./components/Playlists";
 import ArtistAlbumSearch from "./components/ArtistAlbumSearch";
-import ArtistSearch from "./components/ArtistSearch";
+import Search from "./components/Search";
 
 const CLIENT_ID = "1ff422b13da04c47b1d3639000b11abb";
 const CLIENT_SECRET = "403561469b9c409faa37c5f49d39c46e";
@@ -109,8 +109,8 @@ function App() {
             accessToken={accessToken}
           />
         </Route>
-        <Route path="/artist-search">
-          <ArtistSearch accessToken={accessToken} />
+        <Route path="/search">
+          <Search accessToken={accessToken} />
         </Route>
         <Route path="/artist-album-search">
           <ArtistAlbumSearch accessToken={accessToken} />

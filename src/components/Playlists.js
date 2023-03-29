@@ -52,6 +52,12 @@ const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, a
             <h1>Your Playlists</h1>
             <Accordion style={{margin:"2.5rem 0 2.5rem 0"}} defaultActiveKey={null}>
                 <Accordion.Item>
+                <Accordion.Header>Liked Songs</Accordion.Header>
+                   {allLikedSongs !== "" ? renderEachLikedSong() : null}
+                </Accordion.Item>
+            </Accordion>
+            <Accordion style={{margin:"2.5rem 0 2.5rem 0"}} defaultActiveKey={null}>
+                <Accordion.Item>
                 <Accordion.Header>Top Songs</Accordion.Header>
                     {allTopSongs !== "" ? renderEachTopSong() : null}
                 </Accordion.Item>
@@ -60,12 +66,6 @@ const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, a
                 <Accordion.Item>
                 <Accordion.Header>New Songs</Accordion.Header>
                    {allNewSongs !== "" ? renderEachNewSong() : null}
-                </Accordion.Item>
-            </Accordion>
-            <Accordion style={{margin:"2.5rem 0 2.5rem 0"}} defaultActiveKey={null}>
-                <Accordion.Item>
-                <Accordion.Header>Liked Songs</Accordion.Header>
-                   {allLikedSongs !== "" ? renderEachLikedSong() : null}
                 </Accordion.Item>
             </Accordion>
         </Container>

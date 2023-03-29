@@ -10,21 +10,6 @@ function TopSongs({ allTopSongs, setAllTopSongs, accessToken, handleLikedSong })
     // RenderTopCharts, 2. For each individual song, (data.tracks.items), return a new array of songs that include a 
     // preview URL that is not null
     // RenderTopCharts, 3. Set the state of (topFive) to the first 5 songs of that filtered array
-
-    //  useEffect(() => {
-    //         fetch('https://api.spotify.com/v1/playlists/37i9dQZEVXbNG2KDcFcKOF', {
-    //             method: "GET",
-    //             headers: {
-    //                 "Content-Type": "application/json",
-    //                 "Authorization": "Bearer " + accessToken
-    //             }
-    //         })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             const filteredSongs = data.tracks.items.filter((song) => song.track.preview_url != null)
-    //             setAllTopSongs(filteredSongs)
-    //         })
-    // }, [accessToken])
     
     // RenderTopCharts, 4. Make a new function, eachTrack, to map through each song from state you just set, 
     // and then render a SonCard component for each song, and pass in that data to the song card
