@@ -1,16 +1,15 @@
 import { Card, Button } from "react-bootstrap";
 
-const LikedSongCard = ({ song }) => {
+const LikedSongCard = ({ song, handleRemoveLike }) => {
 
     return (
         <Card>
             <Card.Body>
-            <Card.Img src={song.images[0].url} />
+            <Card.Img src={song.image} />
                 <Card.Title>{song.song_name}</Card.Title>
                 <Card.Text>{song.artists}</Card.Text>
             </Card.Body>
-            <Button>Like Song</Button>
-            <br></br>
+            <Button onClick={() => handleRemoveLike(song)}>Remove From Likes</Button>
             <video controls name="media">
                 <source src={song.preview_url} alt="no preview available" type="audio/mp3" />
             </video>

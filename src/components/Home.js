@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TopCharts from "./TopCharts"
+import TopSongs from "./TopSongs"
 import LikedSongs from "./LikedSongs";
 import NewSongs from "./NewSongs";
 
@@ -15,7 +15,7 @@ function Home({ accessToken }) {
     return (
         <>
             <LikedSongs accessToken={accessToken} topFiveLikes={topFiveLikes} setTopFiveLikes={setTopFiveLikes} />
-            <TopCharts handleLikedSong = {handleLikedSong} accessToken={accessToken} />
+            <TopSongs handleLikedSong = {handleLikedSong} accessToken={accessToken} />
             <NewSongs handleLikedSong = {handleLikedSong} accessToken={accessToken} />
         </>
     )

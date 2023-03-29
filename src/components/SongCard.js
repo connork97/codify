@@ -6,7 +6,7 @@ import { Card, Button } from "react-bootstrap";
 
 const SongCard = ({ song, handleLikedSong }) => {
 
-    const [likedSong, setLikedSong] = useState({
+    const likedSong = {
         song_id: song.track.id,
         song_name: song.track.name,
         song_link: song.track.external_urls.spotify,
@@ -16,10 +16,10 @@ const SongCard = ({ song, handleLikedSong }) => {
         album_id: song.track.album.id,
         album_name: song.track.album.name,
         album_link: song.track.album.external_urls.spotify,
-        images: song.track.album.images,
+        image: song.track.album.images[0].url,
         popularity: song.track.popularity,
         preview_url: song.track.preview_url
-    })
+    }
 
     const songUrl = song.track.preview_url;
 
@@ -50,12 +50,9 @@ const SongCard = ({ song, handleLikedSong }) => {
             <Card.Text>{song.track.artists[0].name}</Card.Text>
         </Card.Body>
         <Button onClick={handleClick}>Like Song</Button>
-        <br></br>
-        {songUrl == null ? <Card.Text>"No Preview Available"</Card.Text> : 
-            <video controls name="media">
-                <source src={songUrl} alt="no preview available" type="audio/mp3" />
-            </video>
-        }
+        <video controls name="media">
+            <source src={songUrl} alt="no preview available" type="audio/mp3" />
+        </video>
     </Card>
     )
 }
