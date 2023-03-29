@@ -34,8 +34,10 @@ const ArtistAlbumSearch = ({ accessToken }) => {
     // Display those albums to the user
     }
 
+    
     return (
         <div>
+
         <Container>
         <InputGroup className="mb-3" size="lg">
             <FormControl

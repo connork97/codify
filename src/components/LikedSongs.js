@@ -7,20 +7,6 @@ import LikedSongCard from "./LikedSongCard";
 
 function LikedSongs({ accessToken, allLikedSongs, setAllLikedSongs }) {
 
-    useEffect(() => {
-        fetch('http://localhost:8000/likes', {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + accessToken
-            }
-        })
-        .then(response => response.json())
-        .then(likedSongs => {
-            setAllLikedSongs(likedSongs)
-        })
-    }, [])
-
     const handleRemoveLike = (song) => {
         console.log(song.id)
         fetch("http://localhost:8000/likes/" + song.id, {

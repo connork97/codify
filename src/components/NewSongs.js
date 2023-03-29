@@ -4,21 +4,6 @@ import { VscArrowCircleRight } from "react-icons/vsc";
 import SongCard from "./SongCard";
 
 function NewSongs({ allNewSongs, setAllNewSongs, accessToken, handleLikedSong }) {
-
-     useEffect(() => {
-            fetch('https://api.spotify.com/v1/playlists/37i9dQZF1DX4JAvHpjipBk', {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": "Bearer " + accessToken
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                const filteredSongs = data.tracks.items.filter((song) => song.track.preview_url != null)
-                setAllNewSongs(filteredSongs)
-            })
-    }, [accessToken])
     
     const eachTrack = () => {
         const onlyFiveNewSongs = allNewSongs.slice(0, 5);
