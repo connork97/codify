@@ -6,10 +6,9 @@ import SongCard from "./SongCard";
 function TopSongs({ allTopSongs, setAllTopSongs, accessToken, handleLikedSong }) {
 
 
-    // RenderTopCharts, 1. Make fetch request to the Global Top Charts Playlist with a specific spotify playlist ID
-    // RenderTopCharts, 2. For each individual song, (data.tracks.items), return a new array of songs that include a 
-    // preview URL that is not null
-    // RenderTopCharts, 3. Set the state of (topFive) to the first 5 songs of that filtered array
+
+    // Take our allTopSongs state and return a new array of 5 songs 
+    // Map through each of the 5 songs and send down the 
     
     // RenderTopCharts, 4. Make a new function, eachTrack, to map through each song from state you just set, 
     // and then render a SonCard component for each song, and pass in that data to the song card

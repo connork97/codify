@@ -2,6 +2,10 @@ import { Card, Button } from "react-bootstrap";
 
 const LikedSongCard = ({ song, handleRemoveLike }) => {
 
+
+// Render a LikedSongCard component (image, song name, artist, and song preview url)
+// Render a Remove from likes component with an onclick that is passed to a function
+// handleRemoveLike in the LikedSong component which sends a delete request to our JSON
     return (
         <Card>
             <Card.Body>

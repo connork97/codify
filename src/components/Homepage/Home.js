@@ -6,7 +6,11 @@ import NewSongs from "./NewSongs";
 
 function Home({ allNewSongs, setAllNewSongs, allLikedSongs, setAllLikedSongs, allTopSongs, setAllTopSongs, handleLikedSong, accessToken }) {
 
-    
+    // Within home, return LikedSongs, with the allLikedSongs and setAllSongs states as props
+    // Return TopSongs with the allTopSongs and setAllTopSongs states as props as well as the handleLikedSong
+    // function which adds our newLikedSong to our json file
+    // Return NewSongs with all the allNewSongs and setAllNewSongs states as props as well as the handleLikedSong
+    // function which adds our newLikedSong to our json file
     return (
         <>
             <LikedSongs 

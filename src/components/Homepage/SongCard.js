@@ -25,33 +25,33 @@ const SongCard = ({ song, handleLikedSong }) => {
 // Check db.JSON file for confirmation
 
     const handleClick = () => {
-        console.log(song)
-        fetch("http://localhost:8000/likes", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(likedSong)
-        })
-        .then((response => response.json()))
-        .then((likedSong) => console.log(likedSong))
+        // console.log(song)
+        // fetch("http://localhost:8000/likes", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify(likedSong)
+        // })
+        // .then((response => response.json()))
+        // .then((likedSong) => console.log(likedSong))
         handleLikedSong(likedSong)
     }
 
 // 1. Add onclick event listener to button component & point back to handleClick function
 
     return (
-    <Card>
-        <Card.Body>
-        <Card.Img src={song.track.album.images[0].url} />
-            <Card.Title>{song.track.name}</Card.Title>
-            <Card.Text>{song.track.artists[0].name}</Card.Text>
-        </Card.Body>
-        <Button onClick={handleClick}>Like Song</Button>
-        <video controls name="media">
-            <source src={songUrl} alt="no preview available" type="audio/mp3" />
-        </video>
-    </Card>
+        <Card>
+            <Card.Body>
+            <Card.Img src={song.track.album.images[0].url} />
+                <Card.Title>{song.track.name}</Card.Title>
+                <Card.Text>{song.track.artists[0].name}</Card.Text>
+            </Card.Body>
+            <Button onClick={handleClick}>Like Song</Button>
+            <video controls name="media">
+                <source src={songUrl} alt="no preview available" type="audio/mp3" />
+            </video>
+        </Card>
     )
 }
 

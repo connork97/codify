@@ -8,17 +8,18 @@ import Home from "./components/Homepage/Home";
 import Playlists from "./components/Playlist-Page/Playlists";
 import ArtistAlbumSearch from "./components/Search-Page/ArtistAlbumSearch";
 import Search from "./components/Search-Page/Search";
+import SearchDetails from "./components/Search-Page/SearchDetails";
 
 const CLIENT_ID = "1ff422b13da04c47b1d3639000b11abb";
 const CLIENT_SECRET = "403561469b9c409faa37c5f49d39c46e";
 
 function App() {
   const [accessToken, setAccessToken] = useState("");
-
   const [allNewSongs, setAllNewSongs] = useState("");
   const [allLikedSongs, setAllLikedSongs] = useState("");
   const [allTopSongs, setAllTopSongs] = useState("");
-// Fetch Access Token and set to state
+
+// Fetch the Access Token from the Spotify API, set to state
   useEffect(() => {
       let authParameters = {
           method: 'POST',
@@ -32,6 +33,9 @@ function App() {
       .then(data => setAccessToken(data.access_token))
     }, [])
 
+
+    // Fetch Top Charts Songs from spotify playlist, iterate through each song and return a new array if
+    // the song preview url is not null, and set state
     useEffect(() => {
       if (accessToken) {
         fetch('https://api.spotify.com/v1/playlists/37i9dQZEVXbNG2KDcFcKOF', {
@@ -49,6 +53,8 @@ function App() {
       } 
   }, [accessToken])
   
+  // Fetch new songs from spotify playlist, iterate through each song and return a new array if 
+  // the song preview is not null, and set to state 
   useEffect(() => {
     if (accessToken) {
       fetch('https://api.spotify.com/v1/playlists/37i9dQZF1DX4JAvHpjipBk', {
@@ -66,6 +72,7 @@ function App() {
   }
   }, [accessToken])
 
+  // Fetch liked songs from our local JSON file and set to state
   useEffect(() => {
     fetch('http://localhost:8000/likes', {
         method: "GET",
@@ -80,10 +87,23 @@ function App() {
     })
 }, [])
     
+
+// Post our new liked song to our DB JSON file and add it to our allLikedSongs state
     const handleLikedSong = (likedSong) => {
+      console.log(likedSong)
+      fetch("http://localhost:8000/likes", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify(likedSong)
+      })
+      .then((response => response.json()))
+      .then((likedSong) => console.log(likedSong))
       setAllLikedSongs([...allLikedSongs, likedSong])
   }
 
+  // Return a NavBar which includes client side routes for Home, Playlists, and Search
   return (
     <div className="App">
       <Navbar />
@@ -109,8 +129,14 @@ function App() {
             accessToken={accessToken}
           />
         </Route>
-        <Route path="/search">
-          <Search accessToken={accessToken} />
+        <Route exact path="/search">
+          <Search 
+            handleLikedSong={handleLikedSong} 
+            accessToken={accessToken} 
+          />
+        </Route>
+        <Route path="/search/:category/search-details">
+          <SearchDetails />
         </Route>
         <Route path="/artist-album-search">
           <ArtistAlbumSearch accessToken={accessToken} />

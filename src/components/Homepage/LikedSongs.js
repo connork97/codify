@@ -13,7 +13,8 @@ function LikedSongs({ accessToken, allLikedSongs, setAllLikedSongs }) {
             method: "DELETE"
         })
     }
-
+// Render the LikedSongs container by taking in the first 5 songs of allLikedSongs, mapping over them, and passing
+// down their props to the LikedSongCard component
     const renderLikedSongs = () => {
         const onlyFiveLikes = allLikedSongs.slice(0, 5);
         return onlyFiveLikes.map((song) => {
@@ -22,6 +23,7 @@ function LikedSongs({ accessToken, allLikedSongs, setAllLikedSongs }) {
         })
     }
 
+// If allLikedSongs is not equal to an empty string, renderLikedSongs, if not, render null
     return (
         <Container className="homePageDiv">
             <h2 className="homeDivTitle" style={{position:"relative", display:"flex", alignItems:"center", justifyContent:"space-between", fontFamily: "Arial Rounded MT Bold"}}><span style={{margin:"auto"}}>Likes</span><span style={{position:"absolute", right:"15px"}}><VscArrowCircleRight style={{scale:"1.5"}} /></span></h2>
