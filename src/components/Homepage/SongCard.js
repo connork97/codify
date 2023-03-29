@@ -1,6 +1,6 @@
 import { Card, Button } from "react-bootstrap";
 
-// 2. Take in our data for each song, and set state of likedSong to an object containing the following data...
+// Take in our data for each song.
 
 const SongCard = ({ song, handleLikedSong }) => {
 
@@ -21,7 +21,7 @@ const SongCard = ({ song, handleLikedSong }) => {
 
     const songUrl = song.track.preview_url;
 
-// 3. Take whichever song we clicked on and make a post request to our JSON server based on the likedSong state.
+// Take whichever song we clicked on and make a post request to our JSON server based on the likedSong state.
 // Check db.JSON file for confirmation
 
     const handleClick = () => {
@@ -38,7 +38,7 @@ const SongCard = ({ song, handleLikedSong }) => {
         handleLikedSong(likedSong)
     }
 
-// 1. Add onclick event listener to button component & point back to handleClick function
+// Add onclick event listener to button component & point back to handleClick function
 
     return (
         <Card>
@@ -47,7 +47,7 @@ const SongCard = ({ song, handleLikedSong }) => {
                 <Card.Title>{song.track.name}</Card.Title>
                 <Card.Text>{song.track.artists[0].name}</Card.Text>
             </Card.Body>
-            <Button onClick={handleClick}>Like Song</Button>
+            <Button onClick={() => handleLikedSong(likedSong)}>Like Song</Button>
             <video controls name="media">
                 <source src={songUrl} alt="no preview available" type="audio/mp3" />
             </video>

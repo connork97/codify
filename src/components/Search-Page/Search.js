@@ -75,11 +75,11 @@ const Search = ({ handleLikedSong, accessToken }) => {
                 <Row className="mx-2 row row-cols-6">
                     {element.map( (item, i) => {
                     return (
-                        <Card onClick={() => history.push({pathname:`${url}/${item.name}/search-details`, state:item})} >
+                        <Card onClick={() => history.push({pathname:`${url}/${item.type}/${item.name}/details`, state:item})} >
                         <Card.Img src={item.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"} />
                         <Card.Body>
                             <Card.Title>{item.name}</Card.Title>
-                            <Link to={`${url}/${item.name}/search-details`}>Click For More Details</Link>
+                            <Link to={`${url}/${item.type}/${item.name}/details`}>Click For More Details</Link>
                         </Card.Body>
                         </Card>
                     )

@@ -3,7 +3,8 @@ import { useParams, useLocation } from "react-router-dom";
 const SearchDetails = ( ) => {
 
     const location = useLocation();
-    console.log(location.state)
+    const id = location.state.id;
+    console.log(id)
     const { category } = useParams();
 
     return (

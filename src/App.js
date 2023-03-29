@@ -135,7 +135,7 @@ function App() {
             accessToken={accessToken} 
           />
         </Route>
-        <Route path="/search/:category/search-details">
+        <Route path="/search/:category/:name/details">
           <SearchDetails />
         </Route>
         <Route path="/artist-album-search">

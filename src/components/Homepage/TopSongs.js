@@ -8,10 +8,7 @@ function TopSongs({ allTopSongs, setAllTopSongs, accessToken, handleLikedSong })
 
 
     // Take our allTopSongs state and return a new array of 5 songs 
-    // Map through each of the 5 songs and send down the 
-    
-    // RenderTopCharts, 4. Make a new function, eachTrack, to map through each song from state you just set, 
-    // and then render a SonCard component for each song, and pass in that data to the song card
+    // Map through each of the 5 songs and send down the song to our songCard
 
     const eachTrack = () => {
         const onlyFiveTopSongs = allTopSongs.slice(0, 5);
