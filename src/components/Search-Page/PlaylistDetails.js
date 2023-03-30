@@ -2,17 +2,17 @@ import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { Container, Row, Card, ListGroup, Header, Button } from "react-bootstrap";
 
-const AlbumDetails = ({ accessToken }) => {
+const PlaylistDetails = ({ accessToken }) => {
 
-    const [albumTracks, setAlbumTracks] = useState([]);
+    const [playlistTracks, setPlaylistTracks] = useState([]);
 
     const location = useLocation();
     console.log(location.state);
 
-    const albumData = location.state;
+    const playlistData = location.state;
 
     useEffect(() => {
-        fetch(`https://api.spotify.com/v1/albums/${location.state.id}/tracks`, {
+        fetch(`https://api.spotify.com/v1/playlists/${location.state.id}/tracks`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -21,21 +21,20 @@ const AlbumDetails = ({ accessToken }) => {
         })
         .then((response) => response.json())
         .then((data) => {
-            console.log("ALBUM TRACK DATA:", data.items)
-            setAlbumTracks(data.items)
+            console.log("PLAYLIST TRACK DATA:", data.items)
+            setPlaylistTracks(data.items)
         })
     }, [])
 
-    const renderAlbumTracks = albumTracks.map((track) => {
-        console.log(track.name)
-        console.log(track.id)
+    const renderPlaylistTracks = playlistTracks.map((item) => {
+        console.log(item.track)
         return (
             <ListGroup.Item style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
-                <img style={{height:"50px", borderRadius:"7.5px"}} src={albumData.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"}></img>
-                {track.name}
-                {track.preview_url !== null ?
+                <img style={{height:"50px", borderRadius:"7.5px"}} src={item.track.album.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"}></img>
+                {item.track.name}
+                {item.track.preview_url !== null ?
                     <video controls name="media" style={{right:"0", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
-                        <source src={track.preview_url} alt="no preview available" type="audio/mp3" />
+                        <source src={item.track.preview_url} alt="no preview available" type="audio/mp3" />
                     </video>
                 : <span>Preview Not Available</span>}
             </ListGroup.Item>
@@ -49,10 +48,10 @@ const AlbumDetails = ({ accessToken }) => {
                 <Row className="mx-2 row row-cols-4">
                     <Card style={{margin:"auto"}}>
                         <Card.Body>
-                        <Card.Img src={albumData.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"} />
+                        <Card.Img src={playlistData.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"} />
                             <br></br><br></br>
-                            <Card.Title>{albumData.name}</Card.Title>
-                            <Card.Text>Released: {albumData.release_date}</Card.Text>
+                            <Card.Title>{playlistData.name}</Card.Title>
+                            <Card.Text>Released: {playlistData.release_date}</Card.Text>
                         </Card.Body>
                     </Card>
                 </Row>
@@ -62,11 +61,10 @@ const AlbumDetails = ({ accessToken }) => {
             <br></br>
             <Container>
                 <ListGroup>
-                    {renderAlbumTracks}
+                    {renderPlaylistTracks}
                 </ListGroup>
             </Container>
-        </div>
-    )
+        </div>    )
 }
 
-export default AlbumDetails;
+export default PlaylistDetails;
