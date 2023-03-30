@@ -27,18 +27,54 @@ const AlbumDetails = ({ accessToken }) => {
         })
     }, [])
 
+    {/* <span style={{position:"absolute", right:"160px"}}>Preview Not Available</span>} */}
+
+    const [backupPreviewUrl, setBackupPreviewUrl] = useState("");
+
+    const fetchPreviewUrl = async (trackName) => {
+        // if (!executed) {
+            let backupPreview;
+            const response = await fetch('https://api.spotify.com/v1/search?q=' + trackName + '&type=track', {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + accessToken
+                }
+            })
+            const data = await response.json()
+            backupPreview = data.tracks.items[0].preview_url;
+            // .then((response) => response.json())
+            // .then((data) => {
+                // console.log(data.tracks.items[0].preview_url)
+                // executed = true;
+                // backupPreview = data.tracks.items[0].preview_url;
+            // })
+        // }
+            console.log(backupPreview);
+            return backupPreview;
+    }
+    
     const renderAlbumTracks = albumTracks.map((track) => {
-        console.log(track.name)
-        console.log(track.id)
+
+    let executed = false;
+
+        // console.log(track.name)
+        // console.log(track.id)
         return (
             <ListGroup.Item style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
                 <img style={{height:"50px", borderRadius:"7.5px"}} src={albumData.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"}></img>
                 <span style={{position:"absolute", left:"100px"}} >{track.name}</span>
-                {track.preview_url !== null ?
-                <video controls name="media" style={{position:"absolute", right:"75px", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
-                    <source src={track.preview_url} alt="no preview available" type="audio/mp3" />
+                {track.preview_url === null ?
+                    // executed === false ? fetchPreviewUrl() : null &&
+                    // fetchPreviewUrl(track.name) &&
+                    <video controls name="media" style={{position:"absolute", right:"75px", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
+                        <source src={fetchPreviewUrl(track.name)} alt="no preview available" type="audio/mp3" />
                     </video>
-                : <span style={{position:"absolute", right:"160px"}}>Preview Not Available</span>}
+                    : 
+                    <video controls name="media" style={{position:"absolute", right:"75px", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
+                        <source src={track.preview_url} alt="no preview available" type="audio/mp3" />
+                    </video>
+                }
                 <a href={track.external_urls.spotify} target="_blank">
                     <BsSpotify onClick={() => console.log(track.external_urls.spotify)} style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
                 </a>   

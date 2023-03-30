@@ -45,13 +45,13 @@ const Search = ({ handleLikedSong, accessToken }) => {
         await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=track', searchParameters)
         .then(response => response.json())
         .then(data => {
+            console.log("Working Songs", data.tracks.items.slice(0,5))
             setTracks(data.tracks.items.slice(0, 5))
         })
 
         await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=playlist', searchParameters)
         .then(response => response.json())
         .then(data => {
-            console.log(data.playlists.items)
             setPlaylists(data.playlists.items.slice(0,5))
         })
     }

@@ -1,21 +1,6 @@
 {
   "likes": [
     {
-      "song_id": "1Qrg8KqiBpW07V7PNxwwwL",
-      "song_name": "Kill Bill",
-      "song_link": "https://open.spotify.com/track/1Qrg8KqiBpW07V7PNxwwwL",
-      "artists_id": "7tYKF4w9nC0nq9CsPZTHyP",
-      "artists": "SZA",
-      "artists_link": "https://open.spotify.com/artist/7tYKF4w9nC0nq9CsPZTHyP",
-      "album_id": "1nrVofqDRs7cpWXJ49qTnP",
-      "album_name": "SOS",
-      "album_link": "https://open.spotify.com/album/1nrVofqDRs7cpWXJ49qTnP",
-      "image": "https://i.scdn.co/image/ab67616d0000b2730c471c36970b9406233842a5",
-      "popularity": 94,
-      "preview_url": "https://p.scdn.co/mp3-preview/4bd2dc84016f3743add7eea8b988407b1b900672?cid=1ff422b13da04c47b1d3639000b11abb",
-      "id": 1
-    },
-    {
       "song_id": "0rKtyWc8bvkriBthvHKY8d",
       "song_name": "SLOW DANCING IN THE DARK",
       "song_link": "https://open.spotify.com/track/0rKtyWc8bvkriBthvHKY8d",
@@ -89,6 +74,36 @@
       "popularity": 49,
       "preview_url": "https://p.scdn.co/mp3-preview/00c001bbf977163a6b011b23b6e8c6b92d8a1dfa?cid=1ff422b13da04c47b1d3639000b11abb",
       "id": 6
+    },
+    {
+      "song_id": "3mwvKOyMmG77zZRunnxp9E",
+      "song_name": "Buddy Holly",
+      "song_link": "https://open.spotify.com/track/3mwvKOyMmG77zZRunnxp9E",
+      "artists_id": "3jOstUTkEu2JkjvRdBA5Gu",
+      "artists": "Weezer",
+      "artists_link": "https://open.spotify.com/artist/3jOstUTkEu2JkjvRdBA5Gu",
+      "album_id": "1xpGyKyV26uPstk1Elgp9Q",
+      "album_name": "Weezer",
+      "album_link": "https://open.spotify.com/album/1xpGyKyV26uPstk1Elgp9Q",
+      "image": "https://i.scdn.co/image/ab67616d0000b273345536847e60f622ee0eae96",
+      "popularity": 73,
+      "preview_url": "https://p.scdn.co/mp3-preview/47099a618e82bd35261b69467f03214ae56d31e9?cid=1ff422b13da04c47b1d3639000b11abb",
+      "id": 7
+    },
+    {
+      "song_id": "6VoIBz0VhCyz7OdEoRYDiA",
+      "song_name": "Say It Ain't So",
+      "song_link": "https://open.spotify.com/track/6VoIBz0VhCyz7OdEoRYDiA",
+      "artists_id": "3jOstUTkEu2JkjvRdBA5Gu",
+      "artists": "Weezer",
+      "artists_link": "https://open.spotify.com/artist/3jOstUTkEu2JkjvRdBA5Gu",
+      "album_id": "1xpGyKyV26uPstk1Elgp9Q",
+      "album_name": "Weezer",
+      "album_link": "https://open.spotify.com/album/1xpGyKyV26uPstk1Elgp9Q",
+      "image": "https://i.scdn.co/image/ab67616d0000b273345536847e60f622ee0eae96",
+      "popularity": 75,
+      "preview_url": "https://p.scdn.co/mp3-preview/17adc497b3bfb73e83cf713f1dd6b9a711abb59b?cid=1ff422b13da04c47b1d3639000b11abb",
+      "id": 8
     }
   ]
 }
