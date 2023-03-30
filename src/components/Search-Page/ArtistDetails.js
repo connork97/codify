@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useHistory } from "react-router-dom";
 import { Container, Row, Card, ListGroup, Header, Button } from "react-bootstrap";
 
 const ArtistDetails = ( { accessToken } ) => {
@@ -7,6 +7,7 @@ const ArtistDetails = ( { accessToken } ) => {
     const [topTracks, setTopTracks] = useState([]);
     const [albums, setAlbums] = useState([]);
 
+    const history = useHistory();
     const location = useLocation();
     const id = location.state.id;
     const data = location.state;
@@ -66,7 +67,7 @@ const ArtistDetails = ( { accessToken } ) => {
 
     const renderAlbums = albums.map((album) => {
         return (
-            <Card>
+            <Card onClick={() => history.push({pathname:`/search/album/${album.name}/details`, state:album})}>
                 <Card.Body>
                     <Card.Img src={album.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"} />
                     <br></br><br></br>
@@ -75,6 +76,20 @@ const ArtistDetails = ( { accessToken } ) => {
             </Card>
         )
     })
+    // const handleAlbumClick = (albumFetchUrl) => {
+    //     fetch(`${albumFetchUrl}/tracks`, {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Authorization": "Bearer " + accessToken
+    //         }
+    //     })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //         console.log("ALBUM FETCH DATA:", data.items)
+    //         // setAlbumTracks(data.items)
+    //     })
+    // }
 
     const { category } = useParams();
 
