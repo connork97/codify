@@ -8,7 +8,8 @@ import Home from "./components/Homepage/Home";
 import Playlists from "./components/Playlist-Page/Playlists";
 import ArtistAlbumSearch from "./components/Search-Page/ArtistAlbumSearch";
 import Search from "./components/Search-Page/Search";
-import SearchDetails from "./components/Search-Page/SearchDetails";
+import ArtistDetails from "./components/Search-Page/ArtistDetails";
+import AlbumDetails from "./components/Search-Page/AlbumDetails";
 
 const CLIENT_ID = "1ff422b13da04c47b1d3639000b11abb";
 const CLIENT_SECRET = "403561469b9c409faa37c5f49d39c46e";
@@ -135,8 +136,11 @@ function App() {
             accessToken={accessToken} 
           />
         </Route>
-        <Route path="/search/:category/:name/details">
-          <SearchDetails accessToken={accessToken} />
+        <Route path="/search/artist/:name/details">
+          <ArtistDetails accessToken={accessToken} />
+        </Route>
+        <Route path="/search/album/:name/details">
+          <AlbumDetails accessToken={accessToken} />
         </Route>
         <Route path="/artist-album-search">
           <ArtistAlbumSearch accessToken={accessToken} />

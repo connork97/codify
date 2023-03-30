@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { Container, Row, Card, ListGroup, Header, Button } from "react-bootstrap";
 
-const SearchDetails = ( { accessToken } ) => {
+const ArtistDetails = ( { accessToken } ) => {
 
     const [topTracks, setTopTracks] = useState([]);
     const [albums, setAlbums] = useState([]);
@@ -17,33 +17,37 @@ const SearchDetails = ( { accessToken } ) => {
 
     // Gives the same information as the location.state as is:
     useEffect(() => {
-        fetch(`https://api.spotify.com/v1/${data.type}s/${id}/top-tracks?market=US`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + accessToken
-            }
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log("here's the data:", data.tracks)
-            setTopTracks(data.tracks)
-        })
+        if (data.type === "artist") {
+            fetch(`https://api.spotify.com/v1/${data.type}s/${id}/top-tracks?market=US`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + accessToken
+                }
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("here's the data:", data.tracks)
+                setTopTracks(data.tracks)
+            })
+        }
     }, [])
 
     useEffect(() => {
-        fetch(`https://api.spotify.com/v1/${data.type}s/${id}/albums?market=US`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + accessToken
-            }
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log("ALBUM DATA:", data.items)
-            setAlbums(data.items)
-        })
+        if (data.type === "artist") {
+            fetch(`https://api.spotify.com/v1/${data.type}s/${id}/albums?market=US`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + accessToken
+                }
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("ALBUM DATA:", data.items)
+                setAlbums(data.items)
+            })
+        }
     }, [])
 
     const renderTopTracks = topTracks.map((track) => {
@@ -110,4 +114,4 @@ const SearchDetails = ( { accessToken } ) => {
     )
 }
 
-export default SearchDetails;
+export default ArtistDetails;

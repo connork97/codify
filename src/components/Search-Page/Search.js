@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, useHistory, useRouteMatch } from "react-router-dom";
 import { Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap';
 import TrackSearchSongCard from "./TrackSearchSongCard";
-import SearchDetails from "./SearchDetails";
 
 const Search = ({ handleLikedSong, accessToken }) => {
 
@@ -30,7 +29,7 @@ const Search = ({ handleLikedSong, accessToken }) => {
             }
         }
 
-    // fetch 6 artists, 6 albums, 6 tracks, and 6 playlists and set to state artists, albums, and playlists
+    // fetch 6 artists, 6 albums, 6 tracks, and 6 playlists and set to state artists, albums, tracks, and playlists
         await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParameters)
         .then(response => response.json())
         .then(data => {
@@ -56,7 +55,11 @@ const Search = ({ handleLikedSong, accessToken }) => {
             setPlaylists(data.playlists.items.slice(0,6))
         })
     }
+    
 
+// Callback function for rendering artists, albums and playlists from return below.
+// Take in artists, albums, and playlists states, map through them, and render a row container 
+// with the images, name, and 
     const renderSearchComponent = (element) => {
         return (
             <Container>
@@ -77,7 +80,9 @@ const Search = ({ handleLikedSong, accessToken }) => {
         )
     }
 
-    // Actual Return of Components to be rendered on page
+    // Top Container: Render of the search bar. If keydown event = "Enter" or clicks the search button, trigger 
+    // searchMusic function which fetches the artists, albums, tracks, and playlists. Also, put an onChange
+    // event listener to set the search input state to the user's input, which is used in the fetch requests
     return (
         <div>
             <Container>
@@ -86,12 +91,12 @@ const Search = ({ handleLikedSong, accessToken }) => {
                     <FormControl
                     placeholder="Search for Artist"
                     type="input"
-                    onKeyDown={event => {
+                    onKeyDown={(event) => {
                         if (event.key === "Enter") {
                         searchMusic();
                         }
                     }}
-                    onChange={event => setSearchInput(event.target.value)}
+                    onChange={(event) => setSearchInput(event.target.value)}
                     />
                     <Button onClick={searchMusic}>
                     Search
@@ -99,6 +104,9 @@ const Search = ({ handleLikedSong, accessToken }) => {
                 </InputGroup>
             </Container>
             <br></br>
+            {/* shouldRender is initially set to false, and is set to true when the onClick or
+            search function fires. If shouldRender and searchInput is not equal to an empty string, 
+            render Top Tracks, else null */}
             {shouldRender && searchInput !== "" ? <h2>Top Tracks</h2> : null}
             <br></br>
             <Container>
@@ -112,7 +120,6 @@ const Search = ({ handleLikedSong, accessToken }) => {
                 </Row>
             </Container>
             <br></br>
-
             {shouldRender && searchInput !== "" ? <h2>Top Artists</h2> : null}
             <br></br>
             {renderSearchComponent(artists)}
