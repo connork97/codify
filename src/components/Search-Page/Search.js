@@ -18,7 +18,7 @@ const Search = ({ handleLikedSong, accessToken }) => {
 
     // Search Function runs when user inputs text and hits enter key or search button
 
-    async function search() {
+    async function searchMusic() {
 
         setShouldRender(true);
 
@@ -30,6 +30,7 @@ const Search = ({ handleLikedSong, accessToken }) => {
             }
         }
 
+    // fetch 6 artists, 6 albums, 6 tracks, and 6 playlists and set to state artists, albums, and playlists
         await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParameters)
         .then(response => response.json())
         .then(data => {
@@ -56,30 +57,17 @@ const Search = ({ handleLikedSong, accessToken }) => {
         })
     }
 
-    // Rendering Artists, Albums, and Playlists (since they have similar/identical data structures)
-
-    // const handleDetailsClick = (element, item) => {
-    //     console.log(item)
-    //     return (
-    //         <>
-    //             <Redirect />
-
-    //             {/* <Link to="search-details"></Link> */}
-    //         </>
-    //     )
-    // }
-
     const renderSearchComponent = (element) => {
         return (
             <Container>
                 <Row className="mx-2 row row-cols-6">
-                    {element.map( (item, i) => {
+                    {element.map((item, i) => {
                     return (
                         <Card onClick={() => history.push({pathname:`${url}/${item.type}/${item.name}/details`, state:item})} >
                         <Card.Img src={item.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"} />
                         <Card.Body>
                             <Card.Title>{item.name}</Card.Title>
-                            <Link to={`${url}/${item.type}/${item.name}/details`}>Click For More Details</Link>
+                            {/* <Link to={`${url}/${item.type}/${item.name}/details`}>Click For More Details</Link> */}
                         </Card.Body>
                         </Card>
                     )
@@ -93,24 +81,26 @@ const Search = ({ handleLikedSong, accessToken }) => {
     return (
         <div>
             <Container>
+                <br></br>
                 <InputGroup className="mb-3" size="lg">
                     <FormControl
                     placeholder="Search for Artist"
                     type="input"
                     onKeyDown={event => {
                         if (event.key === "Enter") {
-                        search();
+                        searchMusic();
                         }
                     }}
                     onChange={event => setSearchInput(event.target.value)}
                     />
-                    <Button onClick={search}>
+                    <Button onClick={searchMusic}>
                     Search
                     </Button>
                 </InputGroup>
             </Container>
-
+            <br></br>
             {shouldRender && searchInput !== "" ? <h2>Top Tracks</h2> : null}
+            <br></br>
             <Container>
                 <Row className="mx-2 row row-cols-6">
                     {tracks.map( (track, i) => {
@@ -121,14 +111,18 @@ const Search = ({ handleLikedSong, accessToken }) => {
                     })}
                 </Row>
             </Container>
+            <br></br>
 
             {shouldRender && searchInput !== "" ? <h2>Top Artists</h2> : null}
+            <br></br>
             {renderSearchComponent(artists)}
-
+            <br></br>
             {shouldRender && searchInput !== "" ? <h2>Top Albums</h2> : null}
+            <br></br>
             {renderSearchComponent(albums)}
-
+            <br></br>
             {shouldRender && searchInput !== "" ? <h2>Top Playlists</h2> : null}
+            <br></br>
             {renderSearchComponent(playlists)}
 
         </div>

@@ -21,25 +21,9 @@ const SongCard = ({ song, handleLikedSong }) => {
 
     const songUrl = song.track.preview_url;
 
-// Take whichever song we clicked on and make a post request to our JSON server based on the likedSong state.
-// Check db.JSON file for confirmation
 
-    const handleClick = () => {
-        // console.log(song)
-        // fetch("http://localhost:8000/likes", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify(likedSong)
-        // })
-        // .then((response => response.json()))
-        // .then((likedSong) => console.log(likedSong))
-        handleLikedSong(likedSong)
-    }
-
-// Add onclick event listener to button component & point back to handleClick function
-
+// Add onclick event listener to button component & point back to handleLikedSong function which lives in App
+// Render the details of the song cards with 
     return (
         <Card>
             <Card.Body>
