@@ -1,4 +1,6 @@
 import { Card, Button } from "react-bootstrap";
+import { BsSpotify } from "react-icons/bs";
+
 
 const LikedSongCard = ({ song, handleRemoveLike }) => {
 
@@ -13,8 +15,13 @@ const LikedSongCard = ({ song, handleRemoveLike }) => {
                 <Card.Title>{song.song_name}</Card.Title>
                 <Card.Text>{song.artists}</Card.Text>
             </Card.Body>
+            <span style={{display:"flex", justifyContent:"space-around", alignItems:"center"}}>
             <Button onClick={() => handleRemoveLike(song)}>Remove From Likes</Button>
-            <video controls name="media">
+            <a href={song.song_link} target="_blank">
+                <BsSpotify style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
+            </a>
+            </span>
+            <video controls name="media" style={{marginBottom:"15px"}}>
                 <source src={song.preview_url} alt="no preview available" type="audio/mp3" />
             </video>
         </Card>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { Container, Row, Card, ListGroup, Header, Button } from "react-bootstrap";
+import { BsSpotify } from "react-icons/bs";
 
 const PlaylistDetails = ({ accessToken }) => {
 
@@ -31,12 +32,15 @@ const PlaylistDetails = ({ accessToken }) => {
         return (
             <ListGroup.Item style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
                 <img style={{height:"50px", borderRadius:"7.5px"}} src={item.track.album.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"}></img>
-                {item.track.name}
+                <span style={{position:"absolute", left:"100px"}} >{item.track.name}</span>
                 {item.track.preview_url !== null ?
-                    <video controls name="media" style={{right:"0", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
+                    <video controls name="media" style={{position:"absolute", right:"75px", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
                         <source src={item.track.preview_url} alt="no preview available" type="audio/mp3" />
                     </video>
-                : <span>Preview Not Available</span>}
+                : <span style={{position:"absolute", right:"160px"}}>Preview Not Available</span>}
+                <a href={item.track.external_urls.spotify} target="_blank">
+                    <BsSpotify onClick={() => console.log(item.track.external_urls.spotify)} style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
+                </a>   
             </ListGroup.Item>
         )
     })

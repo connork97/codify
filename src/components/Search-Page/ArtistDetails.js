@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useLocation, useHistory } from "react-router-dom";
 import { Container, Row, Card, ListGroup, Header, Button } from "react-bootstrap";
+import { BsSpotify } from "react-icons/bs";
 
 const ArtistDetails = ( { accessToken } ) => {
 
@@ -53,14 +54,17 @@ const ArtistDetails = ( { accessToken } ) => {
 
     const renderTopTracks = topTracks.map((track) => {
         return (
-            <ListGroup.Item style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
+            <ListGroup.Item style={{position:"relative", display:"flex", justifyContent:"space-between", alignItems:"center"}}>
                 <img style={{height:"50px", borderRadius:"7.5px"}} src={track.album.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"}></img>
-                {track.name} - {track.album.name}
+                <span style={{position:"absolute", left:"100px"}} >{track.name} - {track.album.name}</span>
                 {track.preview_url !== null ?
-                    <video controls name="media" style={{right:"0", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
-                        <source src={track.preview_url} alt="no preview available" type="audio/mp3" />
+                    <video controls name="media" style={{position:"absolute", right:"75px", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
+                    <source src={track.preview_url} alt="no preview available" type="audio/mp3" />
                     </video>
-                : <span>Preview Not Available</span>}
+                : <span style={{position:"absolute", right:"160px"}}>Preview Not Available</span>}
+                <a href={track.external_urls.spotify} target="_blank">
+                    <BsSpotify onClick={() => console.log(track.external_urls.spotify)} style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
+                </a>
             </ListGroup.Item>
         )
     })

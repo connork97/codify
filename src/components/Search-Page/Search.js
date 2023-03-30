@@ -33,40 +33,41 @@ const Search = ({ handleLikedSong, accessToken }) => {
         await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParameters)
         .then(response => response.json())
         .then(data => {
-            setArtists(data.artists.items.slice(0,6))
+            setArtists(data.artists.items.slice(0,5))
         })
 
         await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=album', searchParameters)
         .then(response => response.json())
         .then(data => {
-            setAlbums(data.albums.items.slice(0, 6))
+            setAlbums(data.albums.items.slice(0, 5))
         })
         
         await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=track', searchParameters)
         .then(response => response.json())
         .then(data => {
-            setTracks(data.tracks.items.slice(0, 6))
+            setTracks(data.tracks.items.slice(0, 5))
         })
 
         await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=playlist', searchParameters)
         .then(response => response.json())
         .then(data => {
             console.log(data.playlists.items)
-            setPlaylists(data.playlists.items.slice(0,6))
+            setPlaylists(data.playlists.items.slice(0,5))
         })
     }
     
 
 // Callback function for rendering artists, albums and playlists from return below.
 // Take in artists, albums, and playlists states, map through them, and render a row container 
-// with the images, name, and 
+// with the images and name. Also, create an onclick that routes you to a new URL depending on...?
     const renderSearchComponent = (element) => {
         return (
             <Container>
-                <Row className="mx-2 row row-cols-6">
+                <Row className="mx row row-cols-5">
                     {element.map((item, i) => {
                     return (
                         <Card onClick={() => history.push({pathname:`${url}/${item.type}/${item.name}/details`, state:item})} >
+                        <br></br>
                         <Card.Img src={item.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"} />
                         <Card.Body>
                             <Card.Title>{item.name}</Card.Title>
@@ -106,11 +107,11 @@ const Search = ({ handleLikedSong, accessToken }) => {
             <br></br>
             {/* shouldRender is initially set to false, and is set to true when the onClick or
             search function fires. If shouldRender and searchInput is not equal to an empty string, 
-            render Top Tracks, else null */}
+            render Top Tracks, else null. Return a TrackSearchSongCard component. */}
             {shouldRender && searchInput !== "" ? <h2>Top Tracks</h2> : null}
             <br></br>
             <Container>
-                <Row className="mx-2 row row-cols-6">
+                <Row className="mx row row-cols-5">
                     {tracks.map( (track, i) => {
                         console.log(track)
                     return (
@@ -118,6 +119,8 @@ const Search = ({ handleLikedSong, accessToken }) => {
                     )
                     })}
                 </Row>
+                {/* Render the rows of cards for artists, albums, and playlists from a callback function
+                renderSearchComponent*/}
             </Container>
             <br></br>
             {shouldRender && searchInput !== "" ? <h2>Top Artists</h2> : null}

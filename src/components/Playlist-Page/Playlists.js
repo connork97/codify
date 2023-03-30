@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Row, Container, Accordion } from 'react-bootstrap';
-import { VscArrowCircleRight } from "react-icons/vsc";
+import { BsSpotify } from "react-icons/bs";
 import PlaylistSongCard from "../Homepage/SongCard";
 
 const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, accessToken }) => {
@@ -8,12 +8,15 @@ const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, a
     const renderEachNewSong = () => {
             return allNewSongs.map((song) => {
                 return (
-                    <Accordion.Body style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
+                    <Accordion.Body style={{position:"relative", display:"flex", justifyContent:"space-between", alignItems:"center"}}>
                         <img src={song.track.album.images[0].url} style={{width:"50px", marginLeft:"0", borderRadius:"7.5px"}}></img>
-                        {song.track.name} - {song.track.artists[0].name}
-                        <video controls name="media" style={{right:"0", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
+                        <span style={{position:"absolute", left:"100px"}} >{song.track.name} - {song.track.artists[0].name}</span>
+                        <video controls name="media" style={{position:"absolute", right:"75px", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
                             <source src={song.track.preview_url} alt="no preview available" type="audio/mp3" />
                         </video>
+                        <a href={song.track.external_urls.spotify} target="_blank">
+                            <BsSpotify onClick={() => console.log(song.track.external_urls.spotify)} style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
+                        </a>
                     </Accordion.Body>
             )
         })
@@ -22,12 +25,15 @@ const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, a
     const renderEachTopSong = () => {
             return allTopSongs.map((song) => {
                 return (
-                    <Accordion.Body style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
+                    <Accordion.Body style={{position:"relative", display:"flex", justifyContent:"space-between", alignItems:"center"}}>
                         <img src={song.track.album.images[0].url} style={{width:"50px", marginLeft:"0", borderRadius:"7.5px"}}></img>
-                        {song.track.name} - {song.track.artists[0].name}
-                        <video controls name="media" style={{right:"0", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
+                        <span style={{position:"absolute", left:"100px"}} >{song.track.name} - {song.track.artists[0].name}</span>
+                        <video controls name="media" style={{position:"absolute", right:"75px", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
                             <source src={song.track.preview_url} alt="no preview available" type="audio/mp3" />
                         </video>
+                        <a href={song.track.external_urls.spotify} target="_blank">
+                            <BsSpotify onClick={() => console.log(song.track.external_urls.spotify)} style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
+                        </a>
                     </Accordion.Body>
             )
         })
@@ -36,12 +42,15 @@ const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, a
     const renderEachLikedSong = () => {
             return allLikedSongs.map((song) => {
                 return (
-                    <Accordion.Body style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
+                    <Accordion.Body style={{position:"relative", display:"flex", justifyContent:"space-between", alignItems:"center"}}>
                         <img src={song.image} style={{width:"50px", marginLeft:"0", borderRadius:"7.5px"}}></img>
-                        {song.song_name} - {song.artists}
-                        <video controls name="media" style={{right:"0", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
+                        <span style={{position:"absolute", left:"100px"}}>{song.song_name} - {song.artists}</span>
+                        <video controls name="media" style={{position:"absolute", right:"75px", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
                             <source src={song.preview_url} alt="no preview available" type="audio/mp3" />
                         </video>
+                        <a href={song.song_link} target="_blank">
+                            <BsSpotify onClick={() => console.log(song.song_link)} style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
+                        </a>
                     </Accordion.Body>
             )
         })
