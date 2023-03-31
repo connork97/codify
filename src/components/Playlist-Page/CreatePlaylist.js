@@ -42,7 +42,7 @@ const CreatePlaylist = ({
     // }
     const handleGeneralToggle = () => {
         setGeneralToggle(!generalToggle)
-        setTimeout(handleRedirect(), 250)
+        handleRedirect()
     }
     
     const handleRedirect = () => {

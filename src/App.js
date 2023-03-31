@@ -152,6 +152,8 @@ function App() {
             allNewSongs={allNewSongs}
             allPlaylists={allPlaylists}
             setAllPlaylists={setAllPlaylists}
+            generalToggle={generalToggle}
+            setGeneralToggle={setGeneralToggle}
           />
         </Route>
         <Route path="/playlists/new-playlist">

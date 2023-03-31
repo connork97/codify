@@ -1,9 +1,10 @@
 import { useHistory } from "react-router-dom";
 import { Container, Accordion, Button } from 'react-bootstrap';
 import { BsSpotify } from "react-icons/bs";
+import { useEffect } from "react";
 
 const Playlists = ({ 
-    allLikedSongs, allTopSongs, allNewSongs, allPlaylists, setAllPlaylists 
+    allLikedSongs, allTopSongs, allNewSongs, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle
 }) => {
     
     const history = useHistory()
@@ -84,6 +85,14 @@ const Playlists = ({
         const remainingPlaylists = allPlaylists.filter((playlist) => playlist.id != id)
         setAllPlaylists(remainingPlaylists)
     }
+
+    useEffect(() => {
+        setGeneralToggle(!generalToggle)
+    }, [])
+
+    useEffect(() => {
+        renderUserPlaylists()
+    }, [generalToggle])
 
     const renderUserPlaylists = () => allPlaylists.map((playlist) => {
         console.log(playlist)
