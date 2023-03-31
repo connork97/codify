@@ -3,7 +3,7 @@ import { Link, useHistory, useRouteMatch } from "react-router-dom";
 import { Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap';
 import TrackSearchSongCard from "./TrackSearchSongCard";
 
-const Search = ({ handleLikedSong, accessToken }) => {
+const Search = ({ handleLikedSong, accessToken, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) => {
 
     const history = useHistory();
     const { url, path } = useRouteMatch();
@@ -115,7 +115,14 @@ const Search = ({ handleLikedSong, accessToken }) => {
                     {tracks.map( (track, i) => {
                         // console.log(track)
                     return (
-                        <TrackSearchSongCard track={track} handleLikedSong={handleLikedSong} />
+                        <TrackSearchSongCard 
+                            track={track} 
+                            handleLikedSong={handleLikedSong} 
+                            allPlaylists={allPlaylists} 
+                            setAllPlaylists={setAllPlaylists}
+                            generalToggle={generalToggle}
+                            setGeneralToggle={setGeneralToggle}
+                        />
                     )
                     })}
                 </Row>

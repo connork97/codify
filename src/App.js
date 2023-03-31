@@ -188,6 +188,10 @@ function App() {
           <Search 
             handleLikedSong={handleLikedSong} 
             accessToken={accessToken} 
+            allPlaylists={allPlaylists}
+            setAllPlaylists={setAllPlaylists}
+            generalToggle={generalToggle}
+            setGeneralToggle={setGeneralToggle}
           />
         </Route>
         <Route path="/search/artist/:name/details">

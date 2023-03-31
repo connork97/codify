@@ -1,11 +1,15 @@
 import { useState } from "react";
-import { Card, Button } from "react-bootstrap";
-import { BsSpotify } from "react-icons/bs";
+import { useHistory } from "react-router-dom";
+import { Card, Button, Dropdown } from "react-bootstrap";
+import { BsSpotify, BsList } from "react-icons/bs";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 
-const TrackSearchSongCard = ({ track, handleLikedSong }) => {
+const TrackSearchSongCard = ({ track, handleLikedSong, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) => {
 
     const [isLiked, setIsLiked] = useState(false);
+    const [isPlaylistClicked, setIsPlaylistClicked] = useState(false);
+
+    const history = useHistory();
 
     const likedSong = {
         song_id: track.id,
@@ -21,10 +25,43 @@ const TrackSearchSongCard = ({ track, handleLikedSong }) => {
         popularity: track.popularity,
         preview_url: track.preview_url
     }
+
+    const dropDownOptions = () => {
+        return allPlaylists.map((playlist) => {
+            // console.log(playlist.songs)
+            return <Dropdown.Item onClick={() => handleAddToPlaylist(playlist)}>{playlist.name}</Dropdown.Item>
+        })
+    }
+    
+    const handleAddToPlaylist = (playlist) => {
+        console.log(playlist.songs)
+        // console.log(likedSong)
+        fetch(`http://localhost:8000/playlists/${playlist.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                songs: [
+                    ...playlist.songs,
+                    likedSong
+                ]
+            })
+        })
+        .then((response) => response.json())
+        .then((addedSongData) => console.log(addedSongData))
+        setAllPlaylists([...allPlaylists, likedSong])
+        setGeneralToggle(!generalToggle)
+    }
+
     const onLikeButtonClick = () => {
         setIsLiked(!isLiked)
         console.log(track)
         handleLikedSong(likedSong)
+    }
+
+    const handleCreateNewPlaylist = () => {
+        history.push({pathname:"/playlists/new-playlist"})
     }
 
     return (
@@ -45,9 +82,24 @@ const TrackSearchSongCard = ({ track, handleLikedSong }) => {
                 <BsSpotify onClick={() => console.log(track.external_urls.spotify)} style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
             </a>
         </span>
-        <video controls name="media" style={{marginBottom:"15px"}}>
+        <span style={{display:"inline-flex", marginTop:"50px", zIndex:"10", justifyContent:"space-between", alignItems:"center"}}>
+            <audio controls name="media" style={{marginBottom:"15px", width:"200px"}}>
+                <source src={track.preview_url} alt="no preview available" type="audio/mp3" />
+            </audio>
+            <Dropdown>
+                <Dropdown.Toggle variant="none" style={{marginBottom:"15px"}}>
+                    <BsList type="select" onClick={() => setIsPlaylistClicked(!isPlaylistClicked)} style={{display:"inline-flex", cursor:"pointer", scale:"1.75", zIndex:"10"}} />
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                    <span style={{display:"flex", justifyContent:"center"}}><strong>Add to...</strong></span>
+                    <Dropdown.Item onClick={() => handleCreateNewPlaylist()}>New Playlist</Dropdown.Item>
+                {dropDownOptions()}
+                </Dropdown.Menu>
+            </Dropdown>
+        </span>
+        {/* <video controls name="media" style={{marginBottom:"15px"}}>
             <source src={track.preview_url} alt="no preview available" type="audio/mp3" />
-        </video>
+        </video> */}
         </Card>
     )
 }
