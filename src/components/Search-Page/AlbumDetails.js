@@ -4,7 +4,7 @@ import { Container, Row, Card, ListGroup, Header, Button } from "react-bootstrap
 import { BsSpotify } from "react-icons/bs";
 import TrackListItem from "./TrackListItem";
 
-const AlbumDetails = ({ accessToken }) => {
+const AlbumDetails = ({ accessToken, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) => {
 
     const [albumTracks, setAlbumTracks] = useState([]);
 
@@ -24,7 +24,7 @@ const AlbumDetails = ({ accessToken }) => {
         })
         .then((response) => response.json())
         .then((data) => {
-            // console.log("ALBUM TRACK DATA:", data.items)
+            console.log("ALBUM DATA:", data)
             setAlbumTracks(data.items)
         })
     }, [])
@@ -34,14 +34,22 @@ const AlbumDetails = ({ accessToken }) => {
     const [backupPreviewUrl, setBackupPreviewUrl] = useState("");
 
     // console.log(albumData)
-    
     const renderAlbumTracks = albumTracks.map((track) => {
         return (
             <ListGroup.Item style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
                 <img style={{height:"50px", borderRadius:"7.5px"}} src={albumData.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"}></img>
                 <span style={{position:"absolute", left:"100px"}} >{track.name}</span>
                 {/* // console.log(track); */}
-                <TrackListItem track={track} accessToken={accessToken} artistName={albumData.artists[0].name} />
+                <TrackListItem 
+                    track={track} 
+                    accessToken={accessToken} 
+                    artistName={albumData.artists[0].name} 
+                    albumImage={albumData.images[0]?.url  || process.env.PUBLIC_URL + "logo192.png"}
+                    allPlaylists={allPlaylists}
+                    setAllPlaylists={setAllPlaylists}
+                    generalToggle={generalToggle}
+                    setGeneralToggle={setGeneralToggle}    
+                />
                 <a href={track.external_urls.spotify} target="_blank">
                     <BsSpotify onClick={() => console.log(track.external_urls.spotify)} style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
                 </a>   

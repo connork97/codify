@@ -3,7 +3,9 @@ import { useParams, useLocation } from "react-router-dom";
 import { Container, Row, Card, ListGroup, Header, Button } from "react-bootstrap";
 import { BsSpotify } from "react-icons/bs";
 
-const PlaylistDetails = ({ accessToken }) => {
+import TrackListItem from "./TrackListItem";
+
+const PlaylistDetails = ({ accessToken, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) => {
 
     const [playlistTracks, setPlaylistTracks] = useState([]);
 
@@ -32,12 +34,23 @@ const PlaylistDetails = ({ accessToken }) => {
         return (
             <ListGroup.Item style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
                 <img style={{height:"50px", borderRadius:"7.5px"}} src={item.track.album.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"}></img>
-                <span style={{position:"absolute", left:"100px"}} >{item.track.name}</span>
-                {item.track.preview_url !== null ?
+                <span style={{position:"absolute", left:"100px"}}>{item.track.name}</span>
+                    {console.log("ITEM TRACK", item.track)}
+                    <TrackListItem 
+                        track={item.track} 
+                        accessToken={accessToken} 
+                        artistName={item.track.artists[0].name}
+                        allPlaylists={allPlaylists}
+                        setAllPlaylists={setAllPlaylists}
+                        generalToggle={generalToggle}
+                        setGeneralToggle={setGeneralToggle}
+                        albumImage={item.track.album.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"}
+                    />
+                    {/* {item.track.preview_url !== null ?
                     <video controls name="media" style={{position:"absolute", right:"75px", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
                         <source src={item.track.preview_url} alt="no preview available" type="audio/mp3" />
                     </video>
-                : <span style={{position:"absolute", right:"160px"}}>Preview Not Available</span>}
+                : <span style={{position:"absolute", right:"160px"}}>Preview Not Available</span>} */}
                 <a href={item.track.external_urls.spotify} target="_blank">
                     <BsSpotify onClick={() => console.log(item.track.external_urls.spotify)} style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
                 </a>   
@@ -55,7 +68,7 @@ const PlaylistDetails = ({ accessToken }) => {
                         <Card.Img src={playlistData.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"} />
                             <br></br><br></br>
                             <Card.Title>{playlistData.name}</Card.Title>
-                            <Card.Text>Released: {playlistData.release_date}</Card.Text>
+                            {/* <Card.Text>Released: {playlistData.release_date}</Card.Text> */}
                         </Card.Body>
                     </Card>
                 </Row>

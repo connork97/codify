@@ -157,6 +157,20 @@
           "image": "https://i.scdn.co/image/ab67616d0000b2732b6d78c5a3f6247aa997b812",
           "popularity": 97,
           "preview_url": "https://p.scdn.co/mp3-preview/64e90f49942deb7dd92610fb8ef64b30524e6009?cid=1ff422b13da04c47b1d3639000b11abb"
+        },
+        {
+          "song_id": "2MLHyLy5z5l5YRp7momlgw",
+          "song_name": "Island In The Sun",
+          "song_link": "https://open.spotify.com/track/2MLHyLy5z5l5YRp7momlgw",
+          "artists_id": "3jOstUTkEu2JkjvRdBA5Gu",
+          "artists": "Weezer",
+          "artists_link": "https://open.spotify.com/artist/3jOstUTkEu2JkjvRdBA5Gu",
+          "album_id": "2OBSz5Nlto0Q5CtYPzPY7c",
+          "album_name": "Weezer",
+          "album_link": "https://open.spotify.com/album/2OBSz5Nlto0Q5CtYPzPY7c",
+          "image": "https://i.scdn.co/image/ab67616d0000b2731e0dc5baaabda304b0ad1815",
+          "popularity": 78,
+          "preview_url": "https://p.scdn.co/mp3-preview/41d6b89405dde5179030faef864d9fa2cfdfd41b?cid=1ff422b13da04c47b1d3639000b11abb"
         }
       ],
       "id": 1
@@ -298,6 +312,54 @@
           "popularity": 82,
           "preview_url": "https://p.scdn.co/mp3-preview/1aa59cfc4e15a45403fd35eb72ce62acd8a45f58?cid=1ff422b13da04c47b1d3639000b11abb",
           "id": 2
+        },
+        {
+          "song_id": "2LqczHHyVkIN9WlaQyFG1R",
+          "song_name": "OK - with Remi Wolf & Solomonophonic",
+          "song_link": "https://open.spotify.com/track/2LqczHHyVkIN9WlaQyFG1R",
+          "artists_id": "0NIPkIjTV8mB795yEIiPYL",
+          "artists": "Wallows",
+          "artists_link": "https://open.spotify.com/artist/0NIPkIjTV8mB795yEIiPYL",
+          "album_id": "0MsM0ZsU68EiOBrwtt0Lbz",
+          "album_name": "OK (with Remi Wolf & Solomonophonic)",
+          "album_link": "https://open.spotify.com/album/0MsM0ZsU68EiOBrwtt0Lbz",
+          "image": "https://i.scdn.co/image/ab67616d0000b2737980941707cad8fcbc600c2a",
+          "popularity": 49,
+          "preview_url": "https://p.scdn.co/mp3-preview/00c001bbf977163a6b011b23b6e8c6b92d8a1dfa?cid=1ff422b13da04c47b1d3639000b11abb"
+        },
+        {
+          "song_id": "0awZwmlC6pxH65KTZpadmX",
+          "song_name": "Freakin' Out On the Interstate",
+          "song_link": "https://open.spotify.com/track/0awZwmlC6pxH65KTZpadmX",
+          "artists_id": "7vtSUU3zpHeYJfX6BPNrJd",
+          "artists": "Briston Maroney",
+          "artists_link": "https://open.spotify.com/artist/7vtSUU3zpHeYJfX6BPNrJd",
+          "album_id": "0dXQf9UooGFoxLamqfkURl",
+          "album_name": "Freakin' Out On The Interstate (Acoustic Version [Live])",
+          "album_link": "https://open.spotify.com/album/0dXQf9UooGFoxLamqfkURl",
+          "image": "https://i.scdn.co/image/ab67616d0000b2733c008a88733819759c4512c6",
+          "popularity": 69,
+          "preview_url": "https://p.scdn.co/mp3-preview/6676fb7981890194cfeadae9e8234e8a05c79798?cid=1ff422b13da04c47b1d3639000b11abb"
+        },
+        {
+          "song_id": "474uVhyGgK5MtY9gMcDgGl",
+          "song_name": "It's Called: Freefall",
+          "song_link": "https://open.spotify.com/track/474uVhyGgK5MtY9gMcDgGl",
+          "artists_id": "4hz8tIajF2INpgM0qzPJz2",
+          "artists": "Rainbow Kitten Surprise",
+          "artists_link": "https://open.spotify.com/artist/4hz8tIajF2INpgM0qzPJz2",
+          "image": "https://i.scdn.co/image/ab67616d0000b2739529217e48fc8bab89c8a1f9",
+          "preview_url": "https://p.scdn.co/mp3-preview/84be00e486991c2b8b7d8625dd90fd9624993d20?cid=1ff422b13da04c47b1d3639000b11abb"
+        },
+        {
+          "song_id": "6oOFa5QkmIUzgS0ikbgJqK",
+          "song_name": "First Class",
+          "song_link": "https://open.spotify.com/track/6oOFa5QkmIUzgS0ikbgJqK",
+          "artists_id": "4hz8tIajF2INpgM0qzPJz2",
+          "artists": "Rainbow Kitten Surprise",
+          "artists_link": "https://open.spotify.com/artist/4hz8tIajF2INpgM0qzPJz2",
+          "image": "https://i.scdn.co/image/ab67616d0000b27394604284f4f96ee0374eef8c",
+          "preview_url": "https://p.scdn.co/mp3-preview/864d1647a03a58291a500dc9efff1c35af3da5a8?cid=1ff422b13da04c47b1d3639000b11abb"
         }
       ],
       "id": 3
@@ -363,6 +425,112 @@
           "image": "https://i.scdn.co/image/ab67616d0000b273d9194aa18fa4c9362b47464f",
           "popularity": 78,
           "preview_url": "https://p.scdn.co/mp3-preview/a1f828c57ecf2b61cee888d956e5b59aebb14610?cid=1ff422b13da04c47b1d3639000b11abb"
+        },
+        {
+          "song_id": "6MXXY2eiWkpDCezVCc0cMH",
+          "song_name": "Good Morning",
+          "song_link": "https://open.spotify.com/track/6MXXY2eiWkpDCezVCc0cMH",
+          "artists_id": "5K4W6rqBFWDnAN6FQUkS6x",
+          "artists": "Kanye West",
+          "artists_link": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x",
+          "image": "https://i.scdn.co/image/ab67616d0000b27326f7f19c7f0381e56156c94a",
+          "preview_url": "https://p.scdn.co/mp3-preview/49dd1bf7def316c2dcd53fc37350ad6ad03e2c8b?cid=1ff422b13da04c47b1d3639000b11abb"
+        },
+        {
+          "song_id": "1PS1QMdUqOal0ai3Gt7sDQ",
+          "song_name": "Gold Digger",
+          "song_link": "https://open.spotify.com/track/1PS1QMdUqOal0ai3Gt7sDQ",
+          "artists_id": "5K4W6rqBFWDnAN6FQUkS6x",
+          "artists": "Kanye West",
+          "artists_link": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x",
+          "preview_url": "https://p.scdn.co/mp3-preview/c07d8315fb8fc3a820a312e29961c96a2e7d7229?cid=1ff422b13da04c47b1d3639000b11abb"
+        },
+        {
+          "song_id": "1PS1QMdUqOal0ai3Gt7sDQ",
+          "song_name": "Gold Digger",
+          "song_link": "https://open.spotify.com/track/1PS1QMdUqOal0ai3Gt7sDQ",
+          "artists_id": "5K4W6rqBFWDnAN6FQUkS6x",
+          "artists": "Kanye West",
+          "artists_link": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x",
+          "image": "https://i.scdn.co/image/ab67616d0000b273428d2255141c2119409a31b2",
+          "preview_url": "https://p.scdn.co/mp3-preview/c07d8315fb8fc3a820a312e29961c96a2e7d7229?cid=1ff422b13da04c47b1d3639000b11abb"
+        },
+        {
+          "song_id": "6VoIBz0VhCyz7OdEoRYDiA",
+          "song_name": "Say It Ain't So",
+          "song_link": "https://open.spotify.com/track/6VoIBz0VhCyz7OdEoRYDiA",
+          "artists_id": "3jOstUTkEu2JkjvRdBA5Gu",
+          "artists": "Weezer",
+          "artists_link": "https://open.spotify.com/artist/3jOstUTkEu2JkjvRdBA5Gu",
+          "album_id": "1xpGyKyV26uPstk1Elgp9Q",
+          "album_name": "Weezer",
+          "album_link": "https://open.spotify.com/album/1xpGyKyV26uPstk1Elgp9Q",
+          "image": "https://i.scdn.co/image/ab67616d0000b273345536847e60f622ee0eae96",
+          "popularity": 75,
+          "preview_url": "https://p.scdn.co/mp3-preview/17adc497b3bfb73e83cf713f1dd6b9a711abb59b?cid=1ff422b13da04c47b1d3639000b11abb"
+        },
+        {
+          "song_id": "0mEdbdeRFQwBhN4xfyIeUM",
+          "song_name": "Can't Tell Me Nothing",
+          "song_link": "https://open.spotify.com/track/0mEdbdeRFQwBhN4xfyIeUM",
+          "artists_id": "5K4W6rqBFWDnAN6FQUkS6x",
+          "artists": "Kanye West",
+          "artists_link": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x",
+          "album_id": "4SZko61aMnmgvNhfhgTuD3",
+          "album_name": "Graduation",
+          "album_link": "https://open.spotify.com/album/4SZko61aMnmgvNhfhgTuD3",
+          "image": "https://i.scdn.co/image/ab67616d0000b27326f7f19c7f0381e56156c94a",
+          "popularity": 77,
+          "preview_url": "https://p.scdn.co/mp3-preview/839f6db1fdc6443750dbfcef3671622b9c44e03c?cid=1ff422b13da04c47b1d3639000b11abb"
+        },
+        {
+          "song_id": "0rKtyWc8bvkriBthvHKY8d",
+          "song_name": "SLOW DANCING IN THE DARK",
+          "song_link": "https://open.spotify.com/track/0rKtyWc8bvkriBthvHKY8d",
+          "artists_id": "3MZsBdqDrRTJihTHQrO6Dq",
+          "artists": "Joji",
+          "artists_link": "https://open.spotify.com/artist/3MZsBdqDrRTJihTHQrO6Dq",
+          "album_id": "34GQP3dILpyCN018y2k61L",
+          "album_name": "BALLADS 1",
+          "album_link": "https://open.spotify.com/album/34GQP3dILpyCN018y2k61L",
+          "image": "https://i.scdn.co/image/ab67616d0000b27360ba1d6104d0475c7555a6b2",
+          "popularity": 82,
+          "preview_url": "https://p.scdn.co/mp3-preview/1aa59cfc4e15a45403fd35eb72ce62acd8a45f58?cid=1ff422b13da04c47b1d3639000b11abb",
+          "id": 2
+        },
+        {
+          "song_id": "1Qrg8KqiBpW07V7PNxwwwL",
+          "song_name": "Kill Bill",
+          "song_link": "https://open.spotify.com/track/1Qrg8KqiBpW07V7PNxwwwL",
+          "artists_id": "7tYKF4w9nC0nq9CsPZTHyP",
+          "artists": "SZA",
+          "artists_link": "https://open.spotify.com/artist/7tYKF4w9nC0nq9CsPZTHyP",
+          "album_id": "1nrVofqDRs7cpWXJ49qTnP",
+          "album_name": "SOS",
+          "album_link": "https://open.spotify.com/album/1nrVofqDRs7cpWXJ49qTnP",
+          "image": "https://i.scdn.co/image/ab67616d0000b2730c471c36970b9406233842a5",
+          "popularity": 94,
+          "preview_url": "https://p.scdn.co/mp3-preview/4bd2dc84016f3743add7eea8b988407b1b900672?cid=1ff422b13da04c47b1d3639000b11abb"
+        },
+        {
+          "song_id": "722tgOgdIbNe3BEyLnejw4",
+          "song_name": "Black Skinhead",
+          "song_link": "https://open.spotify.com/track/722tgOgdIbNe3BEyLnejw4",
+          "artists_id": "5K4W6rqBFWDnAN6FQUkS6x",
+          "artists": "Kanye West",
+          "artists_link": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x",
+          "image": "https://i.scdn.co/image/ab67616d0000b2731dacfbc31cc873d132958af9",
+          "preview_url": "https://p.scdn.co/mp3-preview/26aa843ed8e7b6db0afd450ba67df128fb4ee64b?cid=1ff422b13da04c47b1d3639000b11abb"
+        },
+        {
+          "song_id": "5TRPicyLGbAF2LGBFbHGvO",
+          "song_name": "Flashing Lights",
+          "song_link": "https://open.spotify.com/track/5TRPicyLGbAF2LGBFbHGvO",
+          "artists_id": "5K4W6rqBFWDnAN6FQUkS6x",
+          "artists": "Kanye West",
+          "artists_link": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x",
+          "image": "https://i.scdn.co/image/ab67616d0000b27326f7f19c7f0381e56156c94a",
+          "preview_url": "https://p.scdn.co/mp3-preview/2ba76ce35610a1d4c3876e95e97ab1321e277f99?cid=1ff422b13da04c47b1d3639000b11abb"
         }
       ],
       "id": 4

@@ -195,13 +195,31 @@ function App() {
           />
         </Route>
         <Route path="/search/artist/:name/details">
-          <ArtistDetails accessToken={accessToken} />
+          <ArtistDetails 
+            accessToken={accessToken} 
+            allPlaylists={allPlaylists}
+            setAllPlaylists={setAllPlaylists}
+            generalToggle={generalToggle}
+            setGeneralToggle={setGeneralToggle}
+          />
         </Route>
         <Route path="/search/album/:name/details">
-          <AlbumDetails accessToken={accessToken} />
+          <AlbumDetails 
+            accessToken={accessToken} 
+            allPlaylists={allPlaylists}
+            setAllPlaylists={setAllPlaylists}
+            generalToggle={generalToggle}
+            setGeneralToggle={setGeneralToggle}
+          />
         </Route>
         <Route path="/search/playlist/:name/details">
-          <PlaylistDetails accessToken={accessToken} />
+          <PlaylistDetails 
+            accessToken={accessToken} 
+            allPlaylists={allPlaylists}
+            setAllPlaylists={setAllPlaylists}
+            generalToggle={generalToggle}
+            setGeneralToggle={setGeneralToggle}
+          />
         </Route>
       </Switch>
 

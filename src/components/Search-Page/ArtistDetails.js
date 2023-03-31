@@ -4,7 +4,7 @@ import { Container, Row, Card, ListGroup, Header, Button } from "react-bootstrap
 import { BsSpotify } from "react-icons/bs";
 import TrackListItem from "./TrackListItem";
 
-const ArtistDetails = ( { accessToken } ) => {
+const ArtistDetails = ( { accessToken, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle } ) => {
 
     const [topTracks, setTopTracks] = useState([]);
     const [albums, setAlbums] = useState([]);
@@ -58,7 +58,16 @@ const ArtistDetails = ( { accessToken } ) => {
             <ListGroup.Item style={{position:"relative", display:"flex", justifyContent:"space-between", alignItems:"center"}}>
                 <img style={{height:"50px", borderRadius:"7.5px"}} src={track.album.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"}></img>
                 <span style={{position:"absolute", left:"100px"}} >{track.name} - {track.album.name}</span>
-                    <TrackListItem track={track} accessToken={accessToken} artistName={track.artists[0].name} />
+                    <TrackListItem 
+                        track={track} 
+                        accessToken={accessToken} 
+                        artistName={track.artists[0].name}
+                        allPlaylists={allPlaylists}
+                        setAllPlaylists={setAllPlaylists}
+                        generalToggle={generalToggle}
+                        setGeneralToggle={setGeneralToggle}
+                        albumImage={track.album.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"}
+                    />
                 <a href={track.external_urls.spotify} target="_blank">
                     <BsSpotify style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
                 </a>
