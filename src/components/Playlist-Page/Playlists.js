@@ -6,7 +6,7 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 
 import PlaylistSongCard from "../Homepage/SongCard";
 
-const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, allPlaylists, accessToken }) => {
+const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, allPlaylists, setAllPlaylists, accessToken }) => {
     
     const history = useHistory()
     const [isLiked, setIsLiked] = useState(false);
@@ -64,7 +64,7 @@ const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, a
     }
 
     const renderUserSongs = (playlist) => {
-        console.log("TESTING 1 2 3", playlist.songs)
+        console.log("TESTING 1 2 3", playlist)
         return playlist.songs.map((song) => {
             return (
                 <Accordion.Body style={{position:"relative", display:"flex", justifyContent:"space-between", alignItems:"center"}}>
@@ -81,15 +81,26 @@ const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, a
         })
     }
 
+    const handleDeletePlaylist = (id) => {
+        fetch(`http://localhost:8000/playlists/${id}`, {
+            method: "DELETE"
+        })
+        const remainingPlaylists = allPlaylists.filter((playlist) => playlist.id != id)
+        setAllPlaylists(remainingPlaylists)
+    }
+
     const renderUserPlaylists = () => allPlaylists.map((playlist) => {
         console.log(playlist)
         return (
-            <Accordion style={{margin:"2.5rem 0 2.5rem 0"}} defaultActiveKey={null}>
+            <span>
+            <Accordion style={{position:"relative", overflow:"visible", margin:"2.5rem 0 2.5rem 0"}} defaultActiveKey={null}>
                 <Accordion.Item>
                 <Accordion.Header>{playlist.name}</Accordion.Header>
                     {renderUserSongs(playlist)}
                 </Accordion.Item>
+                <Button onClick={() => handleDeletePlaylist(playlist.id)} style={{position:"absolute", display:"flex", justifyContent:"center", right:"-175px", bottom:"7.5px", width:"150px"}}>Delete Playlist</Button>
             </Accordion>
+            </span>
         )
         // return playlist.songs.map((data) => {
         //     console.log(data)

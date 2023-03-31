@@ -178,6 +178,7 @@ function App() {
             allNewSongs={allNewSongs}
             handleLikedSong={handleLikedSong}
             allPlaylists={allPlaylists}
+            setAllPlaylists={setAllPlaylists}
             accessToken={accessToken}
           />
         </Route>
