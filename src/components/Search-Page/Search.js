@@ -45,7 +45,7 @@ const Search = ({ handleLikedSong, accessToken }) => {
         await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=track', searchParameters)
         .then(response => response.json())
         .then(data => {
-            console.log("Working Songs", data.tracks.items.slice(0,5))
+            // console.log("Working Songs", data.tracks.items.slice(0,5))
             setTracks(data.tracks.items.slice(0, 5))
         })
 
@@ -113,7 +113,7 @@ const Search = ({ handleLikedSong, accessToken }) => {
             <Container>
                 <Row className="mx row row-cols-5">
                     {tracks.map( (track, i) => {
-                        console.log(track)
+                        // console.log(track)
                     return (
                         <TrackSearchSongCard track={track} handleLikedSong={handleLikedSong} />
                     )

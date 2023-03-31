@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
-import { BsSpotify } from "react-icons/bs";
 import { Container, Row, Card, ListGroup, Header, Button } from "react-bootstrap";
+import { BsSpotify } from "react-icons/bs";
+import TrackListItem from "./TrackListItem";
 
 const AlbumDetails = ({ accessToken }) => {
 
     const [albumTracks, setAlbumTracks] = useState([]);
 
     const location = useLocation();
-    console.log(location.state);
+    // console.log(location.state);
 
     const albumData = location.state;
+    // console.log("ALBUM DATA", albumData.artists[0].name)
 
     useEffect(() => {
         fetch(`https://api.spotify.com/v1/albums/${location.state.id}/tracks`, {
@@ -22,7 +24,7 @@ const AlbumDetails = ({ accessToken }) => {
         })
         .then((response) => response.json())
         .then((data) => {
-            console.log("ALBUM TRACK DATA:", data.items)
+            // console.log("ALBUM TRACK DATA:", data.items)
             setAlbumTracks(data.items)
         })
     }, [])
@@ -31,50 +33,15 @@ const AlbumDetails = ({ accessToken }) => {
 
     const [backupPreviewUrl, setBackupPreviewUrl] = useState("");
 
-    const fetchPreviewUrl = async (trackName) => {
-        // if (!executed) {
-            let backupPreview;
-            const response = await fetch('https://api.spotify.com/v1/search?q=' + trackName + '&type=track', {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": "Bearer " + accessToken
-                }
-            })
-            const data = await response.json()
-            backupPreview = data.tracks.items[0].preview_url;
-            // .then((response) => response.json())
-            // .then((data) => {
-                // console.log(data.tracks.items[0].preview_url)
-                // executed = true;
-                // backupPreview = data.tracks.items[0].preview_url;
-            // })
-        // }
-            console.log(backupPreview);
-            return backupPreview;
-    }
+    // console.log(albumData)
     
     const renderAlbumTracks = albumTracks.map((track) => {
-
-    let executed = false;
-
-        // console.log(track.name)
-        // console.log(track.id)
         return (
             <ListGroup.Item style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
                 <img style={{height:"50px", borderRadius:"7.5px"}} src={albumData.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"}></img>
                 <span style={{position:"absolute", left:"100px"}} >{track.name}</span>
-                {track.preview_url === null ?
-                    // executed === false ? fetchPreviewUrl() : null &&
-                    // fetchPreviewUrl(track.name) &&
-                    <video controls name="media" style={{position:"absolute", right:"75px", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
-                        <source src={fetchPreviewUrl(track.name)} alt="no preview available" type="audio/mp3" />
-                    </video>
-                    : 
-                    <video controls name="media" style={{position:"absolute", right:"75px", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
-                        <source src={track.preview_url} alt="no preview available" type="audio/mp3" />
-                    </video>
-                }
+                {/* // console.log(track); */}
+                <TrackListItem track={track} accessToken={accessToken} artistName={albumData.artists[0].name} />
                 <a href={track.external_urls.spotify} target="_blank">
                     <BsSpotify onClick={() => console.log(track.external_urls.spotify)} style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
                 </a>   
