@@ -87,9 +87,9 @@ const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, a
                 </Accordion.Item>
             </Accordion>
         )
-        return playlist.songs.map((data) => {
-            console.log(data)
-        });
+        // return playlist.songs.map((data) => {
+        //     console.log(data)
+        // });
     })
 
     return (

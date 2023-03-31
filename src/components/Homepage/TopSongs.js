@@ -3,7 +3,7 @@ import { Row, Container, Card } from 'react-bootstrap';
 import { VscArrowCircleRight } from "react-icons/vsc";
 import SongCard from "./SongCard";
 
-function TopSongs({ allTopSongs, setAllTopSongs, accessToken, handleLikedSong, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) {
+function TopSongs({ allTopSongs, setAllTopSongs, accessToken, handleLikedSong, allPlaylists, setAllPlaylists, handleAddToPlaylist, generalToggle, setGeneralToggle }) {
 
 
 
@@ -13,7 +13,18 @@ function TopSongs({ allTopSongs, setAllTopSongs, accessToken, handleLikedSong, a
     const eachTrack = () => {
         const onlyFiveTopSongs = allTopSongs.slice(0, 5);
         return onlyFiveTopSongs.map((song) => {
-            return <SongCard song={song} handleLikedSong={handleLikedSong} allPlaylists={allPlaylists} setAllPlaylists={setAllPlaylists} generalToggle={generalToggle} setGeneralToggle={setGeneralToggle} key={song.track.id} />
+            return (
+                <SongCard 
+                    song={song} 
+                    handleLikedSong={handleLikedSong} 
+                    allPlaylists={allPlaylists} 
+                    setAllPlaylists={setAllPlaylists} 
+                    generalToggle={generalToggle} 
+                    setGeneralToggle={setGeneralToggle} 
+                    handleAddToPlaylist={handleAddToPlaylist}
+                    key={song.track.id} 
+                />
+            )
         })
     }
 

@@ -125,6 +125,30 @@ function App() {
     })
   }, [])
 
+//   const handleAddToPlaylist = ({playlist, likedSong}) => {
+//     console.log(playlist)
+//     // console.log(likedSong)
+//     fetch(`http://localhost:8000/playlists/${playlist.id}`, {
+//         method: "PATCH",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify({
+//             songs: [
+//                 ...playlist.songs,
+//                 likedSong
+//             ]
+//         })
+//     })
+//     .then((response) => response.json())
+//     .then((addedSongData) => {
+//       console.log(addedSongData)
+//       setAllPlaylists(addedSongData)
+//     })
+//     // setAllPlaylists([...allPlaylists, likedSong])
+//     setGeneralToggle(!generalToggle)
+// }
+
   // Return a NavBar which includes client side routes for Home, Playlists, and Search
   return (
     <div className="App">
@@ -143,6 +167,7 @@ function App() {
             handleRemovedLike={handleRemovedLike}
             allPlaylists={allPlaylists}
             setAllPlaylists={setAllPlaylists}
+            // handleAddToPlaylist={handleAddToPlaylist}
             generalToggle={generalToggle}
             setGeneralToggle={setGeneralToggle}
           />

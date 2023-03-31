@@ -143,6 +143,20 @@
           "image": "https://i.scdn.co/image/ab67616d0000b2730c471c36970b9406233842a5",
           "popularity": 94,
           "preview_url": "https://p.scdn.co/mp3-preview/4bd2dc84016f3743add7eea8b988407b1b900672?cid=1ff422b13da04c47b1d3639000b11abb"
+        },
+        {
+          "song_id": "4nrPB8O7Y7wsOCJdgXkthe",
+          "song_name": "Shakira: Bzrp Music Sessions, Vol. 53",
+          "song_link": "https://open.spotify.com/track/4nrPB8O7Y7wsOCJdgXkthe",
+          "artists_id": "716NhGYqD1jl2wI1Qkgq36",
+          "artists": "Bizarrap",
+          "artists_link": "https://open.spotify.com/artist/716NhGYqD1jl2wI1Qkgq36",
+          "album_id": "1gi2iwr1l8IUyHYHxi01pg",
+          "album_name": "Shakira: Bzrp Music Sessions, Vol. 53",
+          "album_link": "https://open.spotify.com/album/1gi2iwr1l8IUyHYHxi01pg",
+          "image": "https://i.scdn.co/image/ab67616d0000b2732b6d78c5a3f6247aa997b812",
+          "popularity": 97,
+          "preview_url": "https://p.scdn.co/mp3-preview/64e90f49942deb7dd92610fb8ef64b30524e6009?cid=1ff422b13da04c47b1d3639000b11abb"
         }
       ],
       "id": 1
@@ -269,9 +283,61 @@
           "image": "https://i.scdn.co/image/ab67616d0000b2730c471c36970b9406233842a5",
           "popularity": 94,
           "preview_url": "https://p.scdn.co/mp3-preview/4bd2dc84016f3743add7eea8b988407b1b900672?cid=1ff422b13da04c47b1d3639000b11abb"
+        },
+        {
+          "song_id": "0rKtyWc8bvkriBthvHKY8d",
+          "song_name": "SLOW DANCING IN THE DARK",
+          "song_link": "https://open.spotify.com/track/0rKtyWc8bvkriBthvHKY8d",
+          "artists_id": "3MZsBdqDrRTJihTHQrO6Dq",
+          "artists": "Joji",
+          "artists_link": "https://open.spotify.com/artist/3MZsBdqDrRTJihTHQrO6Dq",
+          "album_id": "34GQP3dILpyCN018y2k61L",
+          "album_name": "BALLADS 1",
+          "album_link": "https://open.spotify.com/album/34GQP3dILpyCN018y2k61L",
+          "image": "https://i.scdn.co/image/ab67616d0000b27360ba1d6104d0475c7555a6b2",
+          "popularity": 82,
+          "preview_url": "https://p.scdn.co/mp3-preview/1aa59cfc4e15a45403fd35eb72ce62acd8a45f58?cid=1ff422b13da04c47b1d3639000b11abb",
+          "id": 2
         }
       ],
       "id": 3
+    },
+    {
+      "name": "boy oh boy",
+      "description": "hmmmmm",
+      "songs": [
+        {
+          "song_id": "0rKtyWc8bvkriBthvHKY8d",
+          "song_name": "SLOW DANCING IN THE DARK",
+          "song_link": "https://open.spotify.com/track/0rKtyWc8bvkriBthvHKY8d",
+          "artists_id": "3MZsBdqDrRTJihTHQrO6Dq",
+          "artists": "Joji",
+          "artists_link": "https://open.spotify.com/artist/3MZsBdqDrRTJihTHQrO6Dq",
+          "album_id": "34GQP3dILpyCN018y2k61L",
+          "album_name": "BALLADS 1",
+          "album_link": "https://open.spotify.com/album/34GQP3dILpyCN018y2k61L",
+          "image": "https://i.scdn.co/image/ab67616d0000b27360ba1d6104d0475c7555a6b2",
+          "popularity": 82,
+          "preview_url": "https://p.scdn.co/mp3-preview/1aa59cfc4e15a45403fd35eb72ce62acd8a45f58?cid=1ff422b13da04c47b1d3639000b11abb",
+          "id": 2
+        },
+        {
+          "song_id": "4EWCNWgDS8707fNSZ1oaA5",
+          "song_name": "Heartless",
+          "song_link": "https://open.spotify.com/track/4EWCNWgDS8707fNSZ1oaA5",
+          "artists_id": "5K4W6rqBFWDnAN6FQUkS6x",
+          "artists": "Kanye West",
+          "artists_link": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x",
+          "album_id": "3WFTGIO6E3Xh4paEOBY9OU",
+          "album_name": "808s & Heartbreak",
+          "album_link": "https://open.spotify.com/album/3WFTGIO6E3Xh4paEOBY9OU",
+          "image": "https://i.scdn.co/image/ab67616d0000b273346d77e155d854735410ed18",
+          "popularity": 84,
+          "preview_url": "https://p.scdn.co/mp3-preview/920b09535e94d18179265783aeb8b3ccb2495977?cid=1ff422b13da04c47b1d3639000b11abb",
+          "id": 3
+        }
+      ],
+      "id": 4
     }
   ],
   "likes": [

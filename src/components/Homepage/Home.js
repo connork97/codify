@@ -18,6 +18,10 @@ function Home({ allNewSongs, setAllNewSongs, allLikedSongs, setAllLikedSongs, al
                 allLikedSongs={allLikedSongs} 
                 setAllLikedSongs={setAllLikedSongs}
                 handleRemovedLike={handleRemovedLike}
+                allPlaylists={allPlaylists}
+                setAllPlaylists={setAllPlaylists}
+                generalToggle={generalToggle}
+                setGeneralToggle={setGeneralToggle}
             />
             <TopSongs 
                 handleLikedSong={handleLikedSong} 
@@ -26,7 +30,6 @@ function Home({ allNewSongs, setAllNewSongs, allLikedSongs, setAllLikedSongs, al
                 accessToken={accessToken} 
                 allPlaylists={allPlaylists}
                 setAllPlaylists={setAllPlaylists}
-                handleAddToPlaylist={handleAddToPlaylist}
                 generalToggle={generalToggle}
                 setGeneralToggle={setGeneralToggle}
             />
@@ -37,7 +40,6 @@ function Home({ allNewSongs, setAllNewSongs, allLikedSongs, setAllLikedSongs, al
                 accessToken={accessToken} 
                 allPlaylists={allPlaylists}
                 setAllPlaylists={setAllPlaylists}
-                handleAddToPlaylist={handleAddToPlaylist}
                 generalToggle={generalToggle}
                 setGeneralToggle={setGeneralToggle}
             />

@@ -8,7 +8,17 @@ function NewSongs({ allNewSongs, setAllNewSongs, accessToken, handleLikedSong, a
     const eachTrack = () => {
         const onlyFiveNewSongs = allNewSongs.slice(0, 5);
         return onlyFiveNewSongs.map((song) => {
-            return <SongCard song={song} handleLikedSong={handleLikedSong} allPlaylists={allPlaylists} setAllPlaylists={setAllPlaylists} generalToggle={generalToggle} setGeneralToggle={setGeneralToggle} key={song.track.id} />
+            return (
+                <SongCard 
+                    song={song} 
+                    handleLikedSong={handleLikedSong} 
+                    allPlaylists={allPlaylists} 
+                    setAllPlaylists={setAllPlaylists} 
+                    generalToggle={generalToggle} 
+                    setGeneralToggle={setGeneralToggle}
+                    key={song.track.id} 
+                />
+            )
         })
     }
 

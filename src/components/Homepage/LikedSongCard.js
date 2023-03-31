@@ -1,13 +1,45 @@
-import { Card, Button } from "react-bootstrap";
-import { BsSpotify } from "react-icons/bs";
+import { useState } from "react";
+import { Card, Button, Dropdown } from "react-bootstrap";
+import { BsSpotify, BsList } from "react-icons/bs";
 
 
-const LikedSongCard = ({ song, handleRemovedLike }) => {
+const LikedSongCard = ({ song, handleRemovedLike, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) => {
 
+    const [isPlaylistClicked, setIsPlaylistClicked] = useState(false);
 
 // Render a LikedSongCard component (image, song name, artist, and song preview url)
 // Render a Remove from likes component with an onclick that is passed to a function
 // handleRemoveLike in the LikedSong component which sends a delete request to our JSON
+
+    const dropDownOptions = () => {
+        return allPlaylists.map((playlist) => {
+            // console.log(playlist.songs)
+            return <Dropdown.Item onClick={() => handleAddToPlaylist(playlist)}>{playlist.name}</Dropdown.Item>
+        })
+    }
+
+    const handleAddToPlaylist = (playlist) => {
+        console.log(playlist.songs)
+        const targetPlaylist = playlist.name;
+        // console.log(likedSong)
+        fetch(`http://localhost:8000/playlists/${playlist.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                songs: [
+                    ...playlist.songs,
+                    song
+                ]
+            })
+        })
+        .then((response) => response.json())
+        .then((addedSongData) => console.log(addedSongData))
+        setAllPlaylists([...allPlaylists, song])
+        setGeneralToggle(!generalToggle)
+    }
+
     return (
         <Card>
             <Card.Body>
@@ -21,9 +53,20 @@ const LikedSongCard = ({ song, handleRemovedLike }) => {
                 <BsSpotify style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
             </a>
             </span>
-            <video controls name="media" style={{marginBottom:"15px"}}>
+            <span style={{display:"inline-flex", marginTop:"50px", zIndex:"10", justifyContent:"space-between", alignItems:"center"}}>
+            <audio controls name="media" style={{marginBottom:"15px", width:"200px"}}>
                 <source src={song.preview_url} alt="no preview available" type="audio/mp3" />
-            </video>
+            </audio>
+            <Dropdown>
+                <Dropdown.Toggle variant="none" style={{marginBottom:"15px"}}>
+                    <BsList type="select" onClick={() => setIsPlaylistClicked(!isPlaylistClicked)} style={{display:"inline-flex", cursor:"pointer", scale:"1.75", zIndex:"10"}} />
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                    <span style={{display:"flex", justifyContent:"center"}}><strong>Add to...</strong></span>
+                {dropDownOptions()}
+                </Dropdown.Menu>
+            </Dropdown>
+            </span>
         </Card>
         )
 }
