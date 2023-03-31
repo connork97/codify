@@ -11,6 +11,7 @@ import Search from "./components/Search-Page/Search";
 import ArtistDetails from "./components/Search-Page/ArtistDetails";
 import AlbumDetails from "./components/Search-Page/AlbumDetails";
 import PlaylistDetails from "./components/Search-Page/PlaylistDetails";
+import CreatePlaylist from "./components/Playlist-Page/CreatePlaylist";
 
 const CLIENT_ID = "1ff422b13da04c47b1d3639000b11abb";
 const CLIENT_SECRET = "403561469b9c409faa37c5f49d39c46e";
@@ -122,7 +123,7 @@ function App() {
             handleLikedSong={handleLikedSong}
           />
         </Route>
-        <Route path="/playlists">
+        <Route exact path="/playlists">
           <Playlists 
             allLikedSongs={allLikedSongs}
             allTopSongs={allTopSongs}
@@ -130,6 +131,9 @@ function App() {
             handleLikedSong={handleLikedSong}
             accessToken={accessToken}
           />
+        </Route>
+        <Route path="/playlists/new-playlist">
+          <CreatePlaylist />
         </Route>
         <Route exact path="/search">
           <Search 

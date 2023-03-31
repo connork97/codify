@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { Row, Container, Accordion } from 'react-bootstrap';
+import { useHistory } from "react-router-dom";
+import { Row, Container, Accordion, Button } from 'react-bootstrap';
 import { BsSpotify } from "react-icons/bs";
 import PlaylistSongCard from "../Homepage/SongCard";
 
 const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, accessToken }) => {
     
+    const history = useHistory()
+
     const renderEachNewSong = () => {
             return allNewSongs.map((song) => {
                 return (
@@ -77,6 +80,7 @@ const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, a
                    {allNewSongs !== "" ? renderEachNewSong() : null}
                 </Accordion.Item>
             </Accordion>
+            <Button onClick={() => history.push({pathname:"/playlists/new-playlist"})}>Create A Playlist</Button>
         </Container>
     )
 }

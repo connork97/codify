@@ -36,3 +36,19 @@ Fix Bugs:
 
 Other Tasks:
     1 - Create a form for website (ideally a create a playlist form, but at least a "request a song" form for songs with no preview_url)
+
+
+    // const fetchPreviewUrl = async (trackName) => {
+    //     let backupPreview;
+    //     const response = await fetch('https://api.spotify.com/v1/search?q=' + trackName + '&type=track', {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Authorization": "Bearer " + accessToken
+    //         }
+    //     })
+    //     const data = await response.json()
+    //     backupPreview = data.tracks.items[0].preview_url;
+    //     console.log(backupPreview);
+    //     return backupPreview;
+    // }
