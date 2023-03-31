@@ -4,7 +4,9 @@ import { Card, Button, Dropdown } from "react-bootstrap";
 import { BsSpotify, BsList } from "react-icons/bs";
 
 
-const LikedSongCard = ({ song, handleRemovedLike, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) => {
+const LikedSongCard = ({ 
+    song, handleRemovedLike, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle 
+}) => {
 
     const history = useHistory();
 
@@ -16,14 +18,11 @@ const LikedSongCard = ({ song, handleRemovedLike, allPlaylists, setAllPlaylists,
 
     const dropDownOptions = () => {
         return allPlaylists.map((playlist) => {
-            // console.log(playlist.songs)
             return <Dropdown.Item onClick={() => handleAddToPlaylist(playlist)}>{playlist.name}</Dropdown.Item>
         })
     }
 
     const handleAddToPlaylist = (playlist) => {
-        console.log(playlist.songs)
-        // console.log(likedSong)
         fetch(`http://localhost:8000/playlists/${playlist.id}`, {
             method: "PATCH",
             headers: {

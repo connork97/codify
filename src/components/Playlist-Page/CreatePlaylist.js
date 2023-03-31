@@ -1,10 +1,20 @@
 import { useState } from "react";
-import { Card, Form, Button } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+import { Form, Button } from "react-bootstrap";
 
-const CreatePlaylist = () => {
+const CreatePlaylist = ({
+    allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle
+}) => {
 
     const [playlistName, setPlaylistName] = useState("")
     const [playlistDescription, setPlaylistDescription] = useState("")
+    const history = useHistory();
+
+    const createdPlaylist = {
+        name: playlistName,
+        description: playlistDescription,
+        songs: []
+    }
 
     const postPlaylist = (event) => {
         event.preventDefault()
@@ -20,9 +30,24 @@ const CreatePlaylist = () => {
             })
         })
         .then((response) => response.json())
-        .then((playlistData) => console.log(playlistData))
+        .then((newPlaylistData) => console.log(newPlaylistData))
+        setAllPlaylists([...allPlaylists, createdPlaylist])
+        handleGeneralToggle()
     }
 
+    // const handlePlaylistState = (newPlaylist) => {
+    //     const updatedPlaylists = [...allPlaylists, newPlaylist]
+    //     setAllPlaylists(updatedPlaylists)
+    //     handleGeneralToggle()
+    // }
+    const handleGeneralToggle = () => {
+        setGeneralToggle(!generalToggle)
+        setTimeout(handleRedirect(), 250)
+    }
+    
+    const handleRedirect = () => {
+        history.push({pathname: "/playlists"})
+    }
     return (
         <Form style={{margin:"auto", width:"75vw", textAlign:"center"}} onSubmit={(event) => postPlaylist(event)}>
             <h1>Your New Playlist</h1>

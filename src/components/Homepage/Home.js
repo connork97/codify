@@ -6,7 +6,12 @@ import LikedSongs from "./LikedSongs";
 import NewSongs from "./NewSongs";
 
 
-function Home({ allNewSongs, setAllNewSongs, allLikedSongs, setAllLikedSongs, allTopSongs, setAllTopSongs, handleLikedSong, handleRemovedLike, allPlaylists, setAllPlaylists, handleAddToPlaylist, generalToggle, setGeneralToggle, accessToken }) {
+function Home({ 
+    allNewSongs, setAllNewSongs, allLikedSongs, 
+    setAllLikedSongs, allTopSongs, setAllTopSongs, 
+    handleLikedSong, handleRemovedLike, allPlaylists, 
+    setAllPlaylists, generalToggle, setGeneralToggle, accessToken 
+}) {
 
     // Within home, return LikedSongs, with the allLikedSongs and setAllSongs states as props
     // Return TopSongs with the allTopSongs and setAllTopSongs states as props as well as the handleLikedSong
@@ -19,9 +24,7 @@ function Home({ allNewSongs, setAllNewSongs, allLikedSongs, setAllLikedSongs, al
         <Carousel>
            <Carousel.Item interval={10000}>
                 <LikedSongs 
-                    accessToken={accessToken} 
                     allLikedSongs={allLikedSongs} 
-                    setAllLikedSongs={setAllLikedSongs}
                     handleRemovedLike={handleRemovedLike}
                     allPlaylists={allPlaylists}
                     setAllPlaylists={setAllPlaylists}
@@ -32,9 +35,7 @@ function Home({ allNewSongs, setAllNewSongs, allLikedSongs, setAllLikedSongs, al
             </Carousel.Item>
             <Carousel.Item interval={20000}>
                 <LikedSongs 
-                    accessToken={accessToken} 
                     allLikedSongs={allLikedSongs} 
-                    setAllLikedSongs={setAllLikedSongs}
                     handleRemovedLike={handleRemovedLike}
                     allPlaylists={allPlaylists}
                     setAllPlaylists={setAllPlaylists}
@@ -50,8 +51,6 @@ function Home({ allNewSongs, setAllNewSongs, allLikedSongs, setAllLikedSongs, al
                 <TopSongs 
                     handleLikedSong={handleLikedSong} 
                     allTopSongs={allTopSongs} 
-                    setAllTopSongs={setAllTopSongs} 
-                    accessToken={accessToken} 
                     allPlaylists={allPlaylists}
                     setAllPlaylists={setAllPlaylists}
                     generalToggle={generalToggle}
@@ -63,8 +62,6 @@ function Home({ allNewSongs, setAllNewSongs, allLikedSongs, setAllLikedSongs, al
                 <TopSongs 
                     handleLikedSong={handleLikedSong} 
                     allTopSongs={allTopSongs} 
-                    setAllTopSongs={setAllTopSongs} 
-                    accessToken={accessToken} 
                     allPlaylists={allPlaylists}
                     setAllPlaylists={setAllPlaylists}
                     generalToggle={generalToggle}
@@ -76,8 +73,6 @@ function Home({ allNewSongs, setAllNewSongs, allLikedSongs, setAllLikedSongs, al
                 <TopSongs 
                     handleLikedSong={handleLikedSong} 
                     allTopSongs={allTopSongs} 
-                    setAllTopSongs={setAllTopSongs} 
-                    accessToken={accessToken} 
                     allPlaylists={allPlaylists}
                     setAllPlaylists={setAllPlaylists}
                     generalToggle={generalToggle}
@@ -92,8 +87,6 @@ function Home({ allNewSongs, setAllNewSongs, allLikedSongs, setAllLikedSongs, al
                 <NewSongs 
                     handleLikedSong={handleLikedSong} 
                     allNewSongs={allNewSongs} 
-                    setAllNewSongs={setAllNewSongs} 
-                    accessToken={accessToken} 
                     allPlaylists={allPlaylists}
                     setAllPlaylists={setAllPlaylists}
                     generalToggle={generalToggle}
@@ -105,8 +98,6 @@ function Home({ allNewSongs, setAllNewSongs, allLikedSongs, setAllLikedSongs, al
                 <NewSongs 
                     handleLikedSong={handleLikedSong} 
                     allNewSongs={allNewSongs} 
-                    setAllNewSongs={setAllNewSongs} 
-                    accessToken={accessToken} 
                     allPlaylists={allPlaylists}
                     setAllPlaylists={setAllPlaylists}
                     generalToggle={generalToggle}
@@ -118,8 +109,6 @@ function Home({ allNewSongs, setAllNewSongs, allLikedSongs, setAllLikedSongs, al
                 <NewSongs 
                     handleLikedSong={handleLikedSong} 
                     allNewSongs={allNewSongs} 
-                    setAllNewSongs={setAllNewSongs} 
-                    accessToken={accessToken} 
                     allPlaylists={allPlaylists}
                     setAllPlaylists={setAllPlaylists}
                     generalToggle={generalToggle}

@@ -363,6 +363,27 @@
         }
       ],
       "id": 3
+    },
+    {
+      "name": "Favorite Songs",
+      "description": "All of the best ones",
+      "songs": [
+        {
+          "song_id": "0awZwmlC6pxH65KTZpadmX",
+          "song_name": "Freakin' Out On the Interstate",
+          "song_link": "https://open.spotify.com/track/0awZwmlC6pxH65KTZpadmX",
+          "artists_id": "7vtSUU3zpHeYJfX6BPNrJd",
+          "artists": "Briston Maroney",
+          "artists_link": "https://open.spotify.com/artist/7vtSUU3zpHeYJfX6BPNrJd",
+          "album_id": "0dXQf9UooGFoxLamqfkURl",
+          "album_name": "Freakin' Out On The Interstate (Acoustic Version [Live])",
+          "album_link": "https://open.spotify.com/album/0dXQf9UooGFoxLamqfkURl",
+          "image": "https://i.scdn.co/image/ab67616d0000b2733c008a88733819759c4512c6",
+          "popularity": 69,
+          "preview_url": "https://p.scdn.co/mp3-preview/6676fb7981890194cfeadae9e8234e8a05c79798?cid=1ff422b13da04c47b1d3639000b11abb"
+        }
+      ],
+      "id": 4
     }
   ],
   "likes": [

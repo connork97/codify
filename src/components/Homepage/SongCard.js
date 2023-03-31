@@ -6,7 +6,9 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 
 // Take in our data for each song.
 
-const SongCard = ({ song, handleLikedSong, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) => {
+const SongCard = ({ 
+    song, handleLikedSong, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle 
+}) => {
 
     const [isLiked, setIsLiked] = useState(false);
     const [isPlaylistClicked, setIsPlaylistClicked] = useState(false);
@@ -32,20 +34,20 @@ const SongCard = ({ song, handleLikedSong, allPlaylists, setAllPlaylists, genera
 
     const onLikeButtonClick = () => {
         setIsLiked(!isLiked)
-        // console.log(song)
         handleLikedSong(likedSong)
     }
 
     const dropDownOptions = () => {
         return allPlaylists.map((playlist) => {
-            // console.log(playlist.songs)
-            return <Dropdown.Item onClick={() => handleAddToPlaylist(playlist)}>{playlist.name}</Dropdown.Item>
+            return (
+                <Dropdown.Item onClick={() => handleAddToPlaylist(playlist)}>
+                    {playlist.name}
+                </Dropdown.Item>
+            )
         })
     }
 
     const handleAddToPlaylist = (playlist) => {
-        console.log(playlist.songs)
-        // console.log(likedSong)
         fetch(`http://localhost:8000/playlists/${playlist.id}`, {
             method: "PATCH",
             headers: {

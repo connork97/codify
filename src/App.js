@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import logo from './logo.svg';
 import { Route, Switch } from "react-router-dom";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -124,30 +123,6 @@ function App() {
     })
   }, [])
 
-//   const handleAddToPlaylist = ({playlist, likedSong}) => {
-//     console.log(playlist)
-//     // console.log(likedSong)
-//     fetch(`http://localhost:8000/playlists/${playlist.id}`, {
-//         method: "PATCH",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify({
-//             songs: [
-//                 ...playlist.songs,
-//                 likedSong
-//             ]
-//         })
-//     })
-//     .then((response) => response.json())
-//     .then((addedSongData) => {
-//       console.log(addedSongData)
-//       setAllPlaylists(addedSongData)
-//     })
-//     // setAllPlaylists([...allPlaylists, likedSong])
-//     setGeneralToggle(!generalToggle)
-// }
-
   // Return a NavBar which includes client side routes for Home, Playlists, and Search
   return (
     <div className="App">
@@ -166,7 +141,6 @@ function App() {
             handleRemovedLike={handleRemovedLike}
             allPlaylists={allPlaylists}
             setAllPlaylists={setAllPlaylists}
-            // handleAddToPlaylist={handleAddToPlaylist}
             generalToggle={generalToggle}
             setGeneralToggle={setGeneralToggle}
           />
@@ -176,14 +150,17 @@ function App() {
             allLikedSongs={allLikedSongs}
             allTopSongs={allTopSongs}
             allNewSongs={allNewSongs}
-            handleLikedSong={handleLikedSong}
             allPlaylists={allPlaylists}
             setAllPlaylists={setAllPlaylists}
-            accessToken={accessToken}
           />
         </Route>
         <Route path="/playlists/new-playlist">
-          <CreatePlaylist />
+          <CreatePlaylist 
+            allPlaylists={allPlaylists}
+            setAllPlaylists={setAllPlaylists}
+            generalToggle={generalToggle}
+            setGeneralToggle={setGeneralToggle}
+          />
         </Route>
         <Route exact path="/search">
           <Search 

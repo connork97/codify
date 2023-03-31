@@ -1,16 +1,12 @@
-import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Row, Container, Accordion, Button } from 'react-bootstrap';
+import { Container, Accordion, Button } from 'react-bootstrap';
 import { BsSpotify } from "react-icons/bs";
-import { FaRegHeart, FaHeart } from "react-icons/fa";
 
-import PlaylistSongCard from "../Homepage/SongCard";
-
-const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, allPlaylists, setAllPlaylists, accessToken }) => {
+const Playlists = ({ 
+    allLikedSongs, allTopSongs, allNewSongs, allPlaylists, setAllPlaylists 
+}) => {
     
     const history = useHistory()
-    const [isLiked, setIsLiked] = useState(false);
-
 
     const renderEachNewSong = () => {
         return allNewSongs.map((song) => {
@@ -22,7 +18,7 @@ const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, a
                         <source src={song.track.preview_url} alt="no preview available" type="audio/mp3" />
                     </video>
                     <a href={song.track.external_urls.spotify} target="_blank">
-                        <BsSpotify onClick={() => console.log(song.track.external_urls.spotify)} style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
+                        <BsSpotify style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
                     </a>
                 </Accordion.Body>
             )
@@ -39,7 +35,7 @@ const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, a
                         <source src={song.track.preview_url} alt="no preview available" type="audio/mp3" />
                     </video>
                     <a href={song.track.external_urls.spotify} target="_blank">
-                        <BsSpotify onClick={() => console.log(song.track.external_urls.spotify)} style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
+                        <BsSpotify style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
                     </a>
                 </Accordion.Body>
             )
@@ -102,9 +98,6 @@ const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, a
             </Accordion>
             </span>
         )
-        // return playlist.songs.map((data) => {
-        //     console.log(data)
-        // });
     })
 
     return (
@@ -133,6 +126,5 @@ const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, a
         </Container>
     )
 }
-
 
 export default Playlists;

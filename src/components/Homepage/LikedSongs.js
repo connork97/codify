@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Row, Container, Card } from 'react-bootstrap';
-import { VscArrowCircleRight } from "react-icons/vsc";
-import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+import { Row, Container } from 'react-bootstrap';
 import LikedSongCard from "./LikedSongCard";
 
 
-function LikedSongs({ startingIndex, accessToken, allLikedSongs, setAllLikedSongs, handleRemovedLike, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) {
-
+function LikedSongs({ 
+    startingIndex, allLikedSongs, handleRemovedLike, 
+    allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) {
 
 // Render the LikedSongs container by taking in the first 5 songs of allLikedSongs, mapping over them, and passing
 // down their props to the LikedSongCard component
@@ -31,7 +29,6 @@ function LikedSongs({ startingIndex, accessToken, allLikedSongs, setAllLikedSong
 // If allLikedSongs is not equal to an empty string, renderLikedSongs, if not, render null
     return (
         <Container className="homePageDiv">
-            {/* <h2 className="homeDivTitle" style={{position:"relative", display:"flex", alignItems:"center", justifyContent:"space-between", fontFamily: "Arial Rounded MT Bold"}}><span style={{margin:"auto"}}>Likes</span><span style={{position:"absolute", right:"15px"}}><VscArrowCircleRight style={{scale:"1.5"}} /></span></h2> */}
             <Row className="mx-2 row row-cols-5" style={{overflow:"hidden"}}>
                 {allLikedSongs !== "" ? renderLikedSongs() : null}
             </Row>

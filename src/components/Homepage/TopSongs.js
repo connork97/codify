@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Row, Container, Card } from 'react-bootstrap';
-import { VscArrowCircleRight } from "react-icons/vsc";
+import { Row, Container } from 'react-bootstrap';
 import SongCard from "./SongCard";
 
-function TopSongs({ startingIndex, allTopSongs, setAllTopSongs, accessToken, handleLikedSong, allPlaylists, setAllPlaylists, handleAddToPlaylist, generalToggle, setGeneralToggle }) {
-
-
+function TopSongs({ 
+    startingIndex, allTopSongs, handleLikedSong, 
+    allPlaylists, setAllPlaylists, handleAddToPlaylist, 
+    generalToggle, setGeneralToggle 
+}) {
 
     // Take our allTopSongs state and return a new array of 5 songs 
     // Map through each of the 5 songs and send down the song to our songCard
@@ -35,7 +35,6 @@ function TopSongs({ startingIndex, allTopSongs, setAllTopSongs, accessToken, han
 
     return (
         <Container className="homePageDiv">
-            {/* <h2 className="homeDivTitle" style={{position:"relative", display:"flex", alignItems:"center", justifyContent:"space-between", fontFamily: "Arial Rounded MT Bold"}}><span style={{margin:"auto"}}>{accessToken === "" ? "Loading " : null}Top Songs</span><span style={{position:"absolute", right:"15px"}}><VscArrowCircleRight style={{scale:"1.5"}} /></span></h2> */}
             <Row className="mx-2 row row-cols-5">
                 {allTopSongs !== "" ? eachTrack() : null}
             </Row>
