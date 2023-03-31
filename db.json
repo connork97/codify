@@ -1,4 +1,12 @@
 {
+  "playlists": [
+    {
+      "name": "My New Playlist",
+      "description": "The most awesome playlist!",
+      "songs": [],
+      "id": 1
+    }
+  ],
   "likes": [
     {
       "song_id": "0rKtyWc8bvkriBthvHKY8d",
