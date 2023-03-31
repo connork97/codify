@@ -30,10 +30,10 @@ const SongCard = ({ song, handleLikedSong, allPlaylists, setAllPlaylists, genera
 
     const songUrl = song.track.preview_url;
 
-    const onLikeButtonClick = (playlist) => {
+    const onLikeButtonClick = () => {
         setIsLiked(!isLiked)
         // console.log(song)
-        handleLikedSong(playlist, likedSong)
+        handleLikedSong(likedSong)
     }
 
     const dropDownOptions = () => {
