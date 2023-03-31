@@ -1,10 +1,7 @@
 import { Row, Container } from 'react-bootstrap';
 import SongCard from "./SongCard";
 
-function NewSongs({ 
-    startingIndex, allNewSongs, handleLikedSong, allPlaylists, 
-    setAllPlaylists, generalToggle, setGeneralToggle 
-}) {
+function NewSongs({ startingIndex, allNewSongs, handleLikedSong, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) {
     
     const eachTrack = () => {
         const onlyFiveNewSongs = allNewSongs.slice(startingIndex, startingIndex + 5);

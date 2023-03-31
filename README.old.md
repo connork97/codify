@@ -52,3 +52,23 @@ Other Tasks:
     //     console.log(backupPreview);
     //     return backupPreview;
     // }
+
+
+    //Alternative Method to Render the Audio Player On First Page Load
+
+    // useEffect(() => {
+    //     const backupObj = allBackups.find((backup) => backup.artists[0].name.toLowerCase() == artistName.toLowerCase())
+    //     console.log(backupObj)
+    //     // debugger;
+    //     let verifiedBackupObj;
+    //     if (backupObj !== undefined) {
+    //         verifiedBackupObj = backupObj
+    //         console.log(verifiedBackupObj)
+    //         setBackupPreview(verifiedBackupObj.preview_url)
+    //         setIsFetched(true)
+    //     }
+    // }, [allBackups])
+
+            // <video controls name="media" style={{position:"absolute", right:"75px", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
+            //     <source src={backupPreview} alt="no preview available" type="audio/mp3" />
+            // </video>

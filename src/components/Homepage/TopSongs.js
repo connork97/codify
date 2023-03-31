@@ -1,11 +1,7 @@
 import { Row, Container } from 'react-bootstrap';
 import SongCard from "./SongCard";
 
-function TopSongs({ 
-    startingIndex, allTopSongs, handleLikedSong, 
-    allPlaylists, setAllPlaylists, handleAddToPlaylist, 
-    generalToggle, setGeneralToggle 
-}) {
+function TopSongs({ startingIndex, allTopSongs, handleLikedSong, allPlaylists, setAllPlaylists, handleAddToPlaylist, generalToggle, setGeneralToggle }) {
 
     // Take our allTopSongs state and return a new array of 5 songs 
     // Map through each of the 5 songs and send down the song to our songCard

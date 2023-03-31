@@ -1,17 +1,13 @@
 import { Row, Container } from 'react-bootstrap';
 import LikedSongCard from "./LikedSongCard";
 
-
-function LikedSongs({ 
-    startingIndex, allLikedSongs, handleRemovedLike, 
-    allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) {
+function LikedSongs({ startingIndex, allLikedSongs, handleRemovedLike, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) {
 
 // Render the LikedSongs container by taking in the first 5 songs of allLikedSongs, mapping over them, and passing
 // down their props to the LikedSongCard component
     const renderLikedSongs = () => {
         const onlyFiveLikes = allLikedSongs.slice(startingIndex, startingIndex + 5);
         return onlyFiveLikes.map((song) => {
-            // console.log(song)
             return (
                 <LikedSongCard 
                     song={song}

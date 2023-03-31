@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Card, Button, Dropdown } from "react-bootstrap";
-import { BsSpotify, BsList } from "react-icons/bs";
+import { Dropdown } from "react-bootstrap";
+import { BsList } from "react-icons/bs";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 
 
 
 const TrackListItem = ({ track, artistName, albumImage, accessToken, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle, handleLikedSong }) => {
     
-    // const [allBackups, setAllBackups] = useState ([]);
     const [backupPreview, setBackupPreview] = useState("");
     const [isFetched, setIsFetched] = useState(false);
     const [isPlaylistClicked, setIsPlaylistClicked] = useState(false);
@@ -26,19 +25,15 @@ const TrackListItem = ({ track, artistName, albumImage, accessToken, allPlaylist
         artists_id: track.artists[0].id,
         artists: track.artists[0].name,
         artists_link: track.artists[0].external_urls.spotify,
-        // album_id: track.album.id,
-        //     album_name: track.album.name,
-        //     album_link: track.album.external_urls.spotify,
         image: albumImage,
-        //     popularity: track.popularity,
         preview_url: backupPreview
     }
     
     const onLikeButtonClick = () => {
         setIsLiked(!isLiked)
-        console.log(track)
         handleLikedSong(likedSong)
     }
+
     useEffect(() => {
         fetch('https://api.spotify.com/v1/search?q=' + track.name + '&type=track', {
             method: "GET",
@@ -58,7 +53,6 @@ const TrackListItem = ({ track, artistName, albumImage, accessToken, allPlaylist
         let verifiedBackupObj;
         if (backupObj !== undefined) {
             verifiedBackupObj = backupObj
-            // setBackupPreview(verifiedBackupObj.preview_url)
             setIsFetched(true)
         }
         setBackupPreview(verifiedBackupObj.preview_url)
@@ -66,14 +60,12 @@ const TrackListItem = ({ track, artistName, albumImage, accessToken, allPlaylist
 
     const dropDownOptions = () => {
         return allPlaylists.map((playlist) => {
-            // console.log(playlist.songs)
             return <Dropdown.Item style={{zIndex:"15"}} onClick={() => handleAddToPlaylist(playlist)}>{playlist.name}</Dropdown.Item>
         })
     }
 
     const handleAddToPlaylist = (playlist) => {
         console.log(playlist.songs)
-        // console.log(likedSong)
         fetch(`http://localhost:8000/playlists/${playlist.id}`, {
             method: "PATCH",
             headers: {
@@ -89,7 +81,6 @@ const TrackListItem = ({ track, artistName, albumImage, accessToken, allPlaylist
         .then((response) => response.json())
         .then((addedSongData) => console.log(addedSongData))
         setAllPlaylists([...allPlaylists, likedSong])
-        // setGeneralToggle(!generalToggle)
         handleToggle()
     }
 
@@ -101,24 +92,6 @@ const TrackListItem = ({ track, artistName, albumImage, accessToken, allPlaylist
         history.push({pathname:"/playlists/new-playlist"})
     }
 
-    //Alternative Method to Render the Audio Player On First Page Load
-
-    // useEffect(() => {
-    //     const backupObj = allBackups.find((backup) => backup.artists[0].name.toLowerCase() == artistName.toLowerCase())
-    //     console.log(backupObj)
-    //     // debugger;
-    //     let verifiedBackupObj;
-    //     if (backupObj !== undefined) {
-    //         verifiedBackupObj = backupObj
-    //         console.log(verifiedBackupObj)
-    //         setBackupPreview(verifiedBackupObj.preview_url)
-    //         setIsFetched(true)
-    //     }
-    // }, [allBackups])
-
-            // <video controls name="media" style={{position:"absolute", right:"75px", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
-            //     <source src={backupPreview} alt="no preview available" type="audio/mp3" />
-            // </video>
     return (
         <>
             {isFetched ?

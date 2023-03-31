@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Link, useHistory, useRouteMatch } from "react-router-dom";
+import { useHistory, useRouteMatch } from "react-router-dom";
 import { Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap';
 import TrackSearchSongCard from "./TrackSearchSongCard";
 
 const Search = ({ handleLikedSong, accessToken, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) => {
 
     const history = useHistory();
-    const { url, path } = useRouteMatch();
+    const { url } = useRouteMatch();
     
     const [searchInput, setSearchInput] = useState("");
     const [artists, setArtists] = useState([]);
@@ -18,9 +18,7 @@ const Search = ({ handleLikedSong, accessToken, allPlaylists, setAllPlaylists, g
     // Search Function runs when user inputs text and hits enter key or search button
 
     async function searchMusic() {
-
         setShouldRender(true);
-
         let searchParameters = {
             method: 'GET',
             headers: {
@@ -71,7 +69,6 @@ const Search = ({ handleLikedSong, accessToken, allPlaylists, setAllPlaylists, g
                         <Card.Img src={item.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"} />
                         <Card.Body>
                             <Card.Title>{item.name}</Card.Title>
-                            {/* <Link to={`${url}/${item.type}/${item.name}/details`}>Click For More Details</Link> */}
                         </Card.Body>
                         </Card>
                     )
@@ -113,7 +110,6 @@ const Search = ({ handleLikedSong, accessToken, allPlaylists, setAllPlaylists, g
             <Container>
                 <Row className="mx row row-cols-5">
                     {tracks.map( (track, i) => {
-                        // console.log(track)
                     return (
                         <TrackSearchSongCard 
                             track={track} 
@@ -141,7 +137,6 @@ const Search = ({ handleLikedSong, accessToken, allPlaylists, setAllPlaylists, g
             {shouldRender && searchInput !== "" ? <h2>Top Playlists</h2> : null}
             <br></br>
             {renderSearchComponent(playlists)}
-
         </div>
     )
 }

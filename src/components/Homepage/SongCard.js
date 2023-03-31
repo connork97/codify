@@ -4,15 +4,10 @@ import { useHistory } from "react-router-dom";
 import { BsSpotify, BsList } from "react-icons/bs";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 
-// Take in our data for each song.
-
-const SongCard = ({ 
-    song, handleLikedSong, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle 
-}) => {
+const SongCard = ({ song, handleLikedSong, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) => {
 
     const [isLiked, setIsLiked] = useState(false);
     const [isPlaylistClicked, setIsPlaylistClicked] = useState(false);
-
     const history = useHistory();
 
     const likedSong = {

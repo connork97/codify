@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams, useLocation, useHistory } from "react-router-dom";
-import { Container, Row, Card, ListGroup, Header, Button } from "react-bootstrap";
+import { useLocation, useHistory } from "react-router-dom";
+import { Container, Row, Card, ListGroup } from "react-bootstrap";
 import { BsSpotify } from "react-icons/bs";
 import TrackListItem from "./TrackListItem";
 
@@ -13,10 +13,6 @@ const ArtistDetails = ( { accessToken, allPlaylists, setAllPlaylists, generalTog
     const location = useLocation();
     const id = location.state.id;
     const data = location.state;
-    console.log(location.state)
-    const FETCH_URL = location.state.href;
-    // console.log(id)
-    // console.log(location.state.href)
 
     // Gives the same information as the location.state as is:
     useEffect(() => {
@@ -30,7 +26,6 @@ const ArtistDetails = ( { accessToken, allPlaylists, setAllPlaylists, generalTog
             })
             .then((response) => response.json())
             .then((data) => {
-                // console.log("here's the data:", data.tracks)
                 setTopTracks(data.tracks)
             })
         }
@@ -47,7 +42,6 @@ const ArtistDetails = ( { accessToken, allPlaylists, setAllPlaylists, generalTog
             })
             .then((response) => response.json())
             .then((data) => {
-                // console.log("ALBUM DATA:", data.items)
                 setAlbums(data.items)
             })
         }
@@ -87,22 +81,6 @@ const ArtistDetails = ( { accessToken, allPlaylists, setAllPlaylists, generalTog
             </Card>
         )
     })
-    // const handleAlbumClick = (albumFetchUrl) => {
-    //     fetch(`${albumFetchUrl}/tracks`, {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Authorization": "Bearer " + accessToken
-    //         }
-    //     })
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //         console.log("ALBUM FETCH DATA:", data.items)
-    //         // setAlbumTracks(data.items)
-    //     })
-    // }
-
-    const { category } = useParams();
 
     return (
         <div>

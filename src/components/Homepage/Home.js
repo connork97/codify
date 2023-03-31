@@ -20,103 +20,124 @@ function Home({
     // function which adds our newLikedSong to our json file
     return (
         <>
-        <h2 className="homeDivTitle" style={{position:"relative", marginTop:"50px", display:"flex", alignItems:"center", justifyContent:"space-between", fontFamily: "Arial Rounded MT Bold"}}><span style={{margin:"auto"}}>Likes</span></h2>
-        <Carousel>
-           <Carousel.Item interval={10000}>
-                <LikedSongs 
-                    allLikedSongs={allLikedSongs} 
-                    handleRemovedLike={handleRemovedLike}
-                    allPlaylists={allPlaylists}
-                    setAllPlaylists={setAllPlaylists}
-                    generalToggle={generalToggle}
-                    setGeneralToggle={setGeneralToggle}
-                    startingIndex={0}
-                />
-            </Carousel.Item>
-            <Carousel.Item interval={20000}>
-                <LikedSongs 
-                    allLikedSongs={allLikedSongs} 
-                    handleRemovedLike={handleRemovedLike}
-                    allPlaylists={allPlaylists}
-                    setAllPlaylists={setAllPlaylists}
-                    generalToggle={generalToggle}
-                    setGeneralToggle={setGeneralToggle}
-                    startingIndex={5}
-                />
-            </Carousel.Item>
-        </Carousel>
-        <h2 className="homeDivTitle" style={{position:"relative", display:"flex", alignItems:"center", justifyContent:"space-between", fontFamily: "Arial Rounded MT Bold"}}><span style={{margin:"auto"}}>{accessToken === "" ? "Loading " : null}Top Songs</span></h2>
-        <Carousel>
-            <Carousel.Item interval={7500}>
-                <TopSongs 
-                    handleLikedSong={handleLikedSong} 
-                    allTopSongs={allTopSongs} 
-                    allPlaylists={allPlaylists}
-                    setAllPlaylists={setAllPlaylists}
-                    generalToggle={generalToggle}
-                    setGeneralToggle={setGeneralToggle}
-                    startingIndex={0}
-                />
-            </Carousel.Item>
-            <Carousel.Item interval={12500}>
-                <TopSongs 
-                    handleLikedSong={handleLikedSong} 
-                    allTopSongs={allTopSongs} 
-                    allPlaylists={allPlaylists}
-                    setAllPlaylists={setAllPlaylists}
-                    generalToggle={generalToggle}
-                    setGeneralToggle={setGeneralToggle}
-                    startingIndex={5}
-                />
-            </Carousel.Item>
-            <Carousel.Item interval={17500}>
-                <TopSongs 
-                    handleLikedSong={handleLikedSong} 
-                    allTopSongs={allTopSongs} 
-                    allPlaylists={allPlaylists}
-                    setAllPlaylists={setAllPlaylists}
-                    generalToggle={generalToggle}
-                    setGeneralToggle={setGeneralToggle}
-                    startingIndex={10}
-                />
-            </Carousel.Item>
-        </Carousel>
-        <h2 className="homeDivTitle" style={{position:"relative", display:"flex", alignItems:"center", justifyContent:"space-between", fontFamily: "Arial Rounded MT Bold"}}><span style={{margin:"auto"}}>{accessToken === "" ? "Loading " : null}New Songs</span></h2>
-        <Carousel>
-            <Carousel.Item interval={7500}>
-                <NewSongs 
-                    handleLikedSong={handleLikedSong} 
-                    allNewSongs={allNewSongs} 
-                    allPlaylists={allPlaylists}
-                    setAllPlaylists={setAllPlaylists}
-                    generalToggle={generalToggle}
-                    setGeneralToggle={setGeneralToggle}
-                    startingIndex={0}
-                />
-            </Carousel.Item>
-            <Carousel.Item interval={12500}>
-                <NewSongs 
-                    handleLikedSong={handleLikedSong} 
-                    allNewSongs={allNewSongs} 
-                    allPlaylists={allPlaylists}
-                    setAllPlaylists={setAllPlaylists}
-                    generalToggle={generalToggle}
-                    setGeneralToggle={setGeneralToggle}
-                    startingIndex={5}
-                />
-            </Carousel.Item>
-            <Carousel.Item interval={17500}>
-                <NewSongs 
-                    handleLikedSong={handleLikedSong} 
-                    allNewSongs={allNewSongs} 
-                    allPlaylists={allPlaylists}
-                    setAllPlaylists={setAllPlaylists}
-                    generalToggle={generalToggle}
-                    setGeneralToggle={setGeneralToggle}
-                    startingIndex={10}
-                />
-            </Carousel.Item>
-        </Carousel>
+            <h1 style={{paddingTop:"50px", paddingBottom:"50px", fontSize:"3.5rem"}}>Welcome to Codify!</h1>
+            <h2 className="homeDivTitle" style={{position:"relative", marginTop:"50px", display:"flex", alignItems:"center", justifyContent:"space-between"}}><span style={{margin:"auto"}}>Your Likes</span></h2>
+            <Carousel>
+                <Carousel.Item interval={10000}>
+                    <LikedSongs 
+                        allLikedSongs={allLikedSongs} 
+                        handleRemovedLike={handleRemovedLike}
+                        allPlaylists={allPlaylists}
+                        setAllPlaylists={setAllPlaylists}
+                        generalToggle={generalToggle}
+                        setGeneralToggle={setGeneralToggle}
+                        startingIndex={0}
+                        key={"likedSongs1"}
+                    />
+                </Carousel.Item>
+                <Carousel.Item interval={20000}>
+                    <LikedSongs 
+                        allLikedSongs={allLikedSongs} 
+                        handleRemovedLike={handleRemovedLike}
+                        allPlaylists={allPlaylists}
+                        setAllPlaylists={setAllPlaylists}
+                        generalToggle={generalToggle}
+                        setGeneralToggle={setGeneralToggle}
+                        startingIndex={5}
+                        key={"likedSongs2"}
+                    />
+                </Carousel.Item>
+            </Carousel>
+            <h2 
+                className="homeDivTitle" 
+                style={{position:"relative", display:"flex", alignItems:"center", justifyContent:"space-between"}}>
+                <span style={{margin:"auto"}}>
+                    Top Songs
+                </span>
+            </h2>
+            <Carousel>
+                <Carousel.Item interval={7500}>
+                    <TopSongs 
+                        handleLikedSong={handleLikedSong} 
+                        allTopSongs={allTopSongs} 
+                        allPlaylists={allPlaylists}
+                        setAllPlaylists={setAllPlaylists}
+                        generalToggle={generalToggle}
+                        setGeneralToggle={setGeneralToggle}
+                        startingIndex={0}
+                        key={"topSongs1"}
+                    />
+                </Carousel.Item>
+                <Carousel.Item interval={12500}>
+                    <TopSongs 
+                        handleLikedSong={handleLikedSong} 
+                        allTopSongs={allTopSongs} 
+                        allPlaylists={allPlaylists}
+                        setAllPlaylists={setAllPlaylists}
+                        generalToggle={generalToggle}
+                        setGeneralToggle={setGeneralToggle}
+                        startingIndex={5}
+                        key={"topSongs2"}
+                    />
+                </Carousel.Item>
+                <Carousel.Item interval={17500}>
+                    <TopSongs 
+                        handleLikedSong={handleLikedSong} 
+                        allTopSongs={allTopSongs} 
+                        allPlaylists={allPlaylists}
+                        setAllPlaylists={setAllPlaylists}
+                        generalToggle={generalToggle}
+                        setGeneralToggle={setGeneralToggle}
+                        startingIndex={10}
+                        key={"topSongs3"}
+                    />
+                </Carousel.Item>
+            </Carousel>
+            <h2 
+                className="homeDivTitle" 
+                style={{position:"relative", display:"flex", alignItems:"center", justifyContent:"space-between"}}>
+                <span style={{margin:"auto"}}>
+                    New Songs
+                </span>
+            </h2>
+            <Carousel>
+                <Carousel.Item interval={7500}>
+                    <NewSongs 
+                        handleLikedSong={handleLikedSong} 
+                        allNewSongs={allNewSongs} 
+                        allPlaylists={allPlaylists}
+                        setAllPlaylists={setAllPlaylists}
+                        generalToggle={generalToggle}
+                        setGeneralToggle={setGeneralToggle}
+                        startingIndex={0}
+                        key={"newSongs1"}
+                    />
+                </Carousel.Item>
+                <Carousel.Item interval={12500}>
+                    <NewSongs 
+                        handleLikedSong={handleLikedSong} 
+                        allNewSongs={allNewSongs} 
+                        allPlaylists={allPlaylists}
+                        setAllPlaylists={setAllPlaylists}
+                        generalToggle={generalToggle}
+                        setGeneralToggle={setGeneralToggle}
+                        startingIndex={5}
+                        key={"newSongs2"}
+                    />
+                </Carousel.Item>
+                <Carousel.Item interval={17500}>
+                    <NewSongs 
+                        handleLikedSong={handleLikedSong} 
+                        allNewSongs={allNewSongs} 
+                        allPlaylists={allPlaylists}
+                        setAllPlaylists={setAllPlaylists}
+                        generalToggle={generalToggle}
+                        setGeneralToggle={setGeneralToggle}
+                        startingIndex={10}
+                        key={"newSongs3"}
+                    />
+                </Carousel.Item>
+            </Carousel>
         </>
     )
 }

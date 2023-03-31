@@ -3,9 +3,7 @@ import { Container, Accordion, Button } from 'react-bootstrap';
 import { BsSpotify } from "react-icons/bs";
 import { useEffect } from "react";
 
-const Playlists = ({ 
-    allLikedSongs, allTopSongs, allNewSongs, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle
-}) => {
+const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) => {
     
     const history = useHistory()
 

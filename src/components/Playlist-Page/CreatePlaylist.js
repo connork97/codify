@@ -2,9 +2,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 
-const CreatePlaylist = ({
-    allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle
-}) => {
+const CreatePlaylist = ({ allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) => {
 
     const [playlistName, setPlaylistName] = useState("")
     const [playlistDescription, setPlaylistDescription] = useState("")
@@ -35,11 +33,6 @@ const CreatePlaylist = ({
         handleGeneralToggle()
     }
 
-    // const handlePlaylistState = (newPlaylist) => {
-    //     const updatedPlaylists = [...allPlaylists, newPlaylist]
-    //     setAllPlaylists(updatedPlaylists)
-    //     handleGeneralToggle()
-    // }
     const handleGeneralToggle = () => {
         setGeneralToggle(!generalToggle)
         handleRedirect()

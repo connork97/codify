@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
-import { Container, Row, Card, ListGroup, Header, Button } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
+import { Container, Row, Card, ListGroup } from "react-bootstrap";
 import { BsSpotify } from "react-icons/bs";
 import TrackListItem from "./TrackListItem";
 
 const AlbumDetails = ({ accessToken, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle, handleLikedSong }) => {
 
     const [albumTracks, setAlbumTracks] = useState([]);
-
     const location = useLocation();
-    // console.log(location.state);
-
     const albumData = location.state;
-    // console.log("ALBUM DATA", albumData.artists[0].name)
 
     useEffect(() => {
         fetch(`https://api.spotify.com/v1/albums/${location.state.id}/tracks`, {
@@ -29,17 +25,11 @@ const AlbumDetails = ({ accessToken, allPlaylists, setAllPlaylists, generalToggl
         })
     }, [])
 
-    {/* <span style={{position:"absolute", right:"160px"}}>Preview Not Available</span>} */}
-
-    const [backupPreviewUrl, setBackupPreviewUrl] = useState("");
-
-    // console.log(albumData)
     const renderAlbumTracks = albumTracks.map((track) => {
         return (
             <ListGroup.Item style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
                 <img style={{height:"50px", borderRadius:"7.5px"}} src={albumData.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"}></img>
                 <span style={{position:"absolute", left:"100px"}} >{track.name}</span>
-                {/* // console.log(track); */}
                 <TrackListItem 
                     track={track} 
                     accessToken={accessToken} 

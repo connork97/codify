@@ -10,8 +10,6 @@ const PlaylistDetails = ({ accessToken, allPlaylists, setAllPlaylists, generalTo
     const [playlistTracks, setPlaylistTracks] = useState([]);
 
     const location = useLocation();
-    console.log(location.state);
-
     const playlistData = location.state;
 
     useEffect(() => {
@@ -24,7 +22,6 @@ const PlaylistDetails = ({ accessToken, allPlaylists, setAllPlaylists, generalTo
         })
         .then((response) => response.json())
         .then((data) => {
-            console.log("PLAYLIST TRACK DATA:", data.items)
             setPlaylistTracks(data.items)
         })
     }, [])
@@ -47,11 +44,6 @@ const PlaylistDetails = ({ accessToken, allPlaylists, setAllPlaylists, generalTo
                         albumImage={item.track.album.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"}
                         handleLikedSong={handleLikedSong}
                     />
-                    {/* {item.track.preview_url !== null ?
-                    <video controls name="media" style={{position:"absolute", right:"75px", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
-                        <source src={item.track.preview_url} alt="no preview available" type="audio/mp3" />
-                    </video>
-                : <span style={{position:"absolute", right:"160px"}}>Preview Not Available</span>} */}
                 <a href={item.track.external_urls.spotify} target="_blank">
                     <BsSpotify onClick={() => console.log(item.track.external_urls.spotify)} style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
                 </a>   
@@ -69,7 +61,6 @@ const PlaylistDetails = ({ accessToken, allPlaylists, setAllPlaylists, generalTo
                         <Card.Img src={playlistData.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"} />
                             <br></br><br></br>
                             <Card.Title>{playlistData.name}</Card.Title>
-                            {/* <Card.Text>Released: {playlistData.release_date}</Card.Text> */}
                         </Card.Body>
                     </Card>
                 </Row>
@@ -82,7 +73,8 @@ const PlaylistDetails = ({ accessToken, allPlaylists, setAllPlaylists, generalTo
                     {renderPlaylistTracks}
                 </ListGroup>
             </Container>
-        </div>    )
+        </div>    
+    )
 }
 
 export default PlaylistDetails;

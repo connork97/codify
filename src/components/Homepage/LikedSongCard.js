@@ -3,10 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Card, Button, Dropdown } from "react-bootstrap";
 import { BsSpotify, BsList } from "react-icons/bs";
 
-
-const LikedSongCard = ({ 
-    song, handleRemovedLike, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle 
-}) => {
+const LikedSongCard = ({ song, handleRemovedLike, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) => {
 
     const history = useHistory();
 
