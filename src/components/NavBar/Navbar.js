@@ -6,7 +6,6 @@ function Navbar() {
             <Link to="/" exact="true"><h1 className="menuSpan">Home</h1></Link>
             <Link to="/playlists" exact="true"><h1 className="menuSpan">Playlists</h1></Link>
             <Link to="/search" exact="true"><h1 className="menuSpan">Search</h1></Link>
-            <Link to="/artist-album-search" exact="true"><h1 className="menuSpan">Search Albums</h1></Link>
         </div>
     )
 }

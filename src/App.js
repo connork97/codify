@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "./components/NavBar/Navbar";
 import Home from "./components/Homepage/Home";
 import Playlists from "./components/Playlist-Page/Playlists";
-import ArtistAlbumSearch from "./components/Search-Page/ArtistAlbumSearch";
 import Search from "./components/Search-Page/Search";
 import ArtistDetails from "./components/Search-Page/ArtistDetails";
 import AlbumDetails from "./components/Search-Page/AlbumDetails";
@@ -199,9 +198,6 @@ function App() {
         </Route>
         <Route path="/search/playlist/:name/details">
           <PlaylistDetails accessToken={accessToken} />
-        </Route>
-        <Route path="/artist-album-search">
-          <ArtistAlbumSearch accessToken={accessToken} />
         </Route>
       </Switch>
 

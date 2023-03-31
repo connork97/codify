@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Card, Button, Dropdown } from "react-bootstrap";
 import { BsSpotify, BsList } from "react-icons/bs";
 
 
 const LikedSongCard = ({ song, handleRemovedLike, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) => {
+
+    const history = useHistory();
 
     const [isPlaylistClicked, setIsPlaylistClicked] = useState(false);
 
@@ -20,7 +23,6 @@ const LikedSongCard = ({ song, handleRemovedLike, allPlaylists, setAllPlaylists,
 
     const handleAddToPlaylist = (playlist) => {
         console.log(playlist.songs)
-        const targetPlaylist = playlist.name;
         // console.log(likedSong)
         fetch(`http://localhost:8000/playlists/${playlist.id}`, {
             method: "PATCH",
@@ -38,6 +40,10 @@ const LikedSongCard = ({ song, handleRemovedLike, allPlaylists, setAllPlaylists,
         .then((addedSongData) => console.log(addedSongData))
         setAllPlaylists([...allPlaylists, song])
         setGeneralToggle(!generalToggle)
+    }
+
+    const handleCreateNewPlaylist = () => {
+        history.push({pathname:"/playlists/new-playlist"})
     }
 
     return (
@@ -63,6 +69,7 @@ const LikedSongCard = ({ song, handleRemovedLike, allPlaylists, setAllPlaylists,
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                     <span style={{display:"flex", justifyContent:"center"}}><strong>Add to...</strong></span>
+                    <Dropdown.Item onClick={() => handleCreateNewPlaylist()}>New Playlist</Dropdown.Item>
                 {dropDownOptions()}
                 </Dropdown.Menu>
             </Dropdown>

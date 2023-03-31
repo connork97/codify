@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Card, Button, Dropdown } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import { BsSpotify, BsList } from "react-icons/bs";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 
@@ -9,6 +10,8 @@ const SongCard = ({ song, handleLikedSong, allPlaylists, setAllPlaylists, genera
 
     const [isLiked, setIsLiked] = useState(false);
     const [isPlaylistClicked, setIsPlaylistClicked] = useState(false);
+
+    const history = useHistory();
 
     const likedSong = {
         song_id: song.track.id,
@@ -42,7 +45,6 @@ const SongCard = ({ song, handleLikedSong, allPlaylists, setAllPlaylists, genera
 
     const handleAddToPlaylist = (playlist) => {
         console.log(playlist.songs)
-        const targetPlaylist = playlist.name;
         // console.log(likedSong)
         fetch(`http://localhost:8000/playlists/${playlist.id}`, {
             method: "PATCH",
@@ -61,6 +63,11 @@ const SongCard = ({ song, handleLikedSong, allPlaylists, setAllPlaylists, genera
         setAllPlaylists([...allPlaylists, likedSong])
         setGeneralToggle(!generalToggle)
     }
+
+    const handleCreateNewPlaylist = () => {
+        history.push({pathname:"/playlists/new-playlist"})
+    }
+
 // Add onclick event listener to button component & point back to handleLikedSong function which lives in App
 // Render the details of the song cards with 
     return (
@@ -89,6 +96,7 @@ const SongCard = ({ song, handleLikedSong, allPlaylists, setAllPlaylists, genera
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                     <span style={{display:"flex", justifyContent:"center"}}><strong>Add to...</strong></span>
+                    <Dropdown.Item onClick={() => handleCreateNewPlaylist()}>New Playlist</Dropdown.Item>
                 {dropDownOptions()}
                 </Dropdown.Menu>
             </Dropdown>
