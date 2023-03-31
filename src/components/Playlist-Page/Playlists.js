@@ -2,11 +2,15 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Row, Container, Accordion, Button } from 'react-bootstrap';
 import { BsSpotify } from "react-icons/bs";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
+
 import PlaylistSongCard from "../Homepage/SongCard";
 
 const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, allPlaylists, accessToken }) => {
     
     const history = useHistory()
+    const [isLiked, setIsLiked] = useState(false);
+
 
     const renderEachNewSong = () => {
         return allNewSongs.map((song) => {

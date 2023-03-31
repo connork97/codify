@@ -3,7 +3,7 @@ import { Row, Container, Card } from 'react-bootstrap';
 import { VscArrowCircleRight } from "react-icons/vsc";
 import SongCard from "./SongCard";
 
-function TopSongs({ allTopSongs, setAllTopSongs, accessToken, handleLikedSong, allPlaylists, setAllPlaylists, handleAddToPlaylist, generalToggle, setGeneralToggle }) {
+function TopSongs({ startingIndex, allTopSongs, setAllTopSongs, accessToken, handleLikedSong, allPlaylists, setAllPlaylists, handleAddToPlaylist, generalToggle, setGeneralToggle }) {
 
 
 
@@ -11,7 +11,7 @@ function TopSongs({ allTopSongs, setAllTopSongs, accessToken, handleLikedSong, a
     // Map through each of the 5 songs and send down the song to our songCard
 
     const eachTrack = () => {
-        const onlyFiveTopSongs = allTopSongs.slice(0, 5);
+        const onlyFiveTopSongs = allTopSongs.slice(startingIndex, startingIndex + 5);
         return onlyFiveTopSongs.map((song) => {
             return (
                 <SongCard 
@@ -35,7 +35,7 @@ function TopSongs({ allTopSongs, setAllTopSongs, accessToken, handleLikedSong, a
 
     return (
         <Container className="homePageDiv">
-            <h2 className="homeDivTitle" style={{position:"relative", display:"flex", alignItems:"center", justifyContent:"space-between", fontFamily: "Arial Rounded MT Bold"}}><span style={{margin:"auto"}}>{accessToken === "" ? "Loading " : null}Top Songs</span><span style={{position:"absolute", right:"15px"}}><VscArrowCircleRight style={{scale:"1.5"}} /></span></h2>
+            {/* <h2 className="homeDivTitle" style={{position:"relative", display:"flex", alignItems:"center", justifyContent:"space-between", fontFamily: "Arial Rounded MT Bold"}}><span style={{margin:"auto"}}>{accessToken === "" ? "Loading " : null}Top Songs</span><span style={{position:"absolute", right:"15px"}}><VscArrowCircleRight style={{scale:"1.5"}} /></span></h2> */}
             <Row className="mx-2 row row-cols-5">
                 {allTopSongs !== "" ? eachTrack() : null}
             </Row>

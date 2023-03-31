@@ -219,6 +219,7 @@ function App() {
             setAllPlaylists={setAllPlaylists}
             generalToggle={generalToggle}
             setGeneralToggle={setGeneralToggle}
+            handleLikedSong={handleLikedSong}
           />
         </Route>
       </Switch>
