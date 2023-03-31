@@ -59,30 +59,38 @@ const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, a
         })
     }
 
-    const renderUserPlaylists = () => {
-        // const eachPlaylist = 
-        return allPlaylists.map((playlist) => console.log(playlist));
-        // return eachPlaylist.map((song) => {
-            // console.log(song)
-            // return (
-            //     <Accordion style={{margin:"2.5rem 0 2.5rem 0"}} defaultActiveKey={null}>
-            //         <Accordion.Item>
-            //             <Accordion.Header>{song.name}</Accordion.Header>
-            //             <Accordion.Body style={{position:"relative", display:"flex", justifyContent:"space-between", alignItems:"center"}}>
-            //                 <img src={song.image} style={{width:"50px", marginLeft:"0", borderRadius:"7.5px"}}></img>
-            //                 <span style={{position:"absolute", left:"100px"}}>{song.song_name} - {song.artists}</span>
-            //                 <video controls name="media" style={{position:"absolute", right:"75px", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
-            //                     <source src={song.preview_url} alt="no preview available" type="audio/mp3" />
-            //                 </video>
-            //                 <a href={song.song_link} target="_blank">
-            //                     <BsSpotify onClick={() => console.log(song.song_link)} style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
-            //                 </a>
-            //             </Accordion.Body>
-            //         </Accordion.Item>
-            //     </Accordion>
-            // )
-        // })
+    const renderUserSongs = (playlist) => {
+        console.log("TESTING 1 2 3", playlist.songs)
+        return playlist.songs.map((song) => {
+            return (
+                <Accordion.Body style={{position:"relative", display:"flex", justifyContent:"space-between", alignItems:"center"}}>
+                    <img src={song.image} style={{width:"50px", marginLeft:"0", borderRadius:"7.5px"}}></img>
+                    <span style={{position:"absolute", left:"100px"}}>{song.song_name} - {song.artists}</span>
+                    <video controls name="media" style={{position:"absolute", right:"75px", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
+                        <source src={song.preview_url} alt="no preview available" type="audio/mp3" />
+                    </video>
+                    <a href={song.song_link} target="_blank">
+                        <BsSpotify onClick={() => console.log(song.song_link)} style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
+                    </a>
+                </Accordion.Body>
+            )
+        })
     }
+
+    const renderUserPlaylists = () => allPlaylists.map((playlist) => {
+        console.log(playlist)
+        return (
+            <Accordion style={{margin:"2.5rem 0 2.5rem 0"}} defaultActiveKey={null}>
+                <Accordion.Item>
+                <Accordion.Header>{playlist.name}</Accordion.Header>
+                    {renderUserSongs(playlist)}
+                </Accordion.Item>
+            </Accordion>
+        )
+        return playlist.songs.map((data) => {
+            console.log(data)
+        });
+    })
 
     return (
         <Container className="playlistDiv">
