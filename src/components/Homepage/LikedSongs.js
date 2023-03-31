@@ -5,21 +5,16 @@ import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import LikedSongCard from "./LikedSongCard";
 
 
-function LikedSongs({ accessToken, allLikedSongs, setAllLikedSongs }) {
+function LikedSongs({ accessToken, allLikedSongs, setAllLikedSongs, handleRemovedLike }) {
 
-    const handleRemoveLike = (song) => {
-        console.log(song.id)
-        fetch("http://localhost:8000/likes/" + song.id, {
-            method: "DELETE"
-        })
-    }
+
 // Render the LikedSongs container by taking in the first 5 songs of allLikedSongs, mapping over them, and passing
 // down their props to the LikedSongCard component
     const renderLikedSongs = () => {
         const onlyFiveLikes = allLikedSongs.slice(0, 5);
         return onlyFiveLikes.map((song) => {
             // console.log(song)
-            return <LikedSongCard song={song} handleRemoveLike={handleRemoveLike} key={song.song_id} />
+            return <LikedSongCard song={song} handleRemovedLike={handleRemovedLike} key={song.song_id} />
         })
     }
 

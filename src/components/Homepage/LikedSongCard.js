@@ -2,7 +2,7 @@ import { Card, Button } from "react-bootstrap";
 import { BsSpotify } from "react-icons/bs";
 
 
-const LikedSongCard = ({ song, handleRemoveLike }) => {
+const LikedSongCard = ({ song, handleRemovedLike }) => {
 
 
 // Render a LikedSongCard component (image, song name, artist, and song preview url)
@@ -16,7 +16,7 @@ const LikedSongCard = ({ song, handleRemoveLike }) => {
                 <Card.Text>{song.artists}</Card.Text>
             </Card.Body>
             <span style={{display:"flex", justifyContent:"space-around", alignItems:"center"}}>
-            <Button onClick={() => handleRemoveLike(song)}>Remove From Likes</Button>
+            <Button onClick={() => handleRemovedLike(song)}>Remove From Likes</Button>
             <a href={song.song_link} target="_blank">
                 <BsSpotify style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
             </a>

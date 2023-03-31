@@ -4,7 +4,7 @@ import LikedSongs from "./LikedSongs";
 import NewSongs from "./NewSongs";
 
 
-function Home({ allNewSongs, setAllNewSongs, allLikedSongs, setAllLikedSongs, allTopSongs, setAllTopSongs, handleLikedSong, accessToken }) {
+function Home({ allNewSongs, setAllNewSongs, allLikedSongs, setAllLikedSongs, allTopSongs, setAllTopSongs, handleLikedSong, handleRemovedLike, allPlaylists, setAllPlaylists, handleAddToPlaylist, generalToggle, setGeneralToggle, accessToken }) {
 
     // Within home, return LikedSongs, with the allLikedSongs and setAllSongs states as props
     // Return TopSongs with the allTopSongs and setAllTopSongs states as props as well as the handleLikedSong
@@ -16,19 +16,30 @@ function Home({ allNewSongs, setAllNewSongs, allLikedSongs, setAllLikedSongs, al
             <LikedSongs 
                 accessToken={accessToken} 
                 allLikedSongs={allLikedSongs} 
-                setAllLikedSongs={setAllLikedSongs} 
+                setAllLikedSongs={setAllLikedSongs}
+                handleRemovedLike={handleRemovedLike}
             />
             <TopSongs 
                 handleLikedSong={handleLikedSong} 
                 allTopSongs={allTopSongs} 
                 setAllTopSongs={setAllTopSongs} 
                 accessToken={accessToken} 
+                allPlaylists={allPlaylists}
+                setAllPlaylists={setAllPlaylists}
+                handleAddToPlaylist={handleAddToPlaylist}
+                generalToggle={generalToggle}
+                setGeneralToggle={setGeneralToggle}
             />
             <NewSongs 
                 handleLikedSong={handleLikedSong} 
                 allNewSongs={allNewSongs} 
                 setAllNewSongs={setAllNewSongs} 
                 accessToken={accessToken} 
+                allPlaylists={allPlaylists}
+                setAllPlaylists={setAllPlaylists}
+                handleAddToPlaylist={handleAddToPlaylist}
+                generalToggle={generalToggle}
+                setGeneralToggle={setGeneralToggle}
             />
         </>
     )

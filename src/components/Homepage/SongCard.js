@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { Card, Button } from "react-bootstrap";
-import { BsSpotify } from "react-icons/bs";
+import { Card, Button, Dropdown } from "react-bootstrap";
+import { BsSpotify, BsList } from "react-icons/bs";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 
 // Take in our data for each song.
 
-const SongCard = ({ song, handleLikedSong }) => {
+const SongCard = ({ song, handleLikedSong, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) => {
 
     const [isLiked, setIsLiked] = useState(false);
+    const [isPlaylistClicked, setIsPlaylistClicked] = useState(false);
 
     const likedSong = {
         song_id: song.track.id,
@@ -28,10 +29,38 @@ const SongCard = ({ song, handleLikedSong }) => {
 
     const onLikeButtonClick = () => {
         setIsLiked(!isLiked)
-        console.log(song)
+        // console.log(song)
         handleLikedSong(likedSong)
     }
 
+    const dropDownOptions = () => {
+        return allPlaylists.map((playlist) => {
+            // console.log(playlist.songs)
+            return <Dropdown.Item onClick={() => handleAddToPlaylist(playlist)}>{playlist.name}</Dropdown.Item>
+        })
+    }
+
+    const handleAddToPlaylist = (playlist) => {
+        console.log(playlist.songs)
+        const targetPlaylist = playlist.name;
+        // console.log(likedSong)
+        fetch(`http://localhost:8000/playlists/${playlist.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                songs: [
+                    ...playlist.songs,
+                    likedSong
+                ]
+            })
+        })
+        .then((response) => response.json())
+        .then((addedSongData) => console.log(addedSongData))
+        setAllPlaylists([...allPlaylists, likedSong])
+        setGeneralToggle(!generalToggle)
+    }
 // Add onclick event listener to button component & point back to handleLikedSong function which lives in App
 // Render the details of the song cards with 
     return (
@@ -48,12 +77,22 @@ const SongCard = ({ song, handleLikedSong }) => {
                 }
                 <a href={song.track.external_urls.spotify} target="_blank">
                     <BsSpotify onClick={() => console.log(song.track.external_urls.spotify)} style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
-                </a>            
+                </a>
             </span>
-            <video controls name="media" style={{marginBottom:"15px"}}>
+            <span style={{display:"inline-flex", marginTop:"50px", zIndex:"10", justifyContent:"space-between", alignItems:"center"}}>
+            <audio controls name="media" style={{marginBottom:"15px", width:"200px"}}>
                 <source src={songUrl} alt="no preview available" type="audio/mp3" />
-            </video>
-            {/* <Button onClick={() => handleLikedSong(likedSong)}>Like Song</Button> */}
+            </audio>
+            <Dropdown>
+                <Dropdown.Toggle variant="none" style={{marginBottom:"15px"}}>
+                    <BsList type="select" onClick={() => setIsPlaylistClicked(!isPlaylistClicked)} style={{display:"inline-flex", cursor:"pointer", scale:"1.75", zIndex:"10"}} />
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                    <span style={{display:"flex", justifyContent:"center"}}><strong>Add to...</strong></span>
+                {dropDownOptions()}
+                </Dropdown.Menu>
+            </Dropdown>
+            </span>
         </Card>
     )
 }

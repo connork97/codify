@@ -17,10 +17,21 @@ const CLIENT_ID = "1ff422b13da04c47b1d3639000b11abb";
 const CLIENT_SECRET = "403561469b9c409faa37c5f49d39c46e";
 
 function App() {
+  const [generalToggle, setGeneralToggle] = useState(false);
   const [accessToken, setAccessToken] = useState("");
   const [allNewSongs, setAllNewSongs] = useState("");
   const [allLikedSongs, setAllLikedSongs] = useState("");
   const [allTopSongs, setAllTopSongs] = useState("");
+  const [allPlaylists, setAllPlaylists] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8000/playlists")
+    .then((response) => response.json())
+    .then((playlistData) => {
+      console.log(playlistData)
+      setAllPlaylists(playlistData)
+    })
+  }, [generalToggle])
 
 // Fetch the Access Token from the Spotify API, set to state
   useEffect(() => {
@@ -74,7 +85,31 @@ function App() {
     })
   }
   }, [accessToken])
+  
+  // Post our new liked song to our DB JSON file and add it to our allLikedSongs state
+  const handleLikedSong = (likedSong) => {
+      console.log(likedSong)
+      fetch("http://localhost:8000/likes", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify(likedSong)
+      })
+      .then((response => response.json()))
+      .then((likedSong) => console.log(likedSong))
+      setAllLikedSongs([...allLikedSongs, likedSong])
+  }
 
+  const handleRemovedLike = (song) => {
+    console.log(song.song_id)
+    fetch("http://localhost:8000/likes/" + song.id, {
+      method: "DELETE"
+    })
+    const allRemainingLikes = allLikedSongs.filter((eachSong) => eachSong.song_id !== song.song_id)
+    setAllLikedSongs(allRemainingLikes)
+  }
+  
   // Fetch liked songs from our local JSON file and set to state
   useEffect(() => {
     fetch('http://localhost:8000/likes', {
@@ -88,23 +123,7 @@ function App() {
     .then(likedSongs => {
         setAllLikedSongs(likedSongs)
     })
-}, [])
-    
-
-// Post our new liked song to our DB JSON file and add it to our allLikedSongs state
-    const handleLikedSong = (likedSong) => {
-      console.log(likedSong)
-      fetch("http://localhost:8000/likes", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json"
-          },
-          body: JSON.stringify(likedSong)
-      })
-      .then((response => response.json()))
-      .then((likedSong) => console.log(likedSong))
-      setAllLikedSongs([...allLikedSongs, likedSong])
-  }
+  }, [])
 
   // Return a NavBar which includes client side routes for Home, Playlists, and Search
   return (
@@ -121,6 +140,11 @@ function App() {
             allLikedSongs={allLikedSongs} 
             setAllLikedSongs={setAllLikedSongs} 
             handleLikedSong={handleLikedSong}
+            handleRemovedLike={handleRemovedLike}
+            allPlaylists={allPlaylists}
+            setAllPlaylists={setAllPlaylists}
+            generalToggle={generalToggle}
+            setGeneralToggle={setGeneralToggle}
           />
         </Route>
         <Route exact path="/playlists">
@@ -129,6 +153,7 @@ function App() {
             allTopSongs={allTopSongs}
             allNewSongs={allNewSongs}
             handleLikedSong={handleLikedSong}
+            allPlaylists={allPlaylists}
             accessToken={accessToken}
           />
         </Route>

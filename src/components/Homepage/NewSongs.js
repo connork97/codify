@@ -3,12 +3,12 @@ import { Row, Container } from 'react-bootstrap';
 import { VscArrowCircleRight } from "react-icons/vsc";
 import SongCard from "./SongCard";
 
-function NewSongs({ allNewSongs, setAllNewSongs, accessToken, handleLikedSong }) {
+function NewSongs({ allNewSongs, setAllNewSongs, accessToken, handleLikedSong, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) {
     
     const eachTrack = () => {
         const onlyFiveNewSongs = allNewSongs.slice(0, 5);
         return onlyFiveNewSongs.map((song) => {
-            return <SongCard song={song} handleLikedSong={handleLikedSong} key={song.track.id} />
+            return <SongCard song={song} handleLikedSong={handleLikedSong} allPlaylists={allPlaylists} setAllPlaylists={setAllPlaylists} generalToggle={generalToggle} setGeneralToggle={setGeneralToggle} key={song.track.id} />
         })
     }
 
