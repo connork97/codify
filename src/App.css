@@ -40,6 +40,11 @@
 #navBar {
   background-color:#404040;
   color: white;
+  text-decoration: none;
+}
+
+.navBarLink {
+  text-decoration: none;
 }
 
 .menuSpan {
@@ -47,6 +52,7 @@
   margin: 2.5px 25px 2.5px 25px;
   color: white;
   border-radius: 25%;
+  text-decoration: none;
   cursor: pointer;
 }
 

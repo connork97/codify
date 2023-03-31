@@ -98,7 +98,7 @@ const Playlists = ({ allLikedSongs, allTopSongs, allNewSongs, handleLikedSong, a
 
     return (
         <Container className="playlistDiv">
-            <h1>Your Playlists</h1>
+            <h1 style={{marginTop:"50px"}}>Your Playlists</h1>
             <Accordion style={{margin:"2.5rem 0 2.5rem 0"}} defaultActiveKey={null}>
                 <Accordion.Item>
                 <Accordion.Header>Liked Songs</Accordion.Header>

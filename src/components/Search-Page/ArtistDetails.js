@@ -4,7 +4,7 @@ import { Container, Row, Card, ListGroup, Header, Button } from "react-bootstrap
 import { BsSpotify } from "react-icons/bs";
 import TrackListItem from "./TrackListItem";
 
-const ArtistDetails = ( { accessToken, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle } ) => {
+const ArtistDetails = ( { accessToken, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle, handleLikedSong } ) => {
 
     const [topTracks, setTopTracks] = useState([]);
     const [albums, setAlbums] = useState([]);
@@ -67,6 +67,7 @@ const ArtistDetails = ( { accessToken, allPlaylists, setAllPlaylists, generalTog
                         generalToggle={generalToggle}
                         setGeneralToggle={setGeneralToggle}
                         albumImage={track.album.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"}
+                        handleLikedSong={handleLikedSong}
                     />
                 <a href={track.external_urls.spotify} target="_blank">
                     <BsSpotify style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />

@@ -5,7 +5,7 @@ import { BsSpotify } from "react-icons/bs";
 
 import TrackListItem from "./TrackListItem";
 
-const PlaylistDetails = ({ accessToken, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) => {
+const PlaylistDetails = ({ accessToken, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle, handleLikedSong }) => {
 
     const [playlistTracks, setPlaylistTracks] = useState([]);
 
@@ -45,6 +45,7 @@ const PlaylistDetails = ({ accessToken, allPlaylists, setAllPlaylists, generalTo
                         generalToggle={generalToggle}
                         setGeneralToggle={setGeneralToggle}
                         albumImage={item.track.album.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"}
+                        handleLikedSong={handleLikedSong}
                     />
                     {/* {item.track.preview_url !== null ?
                     <video controls name="media" style={{position:"absolute", right:"75px", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>

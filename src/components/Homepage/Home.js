@@ -15,7 +15,7 @@ function Home({ allNewSongs, setAllNewSongs, allLikedSongs, setAllLikedSongs, al
     // function which adds our newLikedSong to our json file
     return (
         <>
-             <h2 className="homeDivTitle" style={{position:"relative", display:"flex", alignItems:"center", justifyContent:"space-between", fontFamily: "Arial Rounded MT Bold"}}><span style={{margin:"auto"}}>Likes</span></h2>
+        <h2 className="homeDivTitle" style={{position:"relative", marginTop:"50px", display:"flex", alignItems:"center", justifyContent:"space-between", fontFamily: "Arial Rounded MT Bold"}}><span style={{margin:"auto"}}>Likes</span></h2>
         <Carousel>
            <Carousel.Item interval={10000}>
                 <LikedSongs 

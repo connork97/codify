@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from "./components/NavBar/Navbar";
+import Header from "./components/Header/Header";
 import Home from "./components/Homepage/Home";
 import Playlists from "./components/Playlist-Page/Playlists";
 import Search from "./components/Search-Page/Search";
@@ -151,7 +151,7 @@ function App() {
   // Return a NavBar which includes client side routes for Home, Playlists, and Search
   return (
     <div className="App">
-      <Navbar />
+      <Header />
       <Switch>
         <Route exact path="/">
           <Home 
@@ -201,6 +201,7 @@ function App() {
             setAllPlaylists={setAllPlaylists}
             generalToggle={generalToggle}
             setGeneralToggle={setGeneralToggle}
+            handleLikedSong={handleLikedSong}
           />
         </Route>
         <Route path="/search/album/:name/details">
@@ -210,6 +211,7 @@ function App() {
             setAllPlaylists={setAllPlaylists}
             generalToggle={generalToggle}
             setGeneralToggle={setGeneralToggle}
+            handleLikedSong={handleLikedSong}
           />
         </Route>
         <Route path="/search/playlist/:name/details">
