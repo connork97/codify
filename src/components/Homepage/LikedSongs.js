@@ -11,9 +11,9 @@ function LikedSongs({ startingIndex, allLikedSongs, handleRemovedLike, allPlayli
             return (
                 <LikedSongCard 
                     song={song}
-                    handleRemovedLike={handleRemovedLike}
                     allPlaylists={allPlaylists}
                     setAllPlaylists={setAllPlaylists}
+                    handleRemovedLike={handleRemovedLike}
                     generalToggle={generalToggle}
                     setGeneralToggle={setGeneralToggle}
                     key={song.song_id}
@@ -26,7 +26,7 @@ function LikedSongs({ startingIndex, allLikedSongs, handleRemovedLike, allPlayli
     return (
         <Container className="homePageDiv">
             <Row className="mx-2 row row-cols-5" style={{overflow:"hidden"}}>
-                {allLikedSongs !== "" ? renderLikedSongs() : null}
+                {allLikedSongs !== [] ? renderLikedSongs() : null}
             </Row>
         </Container>
     )

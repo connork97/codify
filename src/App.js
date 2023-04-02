@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import './App.css';
+import "./index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from "./components/Header/Header";
+import Header from "./components/Header";
 import Home from "./components/Homepage/Home";
 import Playlists from "./components/Playlist-Page/Playlists";
 import Search from "./components/Search-Page/Search";
@@ -17,9 +18,9 @@ const CLIENT_SECRET = "403561469b9c409faa37c5f49d39c46e";
 function App() {
   const [generalToggle, setGeneralToggle] = useState(false);
   const [accessToken, setAccessToken] = useState("");
-  const [allNewSongs, setAllNewSongs] = useState("");
-  const [allLikedSongs, setAllLikedSongs] = useState("");
-  const [allTopSongs, setAllTopSongs] = useState("");
+  const [allLikedSongs, setAllLikedSongs] = useState([]);
+  const [allTopSongs, setAllTopSongs] = useState([]);
+  const [allNewSongs, setAllNewSongs] = useState([]);
   const [allPlaylists, setAllPlaylists] = useState([]);
 
   useEffect(() => {
@@ -84,6 +85,21 @@ function App() {
   }
   }, [accessToken])
   
+  // Fetch liked songs from our local JSON file and set to state
+  useEffect(() => {
+    fetch('http://localhost:8000/likes', {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + accessToken
+        }
+    })
+    .then(response => response.json())
+    .then(likedSongs => {
+        setAllLikedSongs(likedSongs)
+    })
+  }, [])
+  
   // Post our new liked song to our DB JSON file and add it to our allLikedSongs state
   const handleLikedSong = (likedSong) => {
       console.log(likedSong)
@@ -107,21 +123,6 @@ function App() {
     const allRemainingLikes = allLikedSongs.filter((eachSong) => eachSong.song_id !== song.song_id)
     setAllLikedSongs(allRemainingLikes)
   }
-  
-  // Fetch liked songs from our local JSON file and set to state
-  useEffect(() => {
-    fetch('http://localhost:8000/likes', {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + accessToken
-        }
-    })
-    .then(response => response.json())
-    .then(likedSongs => {
-        setAllLikedSongs(likedSongs)
-    })
-  }, [])
 
   // Return a NavBar which includes client side routes for Home, Playlists, and Search
   return (
@@ -131,16 +132,16 @@ function App() {
         <Route exact path="/">
           <Home 
             accessToken={accessToken} 
-            allNewSongs={allNewSongs} 
-            setAllNewSongs={setAllNewSongs} 
-            allTopSongs={allTopSongs} 
-            setAllTopSongs={setAllTopSongs} 
             allLikedSongs={allLikedSongs} 
             setAllLikedSongs={setAllLikedSongs} 
-            handleLikedSong={handleLikedSong}
-            handleRemovedLike={handleRemovedLike}
+            allTopSongs={allTopSongs} 
+            setAllTopSongs={setAllTopSongs} 
+            allNewSongs={allNewSongs} 
+            setAllNewSongs={setAllNewSongs} 
             allPlaylists={allPlaylists}
             setAllPlaylists={setAllPlaylists}
+            handleLikedSong={handleLikedSong}
+            handleRemovedLike={handleRemovedLike}
             generalToggle={generalToggle}
             setGeneralToggle={setGeneralToggle}
           />

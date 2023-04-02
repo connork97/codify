@@ -1,17 +1,16 @@
 import { useState } from "react";
+import { Card, Dropdown } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import { Card, Button, Dropdown } from "react-bootstrap";
 import { BsSpotify, BsList } from "react-icons/bs";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 
-const TrackSearchSongCard = ({ track, handleLikedSong, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) => {
+const SongCard = ({ track, handleLikedSong, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) => {
 
     const [isLiked, setIsLiked] = useState(false);
     const [isPlaylistClicked, setIsPlaylistClicked] = useState(false);
-
     const history = useHistory();
 
-    const likedSong = {
+    const currentSong = {
         song_id: track.id,
         song_name: track.name,
         song_link: track.external_urls.spotify,
@@ -28,14 +27,15 @@ const TrackSearchSongCard = ({ track, handleLikedSong, allPlaylists, setAllPlayl
 
     const dropDownOptions = () => {
         return allPlaylists.map((playlist) => {
-            // console.log(playlist.songs)
-            return <Dropdown.Item onClick={() => handleAddToPlaylist(playlist)}>{playlist.name}</Dropdown.Item>
+            return (
+                <Dropdown.Item onClick={() => handleAddToPlaylist(playlist)}>
+                    {playlist.name}
+                </Dropdown.Item>
+            )
         })
     }
     
     const handleAddToPlaylist = (playlist) => {
-        console.log(playlist.songs)
-        // console.log(likedSong)
         fetch(`http://localhost:8000/playlists/${playlist.id}`, {
             method: "PATCH",
             headers: {
@@ -44,45 +44,44 @@ const TrackSearchSongCard = ({ track, handleLikedSong, allPlaylists, setAllPlayl
             body: JSON.stringify({
                 songs: [
                     ...playlist.songs,
-                    likedSong
+                    currentSong
                 ]
             })
         })
         .then((response) => response.json())
         .then((addedSongData) => console.log(addedSongData))
-        setAllPlaylists([...allPlaylists, likedSong])
+        setAllPlaylists([...allPlaylists, currentSong])
         setGeneralToggle(!generalToggle)
     }
-
+    
     const onLikeButtonClick = () => {
         setIsLiked(!isLiked)
-        console.log(track)
-        handleLikedSong(likedSong)
+        handleLikedSong(currentSong)
     }
 
     const handleCreateNewPlaylist = () => {
         history.push({pathname:"/playlists/new-playlist"})
     }
 
+// Add onclick event listener to button component & point back to handleLikedSong function which lives in App
+// Render the details of the song cards with 
     return (
-        <Card>
-        <br></br>
-        <Card.Img src={track.album.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"} />         
-        <Card.Body>
-            <Card.Title>{track.name}</Card.Title>
-            <Card.Text>{track.artists[0].name}</Card.Text>
-        </Card.Body>
-        {/* <Button onClick={() => handleLikedSong(likedSong)}>Like Song</Button> */}
-        <span style={{display:"block", marginTop:"25px", marginBottom:"-5px", zIndex:"10"}}>
-            {isLiked ? 
-            <FaHeart onClick={() => window.alert("You've already liked this post!")} style={{cursor:"pointer", marginRight:"125px", scale:"2.5", color:"#E31B23"}} />            
-            : <FaRegHeart onClick={onLikeButtonClick} style={{cursor:"pointer", marginRight:"125px", color:"#E31B23", scale:"2.5"}} />
-            }
-            <a href={track.external_urls.spotify} target="_blank">
-                <BsSpotify onClick={() => console.log(track.external_urls.spotify)} style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
-            </a>
-        </span>
-        <span style={{display:"inline-flex", marginTop:"50px", zIndex:"10", justifyContent:"space-between", alignItems:"center"}}>
+        <Card className="songCard" style={{position:"relative"}}>
+            <Card.Body>
+            <Card.Img src={track.album.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"} />
+                <Card.Title>{track.name}</Card.Title>
+                <Card.Text>{track.artists[0].name}</Card.Text>
+            </Card.Body>
+            <span style={{display:"block", marginTop:"25px", marginBottom:"-25px", zIndex:"10"}}>
+                {isLiked ? 
+                <FaHeart onClick={() => window.alert("You've already liked this post!")} style={{cursor:"pointer", marginRight:"125px", scale:"2.5", color:"#E31B23"}} />            
+                : <FaRegHeart onClick={onLikeButtonClick} style={{cursor:"pointer", marginRight:"125px", color:"#E31B23", scale:"2.5"}} />
+                }
+                <a href={track.external_urls.spotify} target="_blank">
+                    <BsSpotify style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
+                </a>
+            </span>
+            <span style={{display:"inline-flex", marginTop:"50px", zIndex:"10", justifyContent:"space-between", alignItems:"center"}}>
             <audio controls name="media" style={{marginBottom:"15px", width:"200px"}}>
                 <source src={track.preview_url} alt="no preview available" type="audio/mp3" />
             </audio>
@@ -96,12 +95,10 @@ const TrackSearchSongCard = ({ track, handleLikedSong, allPlaylists, setAllPlayl
                 {dropDownOptions()}
                 </Dropdown.Menu>
             </Dropdown>
-        </span>
-        {/* <video controls name="media" style={{marginBottom:"15px"}}>
-            <source src={track.preview_url} alt="no preview available" type="audio/mp3" />
-        </video> */}
+            </span>
         </Card>
     )
 }
 
-export default TrackSearchSongCard;
+export default SongCard;
+

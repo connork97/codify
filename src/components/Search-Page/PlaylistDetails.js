@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
-import { Container, Row, Card, ListGroup, Header, Button } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
+import { Container, Row, Card, ListGroup } from "react-bootstrap";
 import { BsSpotify } from "react-icons/bs";
 
 import TrackListItem from "./TrackListItem";
@@ -8,7 +8,6 @@ import TrackListItem from "./TrackListItem";
 const PlaylistDetails = ({ accessToken, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle, handleLikedSong }) => {
 
     const [playlistTracks, setPlaylistTracks] = useState([]);
-
     const location = useLocation();
     const playlistData = location.state;
 
@@ -65,9 +64,7 @@ const PlaylistDetails = ({ accessToken, allPlaylists, setAllPlaylists, generalTo
                     </Card>
                 </Row>
             </Container>
-            <br></br><br></br>
-            <h2>Top Songs</h2>
-            <br></br>
+            <h2 className="sectionTitle">Top Songs</h2>
             <Container>
                 <ListGroup>
                     {renderPlaylistTracks}

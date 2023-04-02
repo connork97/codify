@@ -63,9 +63,7 @@ const AlbumDetails = ({ accessToken, allPlaylists, setAllPlaylists, generalToggl
                     </Card>
                 </Row>
             </Container>
-            <br></br><br></br>
-            <h2>Top Songs</h2>
-            <br></br>
+            <h2 className="sectionTitle">Top Songs</h2>
             <Container>
                 <ListGroup>
                     {renderAlbumTracks}

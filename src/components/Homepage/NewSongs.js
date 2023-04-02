@@ -1,5 +1,5 @@
 import { Row, Container } from 'react-bootstrap';
-import SongCard from "./SongCard";
+import SongCard from "../SongCard";
 
 function NewSongs({ startingIndex, allNewSongs, handleLikedSong, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) {
     
@@ -8,10 +8,10 @@ function NewSongs({ startingIndex, allNewSongs, handleLikedSong, allPlaylists, s
         return onlyFiveNewSongs.map((song) => {
             return (
                 <SongCard 
-                    song={song} 
-                    handleLikedSong={handleLikedSong} 
+                    track={song.track} 
                     allPlaylists={allPlaylists} 
                     setAllPlaylists={setAllPlaylists} 
+                    handleLikedSong={handleLikedSong} 
                     generalToggle={generalToggle} 
                     setGeneralToggle={setGeneralToggle}
                     key={song.track.id} 
@@ -23,7 +23,7 @@ function NewSongs({ startingIndex, allNewSongs, handleLikedSong, allPlaylists, s
     return (
         <Container className="homePageDiv">
             <Row className="mx-2 row row-cols-5">
-                {allNewSongs !== "" ? eachTrack() : null}
+                {allNewSongs !== [] ? eachTrack() : null}
             </Row>
         </Container>
     )

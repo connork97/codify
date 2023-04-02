@@ -97,23 +97,18 @@ const ArtistDetails = ( { accessToken, allPlaylists, setAllPlaylists, generalTog
                     </Card>
                 </Row>
             </Container>
-            <br></br><br></br>
-            <h2>Top Songs</h2>
-            <br></br>
+            <h2 className="sectionTitle">Top Songs</h2>
             <Container>
                 <ListGroup>
                     {renderTopTracks}
                 </ListGroup>
             </Container>
-            <br></br><br></br>
-            <h2>Top Albums</h2>
-            <br></br>
+            <h2 className="sectionTitle">Top Albums</h2>
             <Container>
                 <Row className="mx-2 row row-cols-4">
                     {renderAlbums}
                 </Row>
             </Container>
-
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import { Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap';
-import TrackSearchSongCard from "./TrackSearchSongCard";
+import SongCard from "../SongCard";
 
 const Search = ({ handleLikedSong, accessToken, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) => {
 
@@ -83,11 +83,11 @@ const Search = ({ handleLikedSong, accessToken, allPlaylists, setAllPlaylists, g
     // event listener to set the search input state to the user's input, which is used in the fetch requests
     return (
         <div>
+            <h1 className="pageTitle">Search Songs, Artists, Albums, and Playlists Here!</h1>
             <Container>
-                <br></br>
                 <InputGroup className="mb-3" size="lg">
                     <FormControl
-                    placeholder="Search for Artist"
+                    placeholder="Search for..."
                     type="input"
                     onKeyDown={(event) => {
                         if (event.key === "Enter") {
@@ -101,17 +101,15 @@ const Search = ({ handleLikedSong, accessToken, allPlaylists, setAllPlaylists, g
                     </Button>
                 </InputGroup>
             </Container>
-            <br></br>
             {/* shouldRender is initially set to false, and is set to true when the onClick or
             search function fires. If shouldRender and searchInput is not equal to an empty string, 
             render Top Tracks, else null. Return a TrackSearchSongCard component. */}
-            {shouldRender && searchInput !== "" ? <h2>Top Tracks</h2> : null}
-            <br></br>
+            {shouldRender ? <h2 className="sectionTitle">Top Tracks</h2> : null}
             <Container>
                 <Row className="mx row row-cols-5">
                     {tracks.map( (track, i) => {
                     return (
-                        <TrackSearchSongCard 
+                        <SongCard 
                             track={track} 
                             handleLikedSong={handleLikedSong} 
                             allPlaylists={allPlaylists} 
@@ -125,17 +123,11 @@ const Search = ({ handleLikedSong, accessToken, allPlaylists, setAllPlaylists, g
                 {/* Render the rows of cards for artists, albums, and playlists from a callback function
                 renderSearchComponent*/}
             </Container>
-            <br></br>
-            {shouldRender && searchInput !== "" ? <h2>Top Artists</h2> : null}
-            <br></br>
+            {shouldRender ? <h2 className="sectionTitle">Top Artists</h2> : null}
             {renderSearchComponent(artists)}
-            <br></br>
-            {shouldRender && searchInput !== "" ? <h2>Top Albums</h2> : null}
-            <br></br>
+            {shouldRender ? <h2 className="sectionTitle">Top Albums</h2> : null}
             {renderSearchComponent(albums)}
-            <br></br>
-            {shouldRender && searchInput !== "" ? <h2>Top Playlists</h2> : null}
-            <br></br>
+            {shouldRender ? <h2 className="sectionTitle">Top Playlists</h2> : null}
             {renderSearchComponent(playlists)}
         </div>
     )
