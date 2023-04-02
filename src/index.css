@@ -85,6 +85,13 @@ code {
   overflow: visible;
 }
 
+.songCardDropdownMenu.dropdown-menu.show {
+  z-index: 100;
+  overflow: visible;
+}
+
+/* SEARCH PAGE */
+
 /* Track Lists */
 
 .trackListSpan {
@@ -108,6 +115,41 @@ code {
   right: 125px;
   color: #E31B23;
   scale: 2.5;
+}
+
+.trackListDropdown {
+  display: inline-flex;
+  cursor: pointer;
+  scale: 2;
+}
+
+/* PLAYLIST PAGE */
+
+.playlistAccordion {
+  margin: 2.5rem 0 2.5rem 0;
+  position: relative;
+}
+
+.playlistAccordionBody {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.playlistAccordionImage {
+  width: 50px;
+  margin-left: 0;
+  border-radius: 7.5px;
+}
+
+.playlistAccordionAudio {
+  position: absolute;
+  right: 75px;
+  height: 50px;
+  width: 350px;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 /* NavBar/Header Styling */
@@ -137,7 +179,6 @@ code {
 }
 
 /* Home Page Styling */
-
 
 #homePageTitle {
   font-size: 3.5rem;

@@ -27,12 +27,11 @@ function App() {
     fetch("http://localhost:8000/playlists")
     .then((response) => response.json())
     .then((playlistData) => {
-      console.log(playlistData)
       setAllPlaylists(playlistData)
     })
   }, [generalToggle])
 
-// Fetch the Access Token from the Spotify API, set to state
+  // Fetch the Access Token from the Spotify API, set to state
   useEffect(() => {
       let authParameters = {
           method: 'POST',
@@ -45,7 +44,6 @@ function App() {
       .then(resp => resp.json())
       .then(data => setAccessToken(data.access_token))
     }, [])
-
 
     // Fetch Top Charts Songs from spotify playlist, iterate through each song and return a new array if
     // the song preview url is not null, and set state
@@ -102,7 +100,6 @@ function App() {
   
   // Post our new liked song to our DB JSON file and add it to our allLikedSongs state
   const handleLikedSong = (likedSong) => {
-      console.log(likedSong)
       fetch("http://localhost:8000/likes", {
           method: "POST",
           headers: {
@@ -116,7 +113,6 @@ function App() {
   }
 
   const handleRemovedLike = (song) => {
-    console.log(song.song_id)
     fetch("http://localhost:8000/likes/" + song.id, {
       method: "DELETE"
     })
@@ -131,13 +127,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Home 
-            accessToken={accessToken} 
             allLikedSongs={allLikedSongs} 
-            setAllLikedSongs={setAllLikedSongs} 
             allTopSongs={allTopSongs} 
-            setAllTopSongs={setAllTopSongs} 
             allNewSongs={allNewSongs} 
-            setAllNewSongs={setAllNewSongs} 
             allPlaylists={allPlaylists}
             setAllPlaylists={setAllPlaylists}
             handleLikedSong={handleLikedSong}

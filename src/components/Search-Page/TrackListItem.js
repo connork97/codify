@@ -100,7 +100,7 @@ const TrackListItem = ({ track, artistName, albumImage, accessToken, allPlaylist
                 }
                 <Dropdown style={{zIndex:"8", left:"555px"}}>
                     <Dropdown.Toggle variant="none" style={{marginBottom:"10px"}}>
-                        <BsList type="select" onClick={() => setIsPlaylistClicked(!isPlaylistClicked)} style={{display:"inline-flex", cursor:"pointer", scale:"2", zIndex:"5"}} />
+                        <BsList className="trackListDropdown" type="select" onClick={() => setIsPlaylistClicked(!isPlaylistClicked)} />
                     </Dropdown.Toggle>
                     <Dropdown.Menu style={{zIndex:"15"}}>
                         <span style={{display:"flex", justifyContent:"center"}}><strong>Add to...</strong></span>

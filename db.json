@@ -176,97 +176,6 @@
       "id": 1
     },
     {
-      "name": "Anotha one",
-      "description": "dj khalid",
-      "songs": [
-        {
-          "song_id": "5VKG8ary0JW6iKemhmznzS",
-          "song_name": "Grown Man",
-          "song_link": "https://open.spotify.com/track/5VKG8ary0JW6iKemhmznzS",
-          "artists_id": "64KEffDW9EtZ1y2vBYgq8T",
-          "artists": "Marshmello",
-          "artists_link": "https://open.spotify.com/artist/64KEffDW9EtZ1y2vBYgq8T",
-          "album_id": "282shVOXRHSfBqexKhADTN",
-          "album_name": "Grown Man",
-          "album_link": "https://open.spotify.com/album/282shVOXRHSfBqexKhADTN",
-          "image": "https://i.scdn.co/image/ab67616d0000b2736399e9deaa55d34e23309e78",
-          "popularity": 0,
-          "preview_url": "https://p.scdn.co/mp3-preview/826f32ee5117b48b9aea96338f8b1caf50ac2299?cid=1ff422b13da04c47b1d3639000b11abb"
-        },
-        {
-          "song_id": "6AQbmUe0Qwf5PZnt4HmTXv",
-          "song_name": "Boy's a liar Pt. 2",
-          "song_link": "https://open.spotify.com/track/6AQbmUe0Qwf5PZnt4HmTXv",
-          "artists_id": "78rUTD7y6Cy67W1RVzYs7t",
-          "artists": "PinkPantheress",
-          "artists_link": "https://open.spotify.com/artist/78rUTD7y6Cy67W1RVzYs7t",
-          "album_id": "6cVfHBcp3AdpYY0bBglkLN",
-          "album_name": "Boy's a liar Pt. 2",
-          "album_link": "https://open.spotify.com/album/6cVfHBcp3AdpYY0bBglkLN",
-          "image": "https://i.scdn.co/image/ab67616d0000b27342c5ba689b2e7cbc208a8fa7",
-          "popularity": 97,
-          "preview_url": "https://p.scdn.co/mp3-preview/543d8d09a5530a1ab94dd0c6f83fc4ee3e0d7f96?cid=1ff422b13da04c47b1d3639000b11abb"
-        },
-        {
-          "song_id": "0judK8TqYfvwUohBngUxrE",
-          "song_name": "DOGTOOTH",
-          "song_link": "https://open.spotify.com/track/0judK8TqYfvwUohBngUxrE",
-          "artists_id": "4V8LLVI7PbaPR0K2TGSxFF",
-          "artists": "Tyler, The Creator",
-          "artists_link": "https://open.spotify.com/artist/4V8LLVI7PbaPR0K2TGSxFF",
-          "album_id": "1pdqT6DBwIA0WElEspOA0v",
-          "album_name": "DOGTOOTH",
-          "album_link": "https://open.spotify.com/album/1pdqT6DBwIA0WElEspOA0v",
-          "image": "https://i.scdn.co/image/ab67616d0000b2732ee031f2335d35b2e6c7bc40",
-          "popularity": 72,
-          "preview_url": "https://p.scdn.co/mp3-preview/5de4c8c30108bc114f9f38a28ac0832936a852bf?cid=1ff422b13da04c47b1d3639000b11abb"
-        },
-        {
-          "song_id": "1Qrg8KqiBpW07V7PNxwwwL",
-          "song_name": "Kill Bill",
-          "song_link": "https://open.spotify.com/track/1Qrg8KqiBpW07V7PNxwwwL",
-          "artists_id": "7tYKF4w9nC0nq9CsPZTHyP",
-          "artists": "SZA",
-          "artists_link": "https://open.spotify.com/artist/7tYKF4w9nC0nq9CsPZTHyP",
-          "album_id": "1nrVofqDRs7cpWXJ49qTnP",
-          "album_name": "SOS",
-          "album_link": "https://open.spotify.com/album/1nrVofqDRs7cpWXJ49qTnP",
-          "image": "https://i.scdn.co/image/ab67616d0000b2730c471c36970b9406233842a5",
-          "popularity": 94,
-          "preview_url": "https://p.scdn.co/mp3-preview/4bd2dc84016f3743add7eea8b988407b1b900672?cid=1ff422b13da04c47b1d3639000b11abb"
-        },
-        {
-          "song_id": "4Dvkj6JhhA12EX05fT7y2e",
-          "song_name": "As It Was",
-          "song_link": "https://open.spotify.com/track/4Dvkj6JhhA12EX05fT7y2e",
-          "artists_id": "6KImCVD70vtIoJWnq6nGn3",
-          "artists": "Harry Styles",
-          "artists_link": "https://open.spotify.com/artist/6KImCVD70vtIoJWnq6nGn3",
-          "album_id": "5r36AJ6VOJtp00oxSkBZ5h",
-          "album_name": "Harry's House",
-          "album_link": "https://open.spotify.com/album/5r36AJ6VOJtp00oxSkBZ5h",
-          "image": "https://i.scdn.co/image/ab67616d0000b2732e8ed79e177ff6011076f5f0",
-          "popularity": 91,
-          "preview_url": "https://p.scdn.co/mp3-preview/c43dd07043b29e800c1a65b3a0102861fa3cf418?cid=1ff422b13da04c47b1d3639000b11abb"
-        },
-        {
-          "song_id": "4nrPB8O7Y7wsOCJdgXkthe",
-          "song_name": "Shakira: Bzrp Music Sessions, Vol. 53",
-          "song_link": "https://open.spotify.com/track/4nrPB8O7Y7wsOCJdgXkthe",
-          "artists_id": "716NhGYqD1jl2wI1Qkgq36",
-          "artists": "Bizarrap",
-          "artists_link": "https://open.spotify.com/artist/716NhGYqD1jl2wI1Qkgq36",
-          "album_id": "1gi2iwr1l8IUyHYHxi01pg",
-          "album_name": "Shakira: Bzrp Music Sessions, Vol. 53",
-          "album_link": "https://open.spotify.com/album/1gi2iwr1l8IUyHYHxi01pg",
-          "image": "https://i.scdn.co/image/ab67616d0000b2732b6d78c5a3f6247aa997b812",
-          "popularity": 97,
-          "preview_url": "https://p.scdn.co/mp3-preview/64e90f49942deb7dd92610fb8ef64b30524e6009?cid=1ff422b13da04c47b1d3639000b11abb"
-        }
-      ],
-      "id": 2
-    },
-    {
       "name": "The best playlist",
       "description": "So freakin good",
       "songs": [
@@ -415,27 +324,6 @@
         }
       ],
       "id": 5
-    },
-    {
-      "name": "Anotha anotha wun",
-      "description": "anuda 1",
-      "songs": [
-        {
-          "song_id": "7bp5DfkdK1OAvNJ1U4HfDA",
-          "song_name": "Shadowboxin'",
-          "song_link": "https://open.spotify.com/track/7bp5DfkdK1OAvNJ1U4HfDA",
-          "artists_id": "6ns6XAOsw4B0nDUIovAOUO",
-          "artists": "GZA",
-          "artists_link": "https://open.spotify.com/artist/6ns6XAOsw4B0nDUIovAOUO",
-          "album_id": "3k8xoyOXkGgZxUKgpmxz4P",
-          "album_name": "Liquid Swords",
-          "album_link": "https://open.spotify.com/album/3k8xoyOXkGgZxUKgpmxz4P",
-          "image": "https://i.scdn.co/image/ab67616d0000b27384b6abc19fb31fb382378bbc",
-          "popularity": 66,
-          "preview_url": "https://p.scdn.co/mp3-preview/09171bdf15162ce33dcf61cfa360df13ddf00446?cid=1ff422b13da04c47b1d3639000b11abb"
-        }
-      ],
-      "id": 6
     }
   ],
   "likes": [

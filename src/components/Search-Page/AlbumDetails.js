@@ -28,8 +28,8 @@ const AlbumDetails = ({ accessToken, allPlaylists, setAllPlaylists, generalToggl
     const renderAlbumTracks = albumTracks.map((track) => {
         return (
             <ListGroup.Item style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
-                <img style={{height:"50px", borderRadius:"7.5px"}} src={albumData.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"}></img>
-                <span style={{position:"absolute", left:"100px"}} >{track.name}</span>
+                <img src={albumData.images[0]?.url || process.env.PUBLIC_URL + "logo192.png"} style={{height:"50px", borderRadius:"7.5px"}}></img>
+                <span style={{position:"absolute", left:"100px"}}>{track.name}</span>
                 <TrackListItem 
                     track={track} 
                     accessToken={accessToken} 

@@ -9,7 +9,6 @@ const AddToPlaylist = ({ song, allPlaylists, handleAddToPlaylist, isPlaylistClic
         })
     }
 
-
     return (
         <span className="audioPlaylistSpan">
             <audio className="songCardAudio" controls name="media">

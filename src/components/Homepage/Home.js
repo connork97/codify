@@ -3,7 +3,7 @@ import TopSongs from "./TopSongs"
 import LikedSongs from "./LikedSongs";
 import NewSongs from "./NewSongs";
 
-function Home({ allNewSongs, allLikedSongs, allTopSongs, handleLikedSong, handleRemovedLike, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle }) {
+function Home({ allLikedSongs, allTopSongs, allNewSongs, allPlaylists, setAllPlaylists, handleLikedSong, handleRemovedLike, generalToggle, setGeneralToggle }) {
     // Within home, return LikedSongs, with the allLikedSongs and setAllSongs states as props
     // Return TopSongs with the allTopSongs and setAllTopSongs states as props as well as the handleLikedSong
     // function which adds our newLikedSong to our json file
