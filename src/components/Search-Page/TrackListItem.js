@@ -4,8 +4,6 @@ import { Dropdown } from "react-bootstrap";
 import { BsList } from "react-icons/bs";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 
-
-
 const TrackListItem = ({ track, artistName, albumImage, accessToken, allPlaylists, setAllPlaylists, generalToggle, setGeneralToggle, handleLikedSong }) => {
     
     const [backupPreview, setBackupPreview] = useState("");
@@ -14,8 +12,6 @@ const TrackListItem = ({ track, artistName, albumImage, accessToken, allPlaylist
     const [isLiked, setIsLiked] = useState(false);
     
     const history = useHistory();
-    
-    console.log(track)
     
     const likedSong = {
         song_id: track.id,

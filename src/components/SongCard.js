@@ -1,3 +1,4 @@
+import AddToPlaylist from "./AddToPlaylist";
 import { useState } from "react";
 import { Card, Dropdown } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
@@ -23,16 +24,6 @@ const SongCard = ({ track, handleLikedSong, allPlaylists, setAllPlaylists, gener
         image: track.album.images[0].url,
         popularity: track.popularity,
         preview_url: track.preview_url
-    }
-
-    const dropDownOptions = () => {
-        return allPlaylists.map((playlist) => {
-            return (
-                <Dropdown.Item onClick={() => handleAddToPlaylist(playlist)}>
-                    {playlist.name}
-                </Dropdown.Item>
-            )
-        })
     }
     
     const handleAddToPlaylist = (playlist) => {
@@ -81,21 +72,14 @@ const SongCard = ({ track, handleLikedSong, allPlaylists, setAllPlaylists, gener
                     <BsSpotify className="spotifyLogo" />
                 </a>
             </span>
-            <span className="audioPlaylistSpan">
-            <audio className="songCardAudio" controls name="media">
-                <source src={track.preview_url} alt="no preview available" type="audio/mp3" />
-            </audio>
-            <Dropdown className="playlistDropdown">
-                <Dropdown.Toggle variant="none" style={{marginBottom:"15px"}}>
-                    <BsList type="select" onClick={() => setIsPlaylistClicked(!isPlaylistClicked)} style={{display:"inline-flex", cursor:"pointer", scale:"1.75", zIndex:"10"}} />
-                </Dropdown.Toggle>
-                <Dropdown.Menu className="songCardDropdownMenu">
-                    <span className="songCardDropdownMenu"><strong>Add to...</strong></span>
-                    <Dropdown.Item onClick={() => handleCreateNewPlaylist()}>New Playlist</Dropdown.Item>
-                {dropDownOptions()}
-                </Dropdown.Menu>
-            </Dropdown>
-            </span>
+            <AddToPlaylist 
+                song={track}
+                allPlaylists={allPlaylists}
+                handleAddToPlaylist={handleAddToPlaylist}
+                handleCreateNewPlaylist={handleCreateNewPlaylist}
+                isPlaylistClicked={isPlaylistClicked}
+                setIsPlaylistClicked={setIsPlaylistClicked}
+            />
         </Card>
     )
 }
