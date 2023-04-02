@@ -12,7 +12,6 @@ const TrackListItem = ({ track, artistName, albumImage, accessToken, allPlaylist
     const [isFetched, setIsFetched] = useState(false);
     const [isPlaylistClicked, setIsPlaylistClicked] = useState(false);
     const [isLiked, setIsLiked] = useState(false);
-
     
     const history = useHistory();
     
@@ -60,7 +59,7 @@ const TrackListItem = ({ track, artistName, albumImage, accessToken, allPlaylist
 
     const dropDownOptions = () => {
         return allPlaylists.map((playlist) => {
-            return <Dropdown.Item style={{zIndex:"15"}} onClick={() => handleAddToPlaylist(playlist)}>{playlist.name}</Dropdown.Item>
+            return <Dropdown.Item onClick={() => handleAddToPlaylist(playlist)}>{playlist.name}</Dropdown.Item>
         })
     }
 
@@ -95,16 +94,16 @@ const TrackListItem = ({ track, artistName, albumImage, accessToken, allPlaylist
     return (
         <>
             {isFetched ?
-            <span style={{display:"flex", zIndex:"10", justifyContent:"space-between", alignItems:"center"}}>
-                <audio controls name="media" style={{position:"absolute", right:"175px", height:"50px", width:"350px", alignItems:"center", justifyContent:"flex-end"}}>
+            <span className="trackListSpan">
+                <audio className="trackListAudio" controls name="media">
                     <source src={backupPreview} alt="no preview available" type="audio/mp3" />
                 </audio>
                 {isLiked ? 
-                <FaHeart onClick={() => window.alert("You've already liked this post!")} style={{cursor:"pointer", position:"absolute", right:"125px", scale:"2.5", color:"#E31B23"}} />            
-                : <FaRegHeart onClick={onLikeButtonClick} style={{cursor:"pointer", position:"absolute", right:"125px", color:"#E31B23", scale:"2.5"}} />
+                <FaHeart className="trackListEmptyHeart" onClick={() => window.alert("You've already liked this post!")} />            
+                : <FaRegHeart className="trackListFullHeart" onClick={onLikeButtonClick} />
                 }
                 <Dropdown style={{zIndex:"8", left:"555px"}}>
-                    <Dropdown.Toggle variant="none" style={{marginBottom:"10px", zIndex:"5"}}>
+                    <Dropdown.Toggle variant="none" style={{marginBottom:"10px"}}>
                         <BsList type="select" onClick={() => setIsPlaylistClicked(!isPlaylistClicked)} style={{display:"inline-flex", cursor:"pointer", scale:"2", zIndex:"5"}} />
                     </Dropdown.Toggle>
                     <Dropdown.Menu style={{zIndex:"15"}}>

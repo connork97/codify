@@ -51,19 +51,19 @@ const LikedSongCard = ({ song, handleRemovedLike, allPlaylists, setAllPlaylists,
             <span style={{display:"flex", justifyContent:"space-around", alignItems:"center"}}>
                 <Button onClick={() => handleRemovedLike(song)}>Remove From Likes</Button>
                 <a href={song.song_link} target="_blank">
-                    <BsSpotify style={{cursor:"pointer", color:"#1DB954", scale:"2.5"}} />
+                    <BsSpotify className="spotifyLogo" />
                 </a>
             </span>
-            <span style={{display:"inline-flex", marginTop:"50px", zIndex:"10", justifyContent:"space-between", alignItems:"center"}}>
-                <audio controls name="media" style={{marginBottom:"15px", width:"200px"}}>
+            <span className="audioPlaylistSpan">
+                <audio className="songCardAudio" controls name="media">
                     <source src={song.preview_url} alt="no preview available" type="audio/mp3" />
                 </audio>
                 <Dropdown>
                     <Dropdown.Toggle variant="none" style={{marginBottom:"15px"}}>
                         <BsList type="select" onClick={() => setIsPlaylistClicked(!isPlaylistClicked)} style={{display:"inline-flex", cursor:"pointer", scale:"1.75", zIndex:"10"}} />
                     </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <span style={{display:"flex", justifyContent:"center"}}><strong>Add to...</strong></span>
+                    <Dropdown.Menu className="songCardDropdownMenu">
+                        <span className="songCardDropdownMenu"><strong>Add to...</strong></span>
                         <Dropdown.Item onClick={() => handleCreateNewPlaylist()}>New Playlist</Dropdown.Item>
                     {dropDownOptions()}
                     </Dropdown.Menu>

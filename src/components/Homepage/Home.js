@@ -13,7 +13,7 @@ function Home({ allNewSongs, allLikedSongs, allTopSongs, handleLikedSong, handle
         <>
             <h1 id="homePageTitle" className="pageTitle">Welcome to Codify!</h1>
             <h2 className="sectionTitle">Your Likes</h2>
-            <Carousel>
+            <Carousel className="carousel">
                 <Carousel.Item interval={10000}>
                     <LikedSongs 
                         allLikedSongs={allLikedSongs} 
@@ -52,7 +52,7 @@ function Home({ allNewSongs, allLikedSongs, allTopSongs, handleLikedSong, handle
                 </Carousel.Item>
             </Carousel>
             <h2 className="sectionTitle">Top Songs</h2>
-            <Carousel>
+            <Carousel className="carousel">
                 <Carousel.Item interval={7500}>
                     <TopSongs 
                         allTopSongs={allTopSongs} 
@@ -91,7 +91,7 @@ function Home({ allNewSongs, allLikedSongs, allTopSongs, handleLikedSong, handle
                 </Carousel.Item>
             </Carousel>
             <h2 className="sectionTitle">New Songs</h2>
-            <Carousel>
+            <Carousel className="carousel">
                 <Carousel.Item interval={7500}>
                     <NewSongs 
                         allNewSongs={allNewSongs} 
